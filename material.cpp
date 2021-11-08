@@ -1,41 +1,19 @@
 #include "material.h" //Adds the header file for this class
 #include <iostream>
-#include <string>
+#include <string.h>
 
-class material 
-{
-	private:
-		int ID;
-		string name;
-		string colour;
-		float density;
 
-		//The private values are not to be accessed other than by the get and set functions that are provided
-
-	public:
-		material(int I, string n, string c, float d); //The class constructor
-		~material(); //The class destructor
-
-		int getID();
-		string getName();
-		string getColour();
-		float getDensity();
-		//The get functions can be called to get and return the private values
-
-		void setID(int I);
-		void setName(string n);
-		void setColour(string c);
-		void setDensity(float d);
-		//The set functions are called to set the private values
-};
 
 material::material(int I, string n, string c, float d)
 {
+	//This is the class constructor which is called to create an object
 	this->ID = I;
 	this->name = n;
 	this->colour = c;
 	this->density = d;
 }
+
+//Below are the getter functions which are used to return information about the material
 
 int material::getID()
 {
@@ -60,6 +38,8 @@ float material::getDensity()
 	float density;
 	return this->density;
 }
+
+//Below are the setter functions which are used to set the values of the attributes of the object
 
 void material::setID(int I)
 {

@@ -1,0 +1,5 @@
+cmake_minimum_required( VERSION 2.8 )
+project( Class_tester )
+add_library( material_class material.cpp )
+add_executable( Class_tester Class_tester.cpp )
+target_link_libraries( Class_tester material_class )

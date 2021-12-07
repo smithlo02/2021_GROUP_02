@@ -1,3 +1,4 @@
+#pragma once
 //This is the header file used to define the model class
 //The model class is responsible for reading the model entities from the datafile
 //The model class can load multiple cells to create a model
@@ -17,17 +18,25 @@
 
 using namespace std;
 
-class Model
+class model
 {
 private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
 	vector<material> listOfMaterials;
 	vector<vectors> listOfVectors;
-	vector<Cell> listOfCells;
+	vector<cell> listOfCells;
 
+	void analyseLine(const string &line);
+	int getIntFromString(const string& line, int& startChar);
 
 public:
-	void readModelFile(string filename);
+	model();
+
+	~model();
+
+	void readModelFile(const string &filename);
+
+	void materialInput(const string& line);
 
 
 };

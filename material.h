@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 
 using namespace std;
@@ -20,7 +21,7 @@ private:
 public:
 	//Everything under public: is able to be used by other parts of code outside of the class.
 
-	material(int I, int d, int c, string n); //The class constructor
+	material(int& IDGive, int& densityGive, int& colourGive, string& nameGive); //The class constructor
 	~material(); //The class destructor
 
 	int getID();
@@ -29,9 +30,9 @@ public:
 	int getDensity();
 	//The get functions can be called to get and return the private values
 
-	void setID(int I);
-	void setName(string n);
-	void setColour(int c);
-	void setDensity(int d);
+	void setID(int &IDGive);
+	void setName(string &nameGive);
+	void setColour(int &colourGive);
+	void setDensity(int &densityGive);
 	//The set functions are called to set the private values
 };

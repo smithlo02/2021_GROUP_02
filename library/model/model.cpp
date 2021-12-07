@@ -34,7 +34,7 @@ int model::getIntFromString(const string& line, int& startChar)
 	string tempString;
 	int currentChar = startChar;
 
-	
+
 	while (line[currentChar] != ' ')
 	{
 		//Iterates through the density until there are no more digits
@@ -49,27 +49,46 @@ int model::getIntFromString(const string& line, int& startChar)
 	currentChar++;
 }
 
-void model::materialInput(const string& line) 
+void model::materialInput(const string& line)
 {
 	//This method is used to take the input of a line that begins with an m in the datafile
-	int ID;
+	string ID = "";
 	int density;
 	int colour;
-	string name;
+	string name = "";
 
-	int currentChar = 4;
+	//currentChar is set to 2 as this is the index of the first digit of the ID
+	int currentChar = 2;
 
-	//Get the ID number
-	ID = line[2];
+	//Get the ID number by starting from where the first digit of the ID is then iterating until a space is seen
+	for (int i = currentChar; line[i] != " "; i++)
+	{
+		ID = ID + line[i];
+		//Add one to currentChar each iteration
+		currentChar++;
+	}
+
+	//Add one to currentChar to skip over the space
+	currrentChar++;
 
 	//Get the density from the string
-	density = getIntFromString(line,currentChar)
+	density = getIntFromString(line, currentChar);
 
-	
-	
+	//Get the colour from the string
+	colour = getIntFromString(line, currentChar);
+
+	//Get the name of the material from the string
+	for (int i = currentChar; line[i] != ' '; i++)
+	{
+		name = name + line[i];
+		//No need to increase currentChar as no more information is available after the name
+	}
+
+	listOfMaterials[listOfMaterials.size() - 1]
+
 }
 
-void model::analyseLine(const string &line)
+void model::analyseLine(const string& line)
 //This method analyses the first letter of each line then sends it to a corresponding function based upon what the first letter is
 {
 
@@ -84,18 +103,19 @@ void model::analyseLine(const string &line)
 
 }
 
-void model::readModelFile(const string &filename)
+void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method
 {
 	string line;
 
-	ifstream modelFile (filename);
+	ifstream modelFile(filename);
 	modelFile.open(filename);
 
 	if (modelFile.is_open())
 	{
 		while (getline(modelFile, line))
 		{
+			//Takes an individual line and passes it to the analyseLine function
 			analyseLine(line);
 		}
 		modelFile.close();

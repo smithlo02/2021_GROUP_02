@@ -84,8 +84,17 @@ void model::materialInput(const string& line)
 		//No need to increase currentChar as no more information is available after the name
 	}
 
-	listOfMaterials[listOfMaterials.size() - 1]
-
+	//Give the information to the material constructor
+	//The material object made is then placed into the vector at the next position
+	if (listOfMaterials.size() = 1)
+	{
+		listOfMaterials[listOfMaterials.size() - 1] = material(stoi(ID), density, colour, name);
+	}
+	else
+	{
+		//Use the dynamic vector to set to the new size
+		listOfMaterials[listOfMaterials.size()] = material(stoi(ID), density, colour, name);
+	}
 }
 
 void model::analyseLine(const string& line)

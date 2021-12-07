@@ -22,7 +22,7 @@ class model
 {
 private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
-	vector<material> listOfMaterials;
+	vector<material> new listOfMaterials[1];
 	vector<vectors> listOfVectors;
 	vector<cell> listOfCells;
 

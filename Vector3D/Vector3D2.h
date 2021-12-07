@@ -2,7 +2,7 @@
  *  file Vector3D.h File Reference
     author    Copyright ：Shiyu Wang (Student ID: 20158146)
 
-    brief     Required header files: vector.h
+    brief     Required header files: Vector3D2.h
     -----------------------------------------------------
 */
 
@@ -14,20 +14,20 @@
 
 //---------------------------------------
 
-/*   class 'Vector3D'
-     brief Creates a virtual Vector3D by storing information.
+/*   class 'pointVector3D'
+     brief Creates a virtual vector by storing information.
 */
 
-class vector {
+class pointVector3D {
 public:
 
     //constructor
-    vector();
+    pointVector3D();
     //constructor
-    vector(float xi, float yi, float zi);
+    pointVector3D(float xi, float yi, float zi);
 
     //destructor
-    ~vector();
+    ~pointVector3D();
 
     /*  overloading + - * ^
        +: addition
@@ -35,18 +35,18 @@ public:
        *: inner product
        ^: outer product
        */
-    vector operator +(vector& d);
-    vector operator -(vector& d);
-    vector operator *(vector& d);
-    vector operator ^(vector& d);
+    pointVector3D operator +(pointVector3D& d);
+    pointVector3D operator -(pointVector3D& d);
+    pointVector3D operator *(pointVector3D& d);
+    pointVector3D operator ^(pointVector3D& d);
 
-    // print the vector
+    // print the pointVector3D
     void display_vector();
 
     //accessor
-    vector get_vector() const;
+    pointVector3D get_vector() const;
 
-    /* Function of class Vector set vector()
+    /* Function of class Vector set pointVector3D()
        Function to set the x,y,z value
        Argument: float - new x,y,z value.
        return  none */

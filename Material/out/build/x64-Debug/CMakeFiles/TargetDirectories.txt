@@ -1,0 +1,4 @@
+C:/Users/sammy/_2021_20278110/2021_GROUP_02/Material/out/build/x64-Debug/CMakeFiles/material_class.dir
+C:/Users/sammy/_2021_20278110/2021_GROUP_02/Material/out/build/x64-Debug/CMakeFiles/Class_tester.dir
+C:/Users/sammy/_2021_20278110/2021_GROUP_02/Material/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/sammy/_2021_20278110/2021_GROUP_02/Material/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

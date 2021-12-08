@@ -22,12 +22,13 @@ class model
 {
 private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
-	vector<material> new listOfMaterials[1];
+	vector<material> listOfMaterials[1];
 	vector<vectors> listOfVectors;
 	vector<cell> listOfCells;
 
 	void analyseLine(const string &line);
 	int getIntFromString(const string& line, int& startChar);
+	int getIdFromString(const string& line, int &currentChar);
 
 public:
 	model();
@@ -38,5 +39,5 @@ public:
 
 	void materialInput(const string& line);
 
-
+	void vectorInput(const string& line);
 };

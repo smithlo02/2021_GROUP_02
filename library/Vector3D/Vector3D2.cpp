@@ -12,15 +12,15 @@
 
 
 //constructor initialization
-vector::vector() { x_coordinate = 0; y_coordinate = 0; z_coordinate = 0; }
+vec::vec() { x_coordinate = 0; y_coordinate = 0; z_coordinate = 0; }
 
 
 //destructor
-vector::~vector(){}
+vec::~vec(){}
 
 
 //Giving the value of x,y,z
-vector::vector(float xi, float yi, float zi) {
+vec::vec(float xi, float yi, float zi) {
     x_coordinate = xi;
     y_coordinate = yi;
     z_coordinate = zi;
@@ -28,7 +28,7 @@ vector::vector(float xi, float yi, float zi) {
 
 
 // allow user to get the vector
-vector vector::get_vector() const {
+vec vec::get_vector() const {
     return *this;
 }
 
@@ -38,7 +38,7 @@ vector vector::get_vector() const {
 //Function to set the values of vector coordinates
 //Arguments for setx(), sety(), setz(): none.
 //return: value of x, y and z
-void vector::set_vector(const float& x, const float& y, const float& z) {
+void vec::set_vector(const float& x, const float& y, const float& z) {
 
      this->x_coordinate =x;
      this->y_coordinate =y;
@@ -49,9 +49,9 @@ void vector::set_vector(const float& x, const float& y, const float& z) {
 //Addition
 //action: add 3 vectors together
 //return: added results of the addition operation
-vector vector::operator+(vector& d)
+vec vec::operator+(vec& d)
 {
-    vector c;
+    vec c;
     c.x_coordinate = x_coordinate + d.x_coordinate;
     c.y_coordinate = y_coordinate + d.y_coordinate;
     c.z_coordinate = z_coordinate + d.z_coordinate;
@@ -63,9 +63,9 @@ vector vector::operator+(vector& d)
 //Subtraction
 //action: subtract current vector from another vector
 //return: results of the subtraction operation
-vector vector::operator-(vector& d)
+vec vec::operator-(vec& d)
 {
-    vector c;
+    vec c;
     c.x_coordinate = x_coordinate - d.x_coordinate;
     c.y_coordinate = y_coordinate - d.y_coordinate;
     c.z_coordinate = z_coordinate - d.z_coordinate;
@@ -76,9 +76,9 @@ vector vector::operator-(vector& d)
 //Dot Product
 //action: multiply the value in the coordinate of current vector to the equivelent coordinate of another vector
 //return: scalar product obtained from dot operation
-vector vector::operator*(vector& d)
+vec vec::operator*(vec& d)
 {
-    vector c;
+    vec c;
     c.x_coordinate = x_coordinate * d.x_coordinate;
     c.y_coordinate = y_coordinate * d.y_coordinate;
     c.z_coordinate = z_coordinate * d.z_coordinate;
@@ -87,9 +87,9 @@ vector vector::operator*(vector& d)
 
 
 // ^ overloading
-vector vector::operator^(vector& d)
+vec vec::operator^(vec& d)
 {
-    vector c;
+    vec c;
     c.x_coordinate = y_coordinate * d.z_coordinate - d.y_coordinate * z_coordinate;
     c.y_coordinate = z_coordinate * d.x_coordinate - d.z_coordinate * x_coordinate;
     c.z_coordinate = x_coordinate * d.y_coordinate - d.x_coordinate * y_coordinate;
@@ -98,7 +98,7 @@ vector vector::operator^(vector& d)
 
 
 // print the vector
-void vector::display_vector() {
+void vec::display_vector() {
     std::cout << "(" << x_coordinate << "," << y_coordinate << "," << z_coordinate << ")" << std::endl;
 }
 

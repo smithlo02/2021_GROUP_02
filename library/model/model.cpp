@@ -93,6 +93,7 @@ float model::getFloatFromString(const string& line, const int& currentChar)
 	//The stoi function converts a c++ string into an integer value
 	floatValue = stoi(tempString);
 
+	//Add 1 to currentChar to skip over the space
 	currentChar++;
 
 	return floatValue;
@@ -114,8 +115,6 @@ void model::materialInput(const string& line)
 
 	ID = getIdFromString(line, currentChar);
 
-	//Add one to currentChar to skip over the space
-	currrentChar++;
 
 	//Get the density from the string
 	density = getIntFromString(line, currentChar);
@@ -131,17 +130,9 @@ void model::materialInput(const string& line)
 	}
 
 	//Give the information to the material constructor
-	//The material object made is then placed into the vector at the next position
-	if (listOfMaterials.size() = 1)
-	{
-		//If the vector has a size of 1(the default) then input at the first index
-		listOfMaterials[listOfMaterials.size() - 1] = material(ID, density, colour, name);
-	}
-	else
-	{
-		//Use the dynamic vector to set to the new size
-		listOfMaterials[listOfMaterials.size()] = material(ID, density, colour, name);
-	}
+	//The material object made is then placed into the vector at the index of the ID number
+	listOfMaterials[ID] = material(ID, density, colour, name);
+
 }
 
 void model::vectorInput(const string& line)
@@ -161,7 +152,13 @@ void model::vectorInput(const string& line)
 	//Use the get id function to get the id integer
 	ID = getIdFromString(line, currentChar);
 
+	xCoord = getFloatFromString(line, currentChar);
+	yCoord = getFloatFromString(line, currentChar);
+	zCoord = getFloatFromString(line, currentChar);
 
+	//Give the information to the vector constructor
+	//place the object within the the index of the vectors id
+	listOfVectors[ID] = vector(xCoord, yCoord, zCoord);
 
 }
 

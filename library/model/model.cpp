@@ -28,6 +28,11 @@ model::~model()
 
 int model::getIdFromString(const string& line, const int& currentChar)
 {
+	//This function gets and ID number from a string
+	//This requires arguments of the first character index of the id, currentChar and the line 
+	//The Id number is returned as an integer value
+	//The currentChar is passed by reference so that changes to the value remain in the instance that calls this function and the value isnt destroyed
+
 	string ID = "";
 	
 	//Get the ID number by starting from where the first digit of the ID is then iterating until a space is seen
@@ -43,10 +48,12 @@ int model::getIdFromString(const string& line, const int& currentChar)
 int model::getIntFromString(const string& line,const int& currentChar)
 {
 	//This function is used to get an integer from a string if the index of the first character is known 
+	//The arguments required are the line of text as a string and the first character of the integer values index
+	//As currentChar is passed by reference the changes made to it will still be there when the code returns to the instance that calls the function
 
 	int integer;
 	string tempString;
-	int startChar = currentChar;;
+	int startChar = currentChar;
 
 
 	while (line[currentChar] != ' ')
@@ -65,19 +72,20 @@ int model::getIntFromString(const string& line,const int& currentChar)
 	return integer;
 }
 
-float model::getFloatFromString(const string& line, int& startChar)
+float model::getFloatFromString(const string& line, const int& currentChar)
 {
 	//This function is used to get a float from a string if the index of the first character is known 
+	//The required arguments are the line of text as a string and the index of the first character of the float value as an integer
 
 	float floatValue;
 	string tempString;
-	int startChar = currentChar;;
+	int startChar = currentChar;
 
 
 	while (line[currentChar] != ' ')
 	{
 		//Iterates through the density until there are no more digits
-		//The digits are placed into a temporary string then will be converted to integer
+		//The digits are placed into a temporary string then will be converted to float
 		//Starting at tempString[0]
 		tempString[currentChar - startChar] = line[currentChar];
 		currentChar++;
@@ -93,6 +101,9 @@ float model::getFloatFromString(const string& line, int& startChar)
 void model::materialInput(const string& line)
 {
 	//This method is used to take the input of a line that begins with an m in the datafile
+	//It requires the argument of a line of text as a string
+	//The information taken from the line is passed to a material object constructor
+
 	int ID;
 	int density;
 	int colour;
@@ -135,6 +146,10 @@ void model::materialInput(const string& line)
 
 void model::vectorInput(const string& line)
 {
+	//This method inputs the information to a vector object using a line of text beginning with the letter v
+	//The only argument required is the string of text, line
+	//The information is passed to a vector object constructor
+
 	int ID;
 	float xCoord = 0.;
 	float yCoord = 0.;
@@ -152,6 +167,8 @@ void model::vectorInput(const string& line)
 
 void model::analyseLine(const string& line)
 //This method analyses the first letter of each line then sends it to a corresponding function based upon what the first letter is
+//The argument needed is the line of text as a string
+
 {
 
 	for (char const& character : line)
@@ -171,6 +188,7 @@ void model::analyseLine(const string& line)
 
 void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method
+//The argument required is the filename of the text file to be read as a string
 {
 	string line;
 

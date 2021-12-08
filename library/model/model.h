@@ -29,6 +29,7 @@ private:
 	void analyseLine(const string &line);
 	int getIntFromString(const string& line, int& startChar);
 	int getIdFromString(const string& line, int &currentChar);
+	float getFloatFromString(const string& line, const int & currentChar)
 
 public:
 	model();

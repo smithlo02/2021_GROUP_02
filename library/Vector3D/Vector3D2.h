@@ -18,16 +18,16 @@
      brief Creates a virtual Vector3D by storing information.
 */
 
-class vector {
+class vec {
 public:
 
     //constructor
-    vector();
+    vec();
     //constructor
-    vector(float xi, float yi, float zi);
+    vec(float xi, float yi, float zi);
 
     //destructor
-    ~vector();
+    ~vec();
 
     /*  overloading + - * ^
        +: addition
@@ -35,16 +35,16 @@ public:
        *: inner product
        ^: outer product
        */
-    vector operator +(vector& d);
-    vector operator -(vector& d);
-    vector operator *(vector& d);
-    vector operator ^(vector& d);
+    vec operator +(vec& d);
+    vec operator -(vec& d);
+    vec operator *(vec& d);
+    vec operator ^(vec& d);
 
     // print the vector
     void display_vector();
 
     //accessor
-    vector get_vector() const;
+    vec get_vector() const;
 
     /* Function of class Vector set vector()
        Function to set the x,y,z value

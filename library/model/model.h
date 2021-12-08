@@ -11,9 +11,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "vectors.h"
-#include "cell.h"
-#include "material.h"
+#include "..\Vector3D\Vector3D2.h"
+#include "..\Class 2 Cell Stuff - Sam\cell.h"
+#include "..\material\material.h"
 
 
 using namespace std;
@@ -22,14 +22,14 @@ class model
 {
 private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
-	vector<material> listOfMaterials[1];
-	vector<vectors> listOfVectors;
-	vector<cell> listOfCells;
+	vector<material> listOfMaterials;
+	vector<vec> listOfVectors;
+	vector<Cell> listOfCells;
 
 	void analyseLine(const string &line);
 	int getIntFromString(const string& line, int& startChar);
 	int getIdFromString(const string& line, int &currentChar);
-	float getFloatFromString(const string& line, const int & currentChar)
+	float getFloatFromString(const string& line, const int& currentChar);
 
 public:
 	model();

@@ -11,9 +11,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "vectors.h"
-#include "cell.h"
-#include "material.h"
+#include "..\Vector3D\Vector3D2.h"
+#include "..\Class 2 Cell Stuff - Sam\cell.h"
+#include "..\material\material.h"
 #include "model.h"
 
 model::model()
@@ -158,7 +158,7 @@ void model::vectorInput(const string& line)
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors[ID] = vector(xCoord, yCoord, zCoord);
+	listOfVectors[ID] = vectorClass(xCoord, yCoord, zCoord);
 
 }
 

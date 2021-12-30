@@ -49,7 +49,7 @@ void cell :: setPoints(vector<vector3D> theseVertices)
         }
     else
         {
-            cout << "Please provide a vector with 4, 5, or 8 elements";
+           
         }
     
 }
@@ -63,7 +63,6 @@ void cell :: setMaterial(material &thatMaterial)        {this-> cellMaterial = t
 
 void cell :: calculateCellVolume()
 {
-    cout <<"Base cell currently has no volume, please calculate the volume";
 
 }
 
@@ -82,14 +81,13 @@ void cell :: calculateCellCentreOfGravity()
 //------------------------------------------------------------------------------------------------------------------
 
 // Tetrahedron Initialisation
-tetrahedron :: tetrahedron (char t, vector3D point0, vector3D point1, vector3D point2, vector3D point3);
+tetrahedron :: tetrahedron (vector3D point0, vector3D point1, vector3D point2, vector3D point3);
 {
     this -> cellType    = t;
     this -> vector0     = point0;
     this -> vector1     = point1;
     this -> vector2     = point2;
     this -> vector3     = point3;
-
 }
 
 
@@ -107,8 +105,8 @@ void tetrahedron :: calculateCellVolume()
 }
 
 // Hexahedron Initialisation
-hexahedron :: hexahedron (char t, vector3D point0, vector3D point1, vector3D point2, vector3D point3
-                            vector3D point4, vector3D point5, vector3D point6, vector3D point7);
+hexahedron :: hexahedron (vector3D point0, vector3D point1, vector3D point2, vector3D point3
+                          vector3D point4, vector3D point5, vector3D point6, vector3D point7);
 {
     this -> cellType = h;
     this -> vector0 = point0;
@@ -119,8 +117,6 @@ hexahedron :: hexahedron (char t, vector3D point0, vector3D point1, vector3D poi
     this -> vector5 = point5;
     this -> vector6 = point6;
     this -> vector7 = point7;
-
-
 }
 
 // Hexahedron Volume
@@ -132,13 +128,12 @@ void hexahedron :: calculateCellVolume()
 // Pyramid Initialisation
 pyramid :: pyramid (vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4);
 {
+    this -> cellType = p;
     this -> vector0 = point0;
     this -> vector1 = point1;
     this -> vector2 = point2;
     this -> vector3 = point3;
     this -> vector3 = point4;
-    this -> cellType = p;
-
 }
 
 // pyramid Volume

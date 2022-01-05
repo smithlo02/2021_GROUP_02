@@ -1,11 +1,12 @@
 
 
-#ifndef CELL_H_INCLUDED
-#define CELL_H_INCLUDED
+#ifndef cELL_H_INCLUDED
+#define cELL_H_INCLUDED
 
 #include <vector>
 #include "vector3D.h"
 #include "material.h"
+#include <math.h>
 
 // Header file declares all the things that are required to use the source functions
 
@@ -22,41 +23,46 @@ class cell
         char cellType;                          // The type of cell it is
         
         // Variable values
-        vector<vector3D> vertices;              // An array of vectors that define the vertices of the cell
+        vector<vector3D> cellPoints;            // An array of vectors that define the cellPoints of the cell
         material cellMaterial;                  // The type of material the cell is made of
         float cellVolume;                       // The volume value of the cell
         float cellWeight;                       // The weight value of the cell
         vector3D cellCentreOfGravity;           // The single vector that defines the centre of gravity of the cell
-
-        //Functions that calculate required values based on the values of the cell
-        void calculateCellWeight();
-        void calculateCellCentreOfGravity();
-        virtual void calculateCellVolume();
-
+        
     // Public => Things that can be accessed by any other classes and changed. This enables them to be recognised as unique
     public:
 
-        // Constructor and Destructor
-        cell(char cellID, char cellType, vector<vector3D> vertices, material cellMaterial, float cellVolume, float cellWeight,
+        // Constructors and Destructor
+        cell();
+        cell(char cellID, char cellType, vector<vector3D> cellPoints, material cellMaterial, float cellVolume, float cellWeight,
              vector3D cellCentreOfGravity);
         ~cell();
+        cell(const cell&);// cell copy constructor
 
         //The get functions are used to call the values of the private/protected members
-        char getCellID();
-        char getCellType();
+        char getcellID();
+        char getcellType();
         vector<vector3D> getPoints();      
-        material getCellMaterial();
-        float getCellWeight();                  
-        vector3D getCellCentreOfGravity(); 
-        float getCellVolume();                  
+        material getcellMaterial();
+        float getcellWeight();                  
+        vector3D getcellCentreOfGravity(); 
+        float getcellVolume();                  
         
         // The set functions are used to return to the private/protected values
-        void setPoints(vector<vector3D> theseVertices);     // Function to set the vectors of the vertices of the cell
+        void setcellID(char);
+        void setcellType(char);
+        void setPoints(vector<vector3D> thesecellPoints);     // Function to set the vectors of the cellPoints of the cell
         void setMaterial(material &thatMaterial);           // Function to set the material of the cell
-        
-                                                // Do we need a set function for the ID?
-        
 
+        // Functions to manipulate the values of individual points of a cell
+        void replace_Point(int thisPosition, vector3D newPoint);
+        void add_Point(vector3D newPoint);
+        void insert_Point(int thisPosition, vector3D newPoint);
+
+        // Functions that calculate required values based on the values of the cell, and set them
+        void calc_cellWeight();
+        void calc_cellCentreOfGravity();
+        virtual void calc_cellVolume();
 };
 //-end-------------------------------------------------------------------------------------------------------------
 
@@ -71,14 +77,16 @@ class tetrahedron : public cell
     // The private values are not to be accessed/changed other than by the get and set functions that are provided
     private:
         // Functions with virtual can be overridden by adding there own version into the derived class:
-        void calculateCellVolume();
+        void calc_cellVolume();
 
     // Public => Things that can be changed about a tetrahedron that enable them to be recognised as unique
     public: // Member variables that can be accessed by any other object
 
-        // Constructor and Destructor
-        tetrahedron (vector3D vector0, vector3D vector1, vector3D vector2, vector3D vector3);
+        // Default Constructor and Destructor
+        tetrahedron(vector3D vector0, vector3D vector1, vector3D vector2, vector3D vector3);
+        tetrahedron(vector<vector3D> tetra_points);
         ~tetrahedron();
+        tetrahedron(const cell&);   // tetrahedron copy constructor.
 
 };
 //-end-------------------------------------------------------------------------------------------------------------
@@ -94,7 +102,7 @@ class hexahedron : public cell
     // The private values are not to be accessed/changed other than by the get and set functions that are provided
     private:
         // Functions with virtual can be overridden by adding there own version into the derived class:
-        void calculateCellVolume();
+        void calc_cellVolume();
 
     // Public => Things that can be changed about a hexahedron that enable them to be recognised as unique
     public: // Member variables that can be accessed by any other object
@@ -103,7 +111,7 @@ class hexahedron : public cell
         hexahedron (vector3D point0, vector3D point1, vector3D point2, vector3D point3,
                     vector3D point4, vector3D point5, vector3D point6, vector3D point7);
         ~hexahedron();
-
+        hexahedron(const cell&);   // tetrahedron copy constructor.
 };
 //-end-------------------------------------------------------------------------------------------------------------
 
@@ -118,7 +126,7 @@ class pyramid : public cell
     // The private values are not to be accessed/changed other than by the get and set functions that are provided
     private:
          // Functions with virtual can be overridden by adding there own version into the derived class:
-        void calculateCellVolume();
+        void calc_cellVolume();
 
     // Public => Things that can be changed about a pyramid that enable them to be recognised as unique
     public: // Member variables that can be accessed by any other object
@@ -126,8 +134,8 @@ class pyramid : public cell
         // Constructor and Destructor
         pyramid (vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4);
         ~pyramid();
-
+        pyramid(const cell&);   // tetrahedron copy constructor.
 };
 //-end-------------------------------------------------------------------------------------------------------------
 
-#endif // CELL_HEADER_H_INCLUDED
+#endif // cELL_HEADER_H_INCLUDED

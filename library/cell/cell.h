@@ -111,7 +111,7 @@ class hexahedron : public cell
         hexahedron (vector3D point0, vector3D point1, vector3D point2, vector3D point3,
                     vector3D point4, vector3D point5, vector3D point6, vector3D point7);
         ~hexahedron();
-        hexahedron(const cell&);   // tetrahedron copy constructor.
+        hexahedron(const cell&);   // tetrahedron copy constructor
 };
 //-end-------------------------------------------------------------------------------------------------------------
 

@@ -41,7 +41,7 @@ public:
 
 
 	
-	Matrix(char Plane);
+
 	Matrix(const Matrix& Mat);
 	Matrix& operator=(const Matrix& Mat);
 	~Matrix();

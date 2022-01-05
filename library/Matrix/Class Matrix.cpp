@@ -103,7 +103,7 @@ Matrix& Matrix::operator=(const Matrix& Mat) {
 Matrix Matrix::operator+(const Matrix &Mat)
 {
     Matrix Addition(3,3,0.0);
-	unsigned row, col;
+	unsigned i, j;
 
     for (i = 0;i < 3; i++) {
 
@@ -307,7 +307,7 @@ Matrix Matrix::Inverse()
 
 Matrix Matrix::Transpose()
 {
-    Matrix TransposeMat;
+    Matrix Transpose;
 
     unsigned i, j;
 
@@ -315,22 +315,21 @@ Matrix Matrix::Transpose()
 
         for (j = 0; j < 3; j++) {
 
-            TransposeMat(i, j, this->MatrixArray[i][j]);
+            Transpose(i, j, this->MatrixArray[i][j]);
 
         }
 
     }
 
-    return TransposeMat;
+    return Transpose;
 
 }
 
 
 void Matrix::RotateX(double Theta) {
-    this->SetMatrix(1, 0, 0, 0, cos((Theta * PI) / 180),
-        -sin((Theta * PI) / 180), 0,
-        sin((Theta * PI) / 180),
-        cos((Theta * PI) / 180));
+    this->SetMatrix(1, 0, 0,
+	      0, cos((Theta * PI) / 180), -sin((Theta * PI) / 180),
+		  0, sin((Theta * PI) / 180),cos((Theta * PI) / 180));
 
 }
 
@@ -338,24 +337,18 @@ void Matrix::RotateX(double Theta) {
 
 void Matrix::RotateY(double Theta) {
 
-    this->SetMatrix(cos((Theta * PI) / 180),
-        0, sin((Theta * PI) / 180),
-        0, 1,
-        0, -sin((Theta * PI) / 180),
-        0,
-        cos((Theta * PI) / 180));
+    this->SetMatrix(cos((Theta * PI) / 180), 0, sin((Theta * PI) / 180),
+          0, 1,  0, 
+		  -sin((Theta * PI) / 180), 0,cos((Theta * PI) / 180));
 
 }
 
 
 void Matrix::RotateZ(double Theta) {
 
-    this->SetMatrix(cos((Theta * PI) / 180),
-        -sin((Theta * PI) / 180),
-        0,
-        sin((Theta * PI) / 180),
-        cos((Theta * PI) / 180),
-        0, 0, 0, 1);
+    this->SetMatrix(cos((Theta * PI) / 180), -sin((Theta * PI) / 180),  0,
+        sin((Theta * PI) / 180),cos((Theta * PI) / 180),0,
+	    0, 0, 1);
 
 }
 

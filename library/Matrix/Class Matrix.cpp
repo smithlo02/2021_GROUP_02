@@ -11,19 +11,19 @@
 
 Matrix::Matrix() {
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            if (row == col) {
+            if (i == j) {
 
-                this->MatrixArray[row][col] = 1;
+                this->MatrixArray[i][j] = 1;
             }
             else {
 
-                this->MatrixArray[row][col] = 0;
+                this->MatrixArray[i][j] = 0;
             }
         }
     }
@@ -37,76 +37,18 @@ Matrix::Matrix(double a, double b, double c,double d, double e, double f,double 
 
     double elements[] = { a, b, c, d, e, f, g, h, i };
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            // Each value is set to the appropriate input
-            this->MatrixArray[row][col] = elements[(row * 3) + col];
+            this->MatrixArray[i][j] = elements[(i * 3) + j];
 
         }
     }
 
     return;
-}
-// -------------------------------------------------------------------------------------------------
-// Constructor for reflection matrices about each plane
-
-Matrix::Matrix(char Plane) {
-
-    int IndexToReflect;
-
-    // Detect what plane to reflect in
-    switch (Plane) {
-
-    case 'x':
-
-        IndexToReflect = 0;
-        break;
-
-    case 'y': 
-
-        IndexToReflect = 1;
-        break;
-
-    case 'z': 
-
-        IndexToReflect = 2;
-        break;
-    }
-
-    unsigned row, col;
-
-    // Set up Identity matrix
-    for (row = 0; row < 3; row++) {
-
-        for (col = 0; col < 3; col++) {
-
-            if (row == col) {
-
-                this->MatrixArray[row][col] = 1;
-
-            }
-            else {
-
-                this->MatrixArray[row][col] = 0;
-
-            }
-
-        }
-    }
-
-
-    if (IndexToReflect != -1) {
-
-        this->MatrixArray[IndexToReflect][IndexToReflect] = -1;
-
-    }
-
-    return;
-
 }
 
 // -------------------------------------------------------------------------------------------------
@@ -114,13 +56,13 @@ Matrix::Matrix(char Plane) {
 
 Matrix::Matrix(const Matrix& Mat) {
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            this->MatrixArray[row][col] = Mat.MatrixArray[row][col];
+            this->MatrixArray[i][j] = Mat.MatrixArray[i][j];
 
         }
 
@@ -132,20 +74,19 @@ Matrix::Matrix(const Matrix& Mat) {
 
 
 
-// -------------------------------------------------------------------------------------------------
-// Matrix assignment operator
+
 
 Matrix& Matrix::operator=(const Matrix& Mat) {
 
     if (&Mat == this) return(*this);
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            this->MatrixArray[row][col] = Mat.MatrixArray[row][col];
+            this->MatrixArray[i][j] = Mat.MatrixArray[i][j];
 
         }
 
@@ -157,30 +98,23 @@ Matrix& Matrix::operator=(const Matrix& Mat) {
 
 
 
-// -------------------------------------------------------------------------------------------------
-// Matrix addition operator to add 2 matrices
+/
 
-Matrix Matrix::operator+(const Matrix& Mat)
+Matrix Matrix::operator+(const Matrix &Mat)
 {
-    Matrix AddMat;
+    Matrix Addition(3,3,0.0);
+	unsigned row, col;
 
-    unsigned row, col;
+    for (i = 0;i < 3; i++) {
 
-    for (row = 0; row < 3; row++) {
+        for (j = 0; j < 3; j++) {
 
-        for (col = 0; col < 3; col++) {
-
-            // Declare Value and pass a pointer so GetElement can update its value
-            double Value;
-            Mat.GetElement(row, col, &Value);
-
-            // Each value is set to the appropriate input
-            AddMat.SetElement(row, col, this->MatrixArray[row][col] + Value);
+            Addition(i, j, this->MatrixArray[i][j] + Mat(i,j);
 
         }
     }
 
-    return AddMat;
+    return Addition;
 }
 
 
@@ -190,25 +124,20 @@ Matrix Matrix::operator+(const Matrix& Mat)
 
 Matrix Matrix::operator-(const Matrix& Mat)
 {
-    Matrix SubMat;
+    Matrix Subtraction(3,3,0.0);
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            // Declare Value and pass a pointer so GetElement can update its value
-            double Value;
-            Mat.GetElement(row, col, &Value);
-
-            // Each value is set to the appropriate input
-            SubMat.SetElement(row, col, this->MatrixArray[row][col] - Value);
+            Subtraction(i, j, this->MatrixArray[i][j] - Mat(i,j);
 
         }
     }
 
-    return SubMat;
+    return Subtraction;
 }
 
 
@@ -218,8 +147,7 @@ Matrix Matrix::operator-(const Matrix& Mat)
 
 Matrix Matrix::operator*(const Matrix& Mat)
 {
-    Matrix MultMat;
-
+    Matrix Multiple(3,3,0.0);
     unsigned i, j, k;
 
     double temp = 0.0;
@@ -232,28 +160,21 @@ Matrix Matrix::operator*(const Matrix& Mat)
 
             for (k = 0; k < 3; k++) {
 
-                // Declare Value and pass a pointer so GetElement can update its value
-                double Value;
-                Mat.GetElement(k, j, &Value);
-
-                temp += this->MatrixArray[i][k] * Value;
+                temp += this->MatrixArray[i][k] * Mat(k,j);
 
             }
 
-            MultMat.SetElement(i, j, temp);
+            Multiple(i, j, temp);
 
         }
 
     }
 
-    return MultMat;
+    return Multiple;
 
 }
 
 
-
-// -------------------------------------------------------------------------------------------------
-// Matrix multiplication operator (with vector)
 
 Vector3D Matrix::operator*(const Vector3D& Vec)
 {
@@ -261,20 +182,20 @@ Vector3D Matrix::operator*(const Vector3D& Vec)
 
     double TempVecArray[3];
 
-    unsigned row;
+    unsigned i;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        // Multiple each vector point by each column of matrix and add values
-        double TempValue = (Vec.X_coordinate* this->MatrixArray[row][0]
-            + Vec.Y_coordinate * this->MatrixArray[row][1]
-            + Vec.Z_coordinate * this->MatrixArray[row][2]);
+    
+        double TempValue = (Vec.X_coordinate* this->MatrixArray[i][0]
+            + Vec.Y_coordinate * this->MatrixArray[i][1]
+            + Vec.Z_coordinate * this->MatrixArray[i][2]);
 
         TempVecArray[row] = TempValue;
 
     }
 
-    // Assign each value of the array to the correct vector variable
+    
     MultVec.X_coordinate = TempVecArray[0];
     MultVec.Y_coordinate= TempVecArray[1];
     MultVec.Z_coordinate = TempVecArray[2];
@@ -283,20 +204,17 @@ Vector3D Matrix::operator*(const Vector3D& Vec)
 }
 
 
-// -------------------------------------------------------------------------------------------------
-// Matrix multiplication operator (with a scalar value)
-
 Matrix Matrix::operator*(double Scalar)
 {
-    Matrix MultMat;
+    Matrix MultMat(3,3,0.0);
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            MultMat.SetElement(row, col, this->MatrixArray[row][col] * Scalar);
+            MulMat(i, j, this->MatrixArray[i][j] * Scalar);
 
         }
 
@@ -306,9 +224,6 @@ Matrix Matrix::operator*(double Scalar)
 }
 
 
-
-// -------------------------------------------------------------------------------------------------
-// Matrix inverse function
 
 Matrix Matrix::Inverse()
 {
@@ -389,20 +304,18 @@ Matrix Matrix::Inverse()
 
 
 
-// -------------------------------------------------------------------------------------------------
-// Matrix transpose function
 
 Matrix Matrix::Transpose()
 {
     Matrix TransposeMat;
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            TransposeMat.SetElement(row, col, this->MatrixArray[col][row]);
+            TransposeMat(i, j, this->MatrixArray[i][j]);
 
         }
 
@@ -411,10 +324,80 @@ Matrix Matrix::Transpose()
     return TransposeMat;
 
 }
-// -------------------------------------------------------------------------------------------------
-// Converts matrix to rotation matrix about the x-axis
 
 
+void Matrix::RotateX(double Theta) {
+    this->SetMatrix(1, 0, 0, 0, cos((Theta * PI) / 180),
+        -sin((Theta * PI) / 180), 0,
+        sin((Theta * PI) / 180),
+        cos((Theta * PI) / 180));
+
+}
+
+
+
+void Matrix::RotateY(double Theta) {
+
+    this->SetMatrix(cos((Theta * PI) / 180),
+        0, sin((Theta * PI) / 180),
+        0, 1,
+        0, -sin((Theta * PI) / 180),
+        0,
+        cos((Theta * PI) / 180));
+
+}
+
+
+void Matrix::RotateZ(double Theta) {
+
+    this->SetMatrix(cos((Theta * PI) / 180),
+        -sin((Theta * PI) / 180),
+        0,
+        sin((Theta * PI) / 180),
+        cos((Theta * PI) / 180),
+        0, 0, 0, 1);
+
+}
+
+
+void Matrix::SetMatrix(double a, double b, double c, double d, double e, double f, double g, double h, double i) {
+
+    double elements[] = { a, b, c, d, e, f, g, h, i };
+
+    unsigned i, j;
+
+    for (i = 0; i < 3; i++) {
+
+        for (j = 0; j < 3; j++) {
+
+            this->MatrixArray[i][j] = elements[(i * 3) + j];
+
+        }
+    }
+}
+
+
+void Matrix::OutputMatrix() {
+   
+    unsigned i, j;
+
+    for (i = 0; i < 3; 	i++) {
+
+        for (j = 0; j < 3; j++) {
+
+            if (i == j) {
+            	
+            	cout<< "Matrix" <<endl;
+                cout << this->MatrixArray[i][j] <<endl;
+            }
+            else {
+
+                cout<<w "error" <<endl;
+            }
+        }
+    }
+    return;
+}
 
 
 

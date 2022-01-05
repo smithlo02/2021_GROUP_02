@@ -45,11 +45,6 @@ public:
 	Matrix(const Matrix& Mat);
 	Matrix& operator=(const Matrix& Mat);
 	~Matrix();
-	void RotateX(double Theta);
-
-	void RotateY(double Theta);
-
-	void RotateZ(double Theta);
 
 	Matrix operator+(const Matrix& Mat);
 
@@ -58,10 +53,17 @@ public:
 	Matrix operator*(const Matrix& Mat);
 
 	Vector3D operator*(const Vector3D& Vec);
+	Matrix operator*(double Scalar);
 
 	Matrix Inverse();
 
 	Matrix Transpose();
+	void RotateX(double Theta);
+
+	void RotateY(double Theta);
+
+	void RotateZ(double Theta);
+	void SetMatrix();
 
 	void OutputMatrix();
 

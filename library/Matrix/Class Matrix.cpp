@@ -273,19 +273,19 @@ Matrix Matrix::Inverse()
 
 
 
-    unsigned row, col;
+    unsigned i, j;
 
-    for (row = 0; row < 3; row++) {
+    for (i = 0; i < 3; i++) {
 
-        for (col = 0; col < 3; col++) {
+        for (j = 0; j < 3; j++) {
 
-            if ((((row * 3) + col) % 2) == 1) {
+            if ((((i* 3) + j) % 2) == 1) {
 
                 // Declare Value and pass a pointer so GetElement can update its value
                 double Value;
-                InverseMat.GetElement(row, col, &Value);
+                InverseMat.GetElement(i, j, &Value);
 
-                InverseMat.SetElement(row, col, (Value * -1));
+                InverseMat.SetElement(i, j, (Value * -1));
 
             }
 

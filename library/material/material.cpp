@@ -24,6 +24,9 @@ material::material(int &IDGive, int &densityGive, int &colourGive, string &nameG
 	this->density = densityGive;
 }
 
+// Default constructor used when no arguments provided - added by SAM -------------------------------------------------------------------------
+material::material() {ID =  0; name = "not chosen"; colour = 0; density = 0;}
+
 //Below are the getter functions which are used to return information about the material
 
 int material::getID()

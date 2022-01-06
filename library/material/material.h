@@ -22,6 +22,7 @@ public:
 	//Everything under public: is able to be used by other parts of code outside of the class.
 
 	material(int& IDGive, int& densityGive, int& colourGive, string& nameGive); //The class constructor
+	material(); // Default constructor used when no arguments provided - added by SAM ----------------------------------------------------------
 	~material(); //The class destructor
 
 	int getID();

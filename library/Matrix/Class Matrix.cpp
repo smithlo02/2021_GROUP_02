@@ -229,49 +229,28 @@ Matrix Matrix::Inverse()
 {
 
     // Error check to make sure the matrix is not singular i.e. Determinant = 0
-    double Det = this->Determinant();
-
-
+    double Det = +M(0,0)*(M(1,1)*)M(2,2)-M(2,1))
+    			 -M(0,1)*(M(1,0)*M(2,2)-M(1,2)*M(2,0))
+    			 +M(0,2)*(M(1,0)*M(2,1)-M(1,1)*M(2,0));
+    double Inverse = 1/det;
+			 				 
     // If the matrix is singular the identity matrix is returned
     if (Det == 0)
     {
         // Identity matrix
-        Matrix Mat;
+        Matrix Inverse;
 
-        return Mat;
+        return Inverse;
     }
-
-
-    
-    Matrix InverseMat((this->MatrixArray[1][1] * this->MatrixArray[2][2])
-        - (this->MatrixArray[2][1] * this->MatrixArray[1][2]),
-
-        (this->MatrixArray[1][0] * this->MatrixArray[2][2])
-        - (this->MatrixArray[2][0] * this->MatrixArray[1][2]),
-
-        (this->MatrixArray[1][0] * this->MatrixArray[2][1])
-        - (this->MatrixArray[2][0] * this->MatrixArray[1][1]),
-
-        (this->MatrixArray[0][1] * this->MatrixArray[2][2])
-        - (this->MatrixArray[2][1] * this->MatrixArray[0][2]),
-
-        (this->MatrixArray[0][0] * this->MatrixArray[2][2])
-        - (this->MatrixArray[2][0] * this->MatrixArray[0][2]),
-
-        (this->MatrixArray[0][0] * this->MatrixArray[2][1])
-        - (this->MatrixArray[2][0] * this->MatrixArray[0][1]),
-
-        (this->MatrixArray[0][1] * this->MatrixArray[1][2])
-        - (this->MatrixArray[1][1] * this->MatrixArray[0][2]),
-
-        (this->MatrixArray[0][0] * this->MatrixArray[1][2])
-        - (this->MatrixArray[1][0] * this->MatrixArray[0][2]),
-
-        (this->MatrixArray[0][0] * this->MatrixArray[1][1])
-        - (this->MatrixArray[1][0] * this->MatrixArray[0][1]));
-
-
-
+   result(0,0) =  (M(1,1)*M(2,2)-M(2,1)*M(1,2))* Inverse;
+   result(1,0) = -(M(0,1)*M(2,2)-M(0,2)*M(2,1))* Inverse;
+   result(2,0) =  (M(0,1)*M(1,2)-M(0,2)*M(1,1))* Inverse;
+   result(0,1) = -(M(1,0)*M(2,2)-M(1,2)*M(2,0))* Inverse;
+   result(1,1) =  (M(0,0)*M(2,2)-M(0,2)*M(2,0))* Inverse;
+   result(2,1) = -(M(0,0)*M(1,2)-M(1,0)*M(0,2))* Inverse;
+   result(0,2) =  (M(1,0)*M(2,1)-M(2,0)*M(1,1))* Inverse;
+   result(1,2) = -(M(0,0)*M(2,1)-M(2,0)*M(0,1))* Inverse;
+   result(2,2) =  (M(0,0)*M(1,1)-M(1,0)*M(0,1))* Inverse;
 
     unsigned i, j;
 

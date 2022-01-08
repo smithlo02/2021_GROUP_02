@@ -260,7 +260,7 @@ Matrix Matrix::Inverse()
 
                 
                 double Value;
-                InverseMat(i, j, &Value);
+                InverseMat.GetElement(i, j, &Value);
 
                 InverseMat.SetElement(i, j, (Value * -1));
 

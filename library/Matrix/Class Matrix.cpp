@@ -1,12 +1,10 @@
 
-#include "Matrix class.h by Tan.h"
-#include "Vector3D.h from Shiyu.h"
-
-
+#include "Matrix class.cpp"
+#include "Vector3D2.h"
 #include <iostream>
 #include <math.h>
 #define PI 3.14159265358979323846
-
+using namespace std;
 
 
 Matrix::Matrix() {
@@ -31,7 +29,7 @@ Matrix::Matrix() {
 }
 
 // -------------------------------------------------------------------------------------------------
-// Constructor to input each value in a 3x3 matrix
+// Constructor to input in a 3x3 matrix
 
 Matrix::Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double i) {
 
@@ -99,7 +97,7 @@ Matrix& Matrix::operator=(const Matrix& Mat) {
 
 
 /
-
+// Matrix addition operator 
 Matrix Matrix::operator+(const Matrix &Mat)
 {
     Matrix Addition(3,3,0.0);
@@ -120,7 +118,7 @@ Matrix Matrix::operator+(const Matrix &Mat)
 
 
 // -------------------------------------------------------------------------------------------------
-// Matrix subtraction operator to subtract 2 matrices
+// Matrix subtraction operator 
 
 Matrix Matrix::operator-(const Matrix& Mat)
 {
@@ -175,7 +173,7 @@ Matrix Matrix::operator*(const Matrix& Mat)
 }
 
 
-
+//Matrix multiplication operator with vector
 Vector3D Matrix::operator*(const Vector3D& Vec)
 {
     Vector3D MultVec;
@@ -203,7 +201,7 @@ Vector3D Matrix::operator*(const Vector3D& Vec)
     return MultVec;
 }
 
-
+// Matrix multiplication operator with scalar
 Matrix Matrix::operator*(double Scalar)
 {
     Matrix MultMat(3,3,0.0);
@@ -224,7 +222,7 @@ Matrix Matrix::operator*(double Scalar)
 }
 
 
-
+//Matrix  inverse function
 Matrix Matrix::Inverse()
 {
 
@@ -260,9 +258,9 @@ Matrix Matrix::Inverse()
 
             if ((((i* 3) + j) % 2) == 1) {
 
-                // Declare Value and pass a pointer so GetElement can update its value
+                
                 double Value;
-                InverseMat.GetElement(i, j, &Value);
+                InverseMat(i, j, &Value);
 
                 InverseMat.SetElement(i, j, (Value * -1));
 
@@ -274,16 +272,13 @@ Matrix Matrix::Inverse()
     // Transpose the matrix
     InverseMat = InverseMat.Transpose();
 
-    // Divide by the determinant
-    InverseMat = InverseMat * ((double)1 / Det);
-
     return InverseMat;
 
 }
 
 
 
-
+// Matrix transpose function
 Matrix Matrix::Transpose()
 {
     Matrix Transpose;
@@ -304,7 +299,7 @@ Matrix Matrix::Transpose()
 
 }
 
-
+//Matrix rotation X-AXIS
 void Matrix::RotateX(double Theta) {
     this->SetMatrix(1, 0, 0,
 	      0, cos((Theta * PI) / 180), -sin((Theta * PI) / 180),
@@ -312,8 +307,7 @@ void Matrix::RotateX(double Theta) {
 
 }
 
-
-
+//Matrix rotation Y-AXIS
 void Matrix::RotateY(double Theta) {
 
     this->SetMatrix(cos((Theta * PI) / 180), 0, sin((Theta * PI) / 180),
@@ -322,7 +316,7 @@ void Matrix::RotateY(double Theta) {
 
 }
 
-
+//Matrix rotation Z-AXIS
 void Matrix::RotateZ(double Theta) {
 
     this->SetMatrix(cos((Theta * PI) / 180), -sin((Theta * PI) / 180),  0,
@@ -331,7 +325,7 @@ void Matrix::RotateZ(double Theta) {
 
 }
 
-
+// ResetMatrix
 void Matrix::SetMatrix(double a, double b, double c, double d, double e, double f, double g, double h, double i) {
 
     double elements[] = { a, b, c, d, e, f, g, h, i };
@@ -348,7 +342,7 @@ void Matrix::SetMatrix(double a, double b, double c, double d, double e, double 
     }
 }
 
-
+//Output of the Matrix
 void Matrix::OutputMatrix() {
    
     unsigned i, j;

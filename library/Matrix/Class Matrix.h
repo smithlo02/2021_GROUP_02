@@ -13,7 +13,7 @@
 // -------------------------------------------------------------------------------------------------
 
 // Include Vector3D class 
-#include "Vector3D.h from Shiyu.h"
+#include "Vector3D2.h"
 
 // Declares the use of the class
 class Vector3D;

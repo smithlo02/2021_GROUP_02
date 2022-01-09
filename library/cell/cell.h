@@ -4,8 +4,8 @@
 #define CELL_H_INCLUDED
 
 #include <vector>
-#include "Vector3D.h"
-#include "material.h"
+#include "..\Vector3D\Vector3D2.h"
+#include "..\material\material.h"
 #include <math.h>
 
 // Header file declares all the things that are required to use the source functions
@@ -23,41 +23,41 @@ class cell
         char cellType;                          // The type of cell it is
         
         // Variable values
-        vector<Vector3D> cellPoints;            // An array of vectors that define the cellPoints of the cell
+        vector<vec> cellPoints;            // An array of vectors that define the cellPoints of the cell
         material cellMaterial;                  // The type of material the cell is made of
         float cellVolume;                       // The volume value of the cell
         float cellWeight;                       // The weight value of the cell
-        Vector3D cellCentreOfGravity;           // The single vector that defines the centre of gravity of the cell
+        vec cellCentreOfGravity;           // The single vector that defines the centre of gravity of the cell
         
     // Public => Things that can be accessed by any other classes and changed. This enables them to be recognised as unique
     public:
 
         // Constructors and Destructor
         cell();
-        cell(char cellID, char cellType, vector<Vector3D> cellPoints, material cellMaterial, float cellVolume, float cellWeight,
-             Vector3D cellCentreOfGravity);
+        cell(char cellID, char cellType, vector<vec> cellPoints, material cellMaterial, float cellVolume, float cellWeight,
+             vec cellCentreOfGravity);
         ~cell();
         cell(const cell &cellToCopy);// cell copy constructor
 
         //The get functions are used to call the values of the private/protected members
         char getcellID();
         char getcellType();
-        vector<Vector3D> getPoints();      
+        vector<vec> getPoints();      
         material getcellMaterial();
         float getcellWeight();                  
-        Vector3D getcellCentreOfGravity(); 
+        vec getcellCentreOfGravity(); 
         float getcellVolume();                  
         
         // The set functions are used to return to the private/protected values
         void setcellID(char &thatID);
         void setcellType(char &thatType);
         void setMaterial(material &thatMaterial);           // Function to set the material of the cell
-        void setPoints(vector<Vector3D> &thesecellPoints);     // Function to set the vectors of the cellPoints of the cell
+        void setPoints(vector<vec> &thesecellPoints);     // Function to set the vectors of the cellPoints of the cell
 
         // Functions to manipulate the values of individual points of a cell
-        void replace_Point(int thisPosition, Vector3D newPoint);
-        void add_Point(Vector3D newPoint);
-        void insert_Point(int thisPosition, Vector3D newPoint);
+        void replace_Point(int thisPosition, vec newPoint);
+        void add_Point(vec newPoint);
+        void insert_Point(int thisPosition, vec newPoint);
 
         // Functions that calculate required values based on the values of the cell, and set them
         void calc_cellWeight();
@@ -82,8 +82,8 @@ class tetrahedron : public cell
 
         // Default Constructor and Destructor
         tetrahedron();
-        tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3);        // Constructor using individual Vector3D points
-        tetrahedron(vector<Vector3D> tetra_points);                                             // Constructor using a vector of Vector3D points
+        tetrahedron(vec point0, vec point1, vec point2, vec point3);        // Constructor using individual Vector3D points
+        tetrahedron(vector<vec> tetra_points);                                             // Constructor using a vector of Vector3D points
         tetrahedron(const tetrahedron &thisTetrahedron);                                               // Copy constructor.
         ~tetrahedron();                                                                         // Destructor
 
@@ -105,9 +105,9 @@ class hexahedron : public cell
     public: // Member variables that can be accessed by any other object
 
         // Constructor and Destructor
-        hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
-                    Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7);
-        hexahedron(vector<Vector3D> hexa_points);            
+        hexahedron(vec point0, vec point1, vec point2, vec point3,
+                    vec point4, vec point5, vec point6, vec point7);
+        hexahedron(vector<vec> hexa_points);            
         hexahedron(const cell &thisHexahedron);   // tetrahedron copy constructor
         ~hexahedron();
 };
@@ -128,8 +128,8 @@ class pyramid : public cell
     public: // Member variables that can be accessed by any other object
 
         // Constructor and Destructor
-        pyramid (Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4);
-        pyramid(vector<Vector3D> pyra_points);
+        pyramid (vec point0, vec point1, vec point2, vec point3, vec point4);
+        pyramid(vector<vec> pyra_points);
         pyramid(const cell &thisPyramid);   // tetrahedron copy constructor.
         ~pyramid();
 };

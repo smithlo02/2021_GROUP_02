@@ -12,7 +12,7 @@
 #include <fstream>
 #include <string>
 #include "..\Vector3D\Vector3D2.h"
-#include "..\Class 2 Cell Stuff - Sam\cell.h"
+#include "..\cell\cell.h"
 #include "..\material\material.h"
 #include "model.h"
 
@@ -26,7 +26,8 @@ model::~model()
 
 }
 
-int model::getIdFromString(const string& line, const int& currentChar)
+
+int model::getIdFromString(const string& line, int& currentChar)
 {
 	//This function gets and ID number from a string
 	//This requires arguments of the first character index of the id, currentChar and the line 
@@ -36,7 +37,7 @@ int model::getIdFromString(const string& line, const int& currentChar)
 	string ID = "";
 	
 	//Get the ID number by starting from where the first digit of the ID is then iterating until a space is seen
-	for (int i = currentChar; line[i] != " "; i++)
+	for (int i = currentChar; line[i] != ' '; i++)
 	{
 		ID = ID + line[i];
 		//Add one to currentChar each iteration
@@ -45,7 +46,7 @@ int model::getIdFromString(const string& line, const int& currentChar)
 	return stoi(ID);
 }
 
-int model::getIntFromString(const string& line,const int& currentChar)
+int model::getIntFromString(const string& line, int& currentChar)
 {
 	//This function is used to get an integer from a string if the index of the first character is known 
 	//The arguments required are the line of text as a string and the first character of the integer values index
@@ -72,7 +73,7 @@ int model::getIntFromString(const string& line,const int& currentChar)
 	return integer;
 }
 
-float model::getFloatFromString(const string& line, const int& currentChar)
+float model::getFloatFromString(const string& line, int& currentChar)
 {
 	//This function is used to get a float from a string if the index of the first character is known 
 	//The required arguments are the line of text as a string and the index of the first character of the float value as an integer
@@ -135,6 +136,55 @@ void model::materialInput(const string& line)
 
 }
 
+void model::cellInput(const string& line)
+{
+	//This method inputs the information to a cell object using a line of text beginning with the letter c
+	//The only argument required is the string of text, line
+	//The information is passed to a cell object constructor
+
+	int ID;
+	char typeOfShape;
+	material cellMaterial;
+	vector<vec> vertices;
+	int noOfVertices;
+
+	//currentChar is set to 2 as this is the index of the first digit of the ID
+	int currentChar = 2;
+
+	//use the get id function to get the id integer
+	ID = getIdFromString(line, currentChar);
+
+	//The type of shape is a single letter character which can be simply taken out of the line without the need for a function
+	typeOfShape = line[currentChar];
+	currentChar++;
+
+	//Set the number of vertices based upon the shape so the program knows how many vertices to find
+	if (typeOfShape == 't')
+		noOfVertices = 4;
+	else if (typeOfShape == 'p')
+		noOfVertices = 5;
+	else if (typeOfShape == 'h')
+		noOfVertices = 8;
+
+	//Iterate through the line recording the information on the vertices
+	for (int i = 0; i < noOfVertices; i++)
+	{
+		vertices[i] = listOfVectors[ID];
+	}
+
+
+
+	if (typeOfShape == 't')
+		listOfCells[ID] = tetrahedron(vertices);
+	else if (typeOfShape == 'p')
+		listOfCells[ID] = pyramid(vertices);
+	else if (typeOfShape == 'h')
+		listOfCells[ID] = hexahedron(vertices);
+
+	
+
+}
+
 void model::vectorInput(const string& line)
 {
 	//This method inputs the information to a vector object using a line of text beginning with the letter v
@@ -158,7 +208,7 @@ void model::vectorInput(const string& line)
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors[ID] = vectorClass(xCoord, yCoord, zCoord);
+	listOfVectors[ID] = vec(xCoord, yCoord, zCoord);
 
 }
 
@@ -178,6 +228,10 @@ void model::analyseLine(const string& line)
 		else if (character == 'v')
 		{
 			vectorInput(line);
+		}
+		else if (character == 'c')
+		{
+			cellInput(line);
 		}
 	}
 

@@ -12,7 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include "..\Vector3D\Vector3D2.h"
-#include "..\Class 2 Cell Stuff - Sam\cell.h"
+#include "..\cell\cell.h"
 #include "..\material\material.h"
 
 
@@ -24,7 +24,7 @@ private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
 	vector<material> listOfMaterials;
 	vector<vec> listOfVectors;
-	vector<Cell> listOfCells;
+	vector<cell> listOfCells;
 
 	void analyseLine(const string &line);
 	int getIntFromString(const string& line, int& startChar);

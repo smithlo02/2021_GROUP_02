@@ -26,6 +26,7 @@ model::~model()
 
 }
 
+
 int model::getIdFromString(const string& line, const int& currentChar)
 {
 	//This function gets and ID number from a string
@@ -135,6 +136,44 @@ void model::materialInput(const string& line)
 
 }
 
+void model::cellInput(const string& line)
+{
+	//This method inputs the information to a cell object using a line of text beginning with the letter c
+	//The only argument required is the string of text, line
+	//The information is passed to a cell object constructor
+
+	int ID;
+	char typeOfShape;
+	material cellMaterial;
+	vector<vec> vertices;
+	int noOfVertices;
+
+	//currentChar is set to 2 as this is the index of the first digit of the ID
+	int currentChar = 2;
+
+	//use the get id function to get the id integer
+	ID = getIdFromString(line, currentChar);
+
+	//The type of shape is a single letter character which can be simply taken out of the line without the need for a function
+	char typeOfShape = line[currrentChar];
+	currentChar++;
+
+	//Set the number of vertices based upon the shape so the program knows how many vertices to find
+	if (typeOfShape == "t")
+		noOfVertices = 4;
+	else if (typeOfShape == "p")
+		noOfVertices = 5;
+	else if (typeOfShape == "h")
+		noOfVertices = 8;
+
+	//Iterate through the line recording the information on the vertices
+	for (int i = 0; i < noOfVertices; i++)
+	{
+		vertices[i] = getIntFromString;
+	}
+
+}
+
 void model::vectorInput(const string& line)
 {
 	//This method inputs the information to a vector object using a line of text beginning with the letter v
@@ -178,6 +217,10 @@ void model::analyseLine(const string& line)
 		else if (character == 'v')
 		{
 			vectorInput(line);
+		}
+		else if (character = 'c')
+		{
+			cellInput(line);
 		}
 	}
 

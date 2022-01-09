@@ -1,9 +1,8 @@
 
-#include "Matrix class.cpp"
-#include "Vector3D2.h"
+#include "Class Matrix.h"
 #include <iostream>
 #include <math.h>
-#define PI 3.14159265358979323846
+#define PI 3.14
 using namespace std;
 
 
@@ -31,11 +30,11 @@ Matrix::Matrix() {
 // -------------------------------------------------------------------------------------------------
 // Constructor to input in a 3x3 matrix
 
-Matrix::Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double i) {
+Matrix::Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double z) {
 
-    double elements[] = { a, b, c, d, e, f, g, h, i };
+    double elements[] = { a, b, c, d, e, f, g, h, z };
 
-    unsigned i, j;
+    unsigned i,j;
 
     for (i = 0; i < 3; i++) {
 
@@ -48,7 +47,7 @@ Matrix::Matrix(double a, double b, double c,double d, double e, double f,double 
 
     return;
 }
-
+Matrix::~Matrix() {}
 // -------------------------------------------------------------------------------------------------
 // Matrix copy constructor
 
@@ -69,9 +68,6 @@ Matrix::Matrix(const Matrix& Mat) {
     return;
 
 }
-
-
-
 
 
 Matrix& Matrix::operator=(const Matrix& Mat) {
@@ -96,19 +92,20 @@ Matrix& Matrix::operator=(const Matrix& Mat) {
 
 
 
-/
+//
 // Matrix addition operator 
 Matrix Matrix::operator+(const Matrix &Mat)
 {
-    Matrix Addition(3,3,0.0);
+	Matrix Addition;
 	unsigned i, j;
 
     for (i = 0;i < 3; i++) {
 
         for (j = 0; j < 3; j++) {
-
-            Addition(i, j, this->MatrixArray[i][j] + Mat(i,j);
-
+            
+        	double MatB;
+        	Mat.Get_Element(i,j, &MatB );
+            Addition.Set_Element(i, j, this->MatrixArray[i][j] + MatB);
         }
     }
 
@@ -122,16 +119,15 @@ Matrix Matrix::operator+(const Matrix &Mat)
 
 Matrix Matrix::operator-(const Matrix& Mat)
 {
-    Matrix Subtraction(3,3,0.0);
-
+    Matrix Subtraction;
     unsigned i, j;
 
     for (i = 0; i < 3; i++) {
 
         for (j = 0; j < 3; j++) {
-
-            Subtraction(i, j, this->MatrixArray[i][j] - Mat(i,j);
-
+        	double MatB;
+        	Mat.Get_Element(i,j, &MatB );
+            Subtraction.Set_Element(i, j, this->MatrixArray[i][j] - MatB);
         }
     }
 
@@ -139,13 +135,10 @@ Matrix Matrix::operator-(const Matrix& Mat)
 }
 
 
-
-// -------------------------------------------------------------------------------------------------
-// Matrix multiplication operator (with another 3x3 matix)
-
 Matrix Matrix::operator*(const Matrix& Mat)
 {
-    Matrix Multiple(3,3,0.0);
+    Matrix Multiple;
+
     unsigned i, j, k;
 
     double temp = 0.0;
@@ -158,11 +151,15 @@ Matrix Matrix::operator*(const Matrix& Mat)
 
             for (k = 0; k < 3; k++) {
 
-                temp += this->MatrixArray[i][k] * Mat(k,j);
+                // Declare Value and pass a pointer so GetElement can update its value
+                double MatB;
+                Mat.Get_Element(k, j, &MatB);
+
+                temp += this->MatrixArray[i][k] * MatB;
 
             }
 
-            Multiple(i, j, temp);
+            Multiple.Set_Element(i, j, temp);
 
         }
 
@@ -172,39 +169,10 @@ Matrix Matrix::operator*(const Matrix& Mat)
 
 }
 
-
-//Matrix multiplication operator with vector
-Vector3D Matrix::operator*(const Vector3D& Vec)
-{
-    Vector3D MultVec;
-
-    double TempVecArray[3];
-
-    unsigned i;
-
-    for (i = 0; i < 3; i++) {
-
-    
-        double TempValue = (Vec.X_coordinate* this->MatrixArray[i][0]
-            + Vec.Y_coordinate * this->MatrixArray[i][1]
-            + Vec.Z_coordinate * this->MatrixArray[i][2]);
-
-        TempVecArray[row] = TempValue;
-
-    }
-
-    
-    MultVec.X_coordinate = TempVecArray[0];
-    MultVec.Y_coordinate= TempVecArray[1];
-    MultVec.Z_coordinate = TempVecArray[2];
-
-    return MultVec;
-}
-
 // Matrix multiplication operator with scalar
 Matrix Matrix::operator*(double Scalar)
 {
-    Matrix MultMat(3,3,0.0);
+    Matrix MultipleScalar;
 
     unsigned i, j;
 
@@ -212,43 +180,74 @@ Matrix Matrix::operator*(double Scalar)
 
         for (j = 0; j < 3; j++) {
 
-            MulMat(i, j, this->MatrixArray[i][j] * Scalar);
-
+           MultipleScalar.Set_Element(i, j, this->MatrixArray[i][j] * Scalar);
         }
 
     }
 
-    return MultMat;
+    return MultipleScalar;
 }
 
 
 //Matrix  inverse function
+
 Matrix Matrix::Inverse()
 {
+    double Det = (this->MatrixArray[0][0] * ((this->MatrixArray[1][1] * this->MatrixArray[2][2])
+        - (this->MatrixArray[2][1] * this->MatrixArray[1][2]))
 
-    // Error check to make sure the matrix is not singular i.e. Determinant = 0
-    double Det = +M(0,0)*(M(1,1)*)M(2,2)-M(2,1))
-    			 -M(0,1)*(M(1,0)*M(2,2)-M(1,2)*M(2,0))
-    			 +M(0,2)*(M(1,0)*M(2,1)-M(1,1)*M(2,0));
-    double Inverse = 1/det;
-			 				 
+        - this->MatrixArray[0][1] * ((this->MatrixArray[1][0] * this->MatrixArray[2][2])
+            - (this->MatrixArray[2][0] * this->MatrixArray[1][2]))
+
+        + this->MatrixArray[0][2] * ((this->MatrixArray[1][0] * this->MatrixArray[2][1])
+            - (this->MatrixArray[2][0] * this->MatrixArray[1][1])));
+    double Inverse = 1/Det;
+
     // If the matrix is singular the identity matrix is returned
     if (Det == 0)
     {
         // Identity matrix
-        Matrix Inverse;
+        Matrix InverseMat;
 
-        return Inverse;
+        return InverseMat;
     }
-   result(0,0) =  (M(1,1)*M(2,2)-M(2,1)*M(1,2))* Inverse;
-   result(1,0) = -(M(0,1)*M(2,2)-M(0,2)*M(2,1))* Inverse;
-   result(2,0) =  (M(0,1)*M(1,2)-M(0,2)*M(1,1))* Inverse;
-   result(0,1) = -(M(1,0)*M(2,2)-M(1,2)*M(2,0))* Inverse;
-   result(1,1) =  (M(0,0)*M(2,2)-M(0,2)*M(2,0))* Inverse;
-   result(2,1) = -(M(0,0)*M(1,2)-M(1,0)*M(0,2))* Inverse;
-   result(0,2) =  (M(1,0)*M(2,1)-M(2,0)*M(1,1))* Inverse;
-   result(1,2) = -(M(0,0)*M(2,1)-M(2,0)*M(0,1))* Inverse;
-   result(2,2) =  (M(0,0)*M(1,1)-M(1,0)*M(0,1))* Inverse;
+
+
+    // Make matrix of cofactors
+       Matrix InverseMat((this->MatrixArray[1][1] * this->MatrixArray[2][2])
+        - (this->MatrixArray[2][1] * this->MatrixArray[1][2]),
+
+        (this->MatrixArray[1][0] * this->MatrixArray[2][2])
+        - (this->MatrixArray[2][0] * this->MatrixArray[1][2]),
+
+        (this->MatrixArray[1][0] * this->MatrixArray[2][1])
+        - (this->MatrixArray[2][0] * this->MatrixArray[1][1]),
+
+        (this->MatrixArray[0][1] * this->MatrixArray[2][2])
+        - (this->MatrixArray[2][1] * this->MatrixArray[0][2]),
+
+        (this->MatrixArray[0][0] * this->MatrixArray[2][2])
+        - (this->MatrixArray[2][0] * this->MatrixArray[0][2]),
+
+        (this->MatrixArray[0][0] * this->MatrixArray[2][1])
+        - (this->MatrixArray[2][0] * this->MatrixArray[0][1]),
+
+        (this->MatrixArray[0][1] * this->MatrixArray[1][2])
+        - (this->MatrixArray[1][1] * this->MatrixArray[0][2]),
+
+        (this->MatrixArray[0][0] * this->MatrixArray[1][2])
+        - (this->MatrixArray[1][0] * this->MatrixArray[0][2]),
+
+        (this->MatrixArray[0][0] * this->MatrixArray[1][1])
+        - (this->MatrixArray[1][0] * this->MatrixArray[0][1]));
+
+
+    // Change the sign of alternating elements to match the pattern below
+    //
+    //  [+] [-] [+]
+    //  [-] [+] [-]
+    //  [+] [-] [+]
+    //
 
     unsigned i, j;
 
@@ -256,26 +255,26 @@ Matrix Matrix::Inverse()
 
         for (j = 0; j < 3; j++) {
 
-            if ((((i* 3) + j) % 2) == 1) {
+            if ((((i * 3) + j) % 2) == 1) {
 
-                
-                double Value;
-                InverseMat.GetElement(i, j, &Value);
+                // Declare Value and pass a pointer so GetElement can update its value
+                double MatB;
+                InverseMat.Get_Element(i, j, &MatB);
 
-                InverseMat.SetElement(i, j, (Value * -1));
+                InverseMat.Set_Element(i, j, (MatB * -1));
 
             }
 
         }
     }
-
-    // Transpose the matrix
     InverseMat = InverseMat.Transpose();
+
+    // Divide by the determinant
+    InverseMat = InverseMat * ((double)1 / Det);
 
     return InverseMat;
 
 }
-
 
 
 // Matrix transpose function
@@ -289,7 +288,7 @@ Matrix Matrix::Transpose()
 
         for (j = 0; j < 3; j++) {
 
-            Transpose(i, j, this->MatrixArray[i][j]);
+            Transpose.Set_Element(i, j, this->MatrixArray[j][i]);
 
         }
 
@@ -299,20 +298,13 @@ Matrix Matrix::Transpose()
 
 }
 
-//Matrix rotation X-AXIS
-void Matrix::RotateX(double Theta) {
-    this->SetMatrix(1, 0, 0,
-	      0, cos((Theta * PI) / 180), -sin((Theta * PI) / 180),
-		  0, sin((Theta * PI) / 180),cos((Theta * PI) / 180));
-
-}
 
 //Matrix rotation Y-AXIS
 void Matrix::RotateY(double Theta) {
 
-    this->SetMatrix(cos((Theta * PI) / 180), 0, sin((Theta * PI) / 180),
-          0, 1,  0, 
-		  -sin((Theta * PI) / 180), 0,cos((Theta * PI) / 180));
+    this->SetMatrix(cos((Theta * PI) / 180), 0.0, sin((Theta * PI) / 180),
+          0.0, 1.0,  0.0, 
+		  -sin((Theta * PI) / 180), 0.0,cos((Theta * PI) / 180));
 
 }
 
@@ -326,9 +318,9 @@ void Matrix::RotateZ(double Theta) {
 }
 
 // ResetMatrix
-void Matrix::SetMatrix(double a, double b, double c, double d, double e, double f, double g, double h, double i) {
+void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f,double g, double h, double z) {
 
-    double elements[] = { a, b, c, d, e, f, g, h, i };
+    double elements[] = { a, b, c, d, e, f, g, h, z};
 
     unsigned i, j;
 
@@ -342,6 +334,43 @@ void Matrix::SetMatrix(double a, double b, double c, double d, double e, double 
     }
 }
 
+
+
+bool Matrix::Set_Element(int i, int j, double MatB)
+{
+    if (i < 0 || j > 3 || i < 0 || j > 3)
+    {
+        return false; // Not valid row or col
+    }
+
+    this->MatrixArray[i][j] = MatB;
+
+    return true; // Set Element successful
+}
+
+
+
+// -------------------------------------------------------------------------------------------------
+// GetElement returns the value of a certain element in a chosen position
+
+bool Matrix::Get_Element(int i, int j, double* Element) const
+{
+    if (i< 0 || j > 3 || i < 0 || j > 3)
+    {
+
+        return false; // Not valid row or col
+
+    }
+    else 
+    {
+
+        *Element = this->MatrixArray[i][j];
+
+        return true;
+
+    }
+    
+}
 //Output of the Matrix
 void Matrix::OutputMatrix() {
    

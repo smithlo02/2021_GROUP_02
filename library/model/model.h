@@ -27,9 +27,11 @@ private:
 	vector<cell> listOfCells;
 
 	void analyseLine(const string &line);
-	int getIntFromString(const string& line, int& startChar);
+	int getIntFromString(const string& line, int& currentChar);
 	int getIdFromString(const string& line, int &currentChar);
-	float getFloatFromString(const string& line, const int& currentChar);
+	float getFloatFromString(const string& line, int& currentChar);
+	void cellInput(const string& line);
+
 
 public:
 	model();
@@ -41,4 +43,6 @@ public:
 	void materialInput(const string& line);
 
 	void vectorInput(const string& line);
+
+
 };

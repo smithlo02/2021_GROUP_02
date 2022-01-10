@@ -300,20 +300,19 @@ Matrix Matrix::Transpose()
 
 
 //Matrix rotation Y-AXIS
-void Matrix::RotateY(double Theta) {
-
-    this->SetMatrix(cos((Theta * PI) / 180), 0.0, sin((Theta * PI) / 180),
-          0.0, 1.0,  0.0, 
-		  -sin((Theta * PI) / 180), 0.0,cos((Theta * PI) / 180));
-
+void Matrix::RotateY(double Theta){
+	double angle;
+	angle = Theta * PI / 180.0;
+    this->SetMatrix(cos(angle), 0.0, sin(angle),
+          0.0, 1.0,0.0,
+		  -sin(angle), 0.0, cos(angle));
 }
 
 //Matrix rotation Z-AXIS
 void Matrix::RotateZ(double Theta) {
-
-    this->SetMatrix(cos((Theta * PI) / 180), -sin((Theta * PI) / 180),  0,
-        sin((Theta * PI) / 180),cos((Theta * PI) / 180),0,
-	    0, 0, 1);
+     cos(angle),-sin(angle) , 0]
+[sin(angle),cos(radians), 0]
+[0, 0 ,1]  
 
 }
 
@@ -321,7 +320,6 @@ void Matrix::RotateZ(double Theta) {
 void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f,double g, double h, double z) {
 
     double elements[] = { a, b, c, d, e, f, g, h, z};
-
     unsigned i, j;
 
     for (i = 0; i < 3; i++) {
@@ -333,7 +331,7 @@ void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f
         }
     }
 }
-
+}
 
 
 bool Matrix::Set_Element(int i, int j, double MatB)

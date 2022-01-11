@@ -130,7 +130,7 @@ public: // Member variables that can be accessed by any other object
     // Constructor and Destructor
     pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4);
     pyramid(vector<Vector3D> pyra_points);
-    pyramid::pyramid(const pyramid& thisPyramid);   // tetrahedron copy constructor.
+    pyramid(const pyramid& thisPyramid);   // tetrahedron copy constructor.
     ~pyramid();
 };
 //-end-------------------------------------------------------------------------------------------------------------

@@ -157,8 +157,8 @@ void cell::calc_cellCentreOfGravity()
 // Tetrahedron Initialisation - Constructor using individual Vector3D points
 tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3) : cell()
 {
-    char t;
-    this->cellType = t;
+    //char t;
+    //this->cellType = t;
 
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;
@@ -204,8 +204,8 @@ void tetrahedron::calc_cellVolume()
 hexahedron::hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
     Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7) : cell()
 {
-    char h;
-    this->cellType = h;
+    //char h;
+    //this->cellType = h;
 
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;
@@ -279,8 +279,8 @@ void hexahedron::calc_cellVolume()
 // Pyramid Initialisation - Constructor using individual Vector3D points
 pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4) : cell()
 {
-    char p;
-    this->cellType = p;
+    //char p;
+    //this->cellType = p;
 
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;

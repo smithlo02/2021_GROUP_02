@@ -30,7 +30,7 @@ model::~model()
 int model::getIdFromString(const string& line, int& currentChar)
 {
 	//This function gets and ID number from a string
-	//This requires arguments of the first character index of the id, currentChar and the line
+	//This requires arguments of the first character index of the id, currentChar and the line 
 	//The Id number is returned as an integer value
 	//The currentChar is passed by reference so that changes to the value remain in the instance that calls this function and the value isnt destroyed
 
@@ -48,7 +48,7 @@ int model::getIdFromString(const string& line, int& currentChar)
 
 int model::getIntFromString(const string& line, int& currentChar)
 {
-	//This function is used to get an integer from a string if the index of the first character is known
+	//This function is used to get an integer from a string if the index of the first character is known 
 	//The arguments required are the line of text as a string and the first character of the integer values index
 	//As currentChar is passed by reference the changes made to it will still be there when the code returns to the instance that calls the function
 
@@ -75,7 +75,7 @@ int model::getIntFromString(const string& line, int& currentChar)
 
 float model::getFloatFromString(const string& line, int& currentChar)
 {
-	//This function is used to get a float from a string if the index of the first character is known
+	//This function is used to get a float from a string if the index of the first character is known 
 	//The required arguments are the line of text as a string and the index of the first character of the float value as an integer
 
 	float floatValue;
@@ -221,7 +221,7 @@ void model::analyseLine(const string& line)
 	for (char const& character : line)
 	{
 		if (character == '#') break; //if the character is a # then ignore this line as it is a comment
-		else if (character == 'm') //If the character is an m then begin to fill in a material object with the data on this line
+		else if (character == 'm') //If the character is an m then begin to fill in a material object with the data on this line 
 		{
 			materialInput(line);
 		}

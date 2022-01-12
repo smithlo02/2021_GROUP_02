@@ -335,7 +335,7 @@ void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f
 }
 
 
-
+//SetElement change the value
 bool Matrix::Set_Element(int i, int j, double MatB)
 {
     if (i < 0 && j > 3 && i < 0 && j > 3)
@@ -351,7 +351,7 @@ bool Matrix::Set_Element(int i, int j, double MatB)
 
 
 // -------------------------------------------------------------------------------------------------
-// GetElement returns the value of a certain element in a chosen position
+// GetElement returns the value
 
 bool Matrix::Get_Element(int i, int j, double* Element) const
 {

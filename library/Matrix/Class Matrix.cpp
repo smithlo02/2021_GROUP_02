@@ -146,31 +146,35 @@ Matrix Matrix::operator*(const Matrix& Mat)
     return Multiple;
 
 }
-// Matrix Multiplication operator with vector
-// Multiple Matrix with vector
-double Vector3D::operator*(const Vector3D& Vec)
-{
-    Vector3D MultipleVec;
+// Set Matrix diagonal
+void Matrix::setdiagonal(const Vector3D& vec) {
+    this->MatrixArray[0][0] = this->MatrixArray[2][2] = 0.0;
+    this->MatrixArray[3][3]= this->MatrixArray[5][5] = 0.0;
+    this->MatrixArray[6][6] = this->MatrixArray[7][7] = 0.0;
 
-    double TempVecArray[3];
-
-    unsigned i;
-
-    for (i = 0; i < 3; i++) {
-
-        double TempValue = (Vec.x * this->MatrixArray[i][0]+ Vec.y * this->MatrixArray[i][1]+ Vec.z * this->MatrixArray[i][2]);
-
-        TempVecArray[i] = TempValue;
-    }
-    MultipleVec.x = TempVecArray[0];
-    MultipleVec.y = TempVecArray[1];
-    MultipleVec.z = TempVecArray[2];
-
-    return MultipleVec;
+    this->MatrixArray[0][0] = vec.x;
+    this->MatrixArray[4][4] = vec.y;
+    this->MatrixArray[6][6] = vec.z;
 }
+/// Matrix Multiplication operator with Vector
+/// Multiple Matrix with Vector together
+///error class Matrix has no member named "x,y,z"
+/*
+void Matrix ::operator*(const Vector3D& vec){
+    Matrix Multvec;
+    unsigned i,j;
+    double VecMultipleArray[3];
+    double MultipleValue = (vec.x*this->MatrixArray[i][0] + vec.y*this->MatrixArray[i][1] + vec.z*this->MatrixArray[i][2]);
+    VecMultipleArray[i]=MultipleValue;
+    Multvec.x = vec.x*this->MatrixArray[i][0];
+    Multvec.y = vec.y*this->MatrixArray[i][1];
+    Multvec.z = vec.z*this->MatrixArray[i][2];
+
+    return Multvec;
+}
+*/
 // Matrix Multiplication operator with Scalar
 // Multiple Matrix with Scalar together
-
 Matrix Matrix::operator*(double Scalar)
 {
     Matrix MultipleScalar;
@@ -204,7 +208,6 @@ Matrix Matrix::Inverse()
             - (this->MatrixArray[2][0] * this->MatrixArray[1][1])));
     double Inverse = 1/Det;
 
-    // If the matrix is singular the identity matrix is returned
     if (Det == 0)
     {
         // Identity matrix

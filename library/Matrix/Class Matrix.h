@@ -21,35 +21,39 @@ public:
 
 
 
-		Matrix();
+	Matrix();
 
 
-		Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double z);
+	Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double z);
 
     Matrix(const Matrix& Mat);
 
 
 
-		~Matrix();
+	~Matrix();
 
-		Matrix operator+(const Matrix& Mat);
+	Matrix operator+(const Matrix& Mat);
 
-		Matrix operator-(const Matrix& Mat);
+	Matrix operator-(const Matrix& Mat);
 
-		Matrix operator*(const Matrix& Mat);
+	Matrix operator*(const Matrix& Mat);
+	/*
     Vector3D operator*(const Vector3D& Vec);
     Matrix operator*(double Scalar);
+    */
+    void setdiagonal(const Vector3D& vec);
+    void operator*(const Vector3D& vec);
+    Matrix operator*(double Scalar);
+	Matrix Inverse();
 
-		Matrix Inverse();
-
-		Matrix Transpose();
+	Matrix Transpose();
     void RotateX(double Theta);
     void RotateY(double Theta);
-		void RotateZ(double Theta);
-		void SetMatrix(double a, double b, double c,double d, double e, double f,double g, double h, double z);
-		bool Set_Element(int i, int j, double MatB);
+	void RotateZ(double Theta);
+	void SetMatrix(double a, double b, double c,double d, double e, double f,double g, double h, double z);
+	bool Set_Element(int i, int j, double MatB);
     bool Get_Element(int i, int j, double* Element) const;
-		void OutputMatrix();
+	void OutputMatrix();
 
 
 

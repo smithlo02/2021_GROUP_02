@@ -77,11 +77,11 @@ std::cout<<""<<std::endl;
 // -------------------------------------------------------------------------------------
 std::cout<<"Dot Product"<<std::endl;
 double vectorC = vector1*vector2;
-if(vectorC != 217)
+if(vectorC != 10)
 {
         errors++;
 }
-std::cout<<"--expected value: 217"<<std::endl;
+std::cout<<"--expected value: 10"<<std::endl;
 std::cout<<"--test results: "<<vectorC<<std::endl;
 std::cout<<"--errors count: "<<errors<<std::endl;
 std::cout<<""<<std::endl;

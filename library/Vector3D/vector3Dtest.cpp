@@ -90,12 +90,12 @@ std::cout<<""<<std::endl;
 // -------------------------------------------------------------------------------------
 std::cout<<"Cross Product"<<std::endl;
 Vector3D vectorD = vector1.cross_product(vector2);
-if(vectorD.getx()!=(-166.0)||vectorD.gety()!=128.0||vectorD.getz()!=(-6.0))
+if(vectorD !=-4)
 {
        errors++;
 }
-std::cout<<"--expected value: (-166.0,128.0,-6.0)"<<std::endl;
-std::cout<<"--test results: ("<<vectorD.getx()<<","<<vectorD.gety()<<","<<vectorD.getz()<<")"<<std::endl;
+std::cout<<"--expected value: (-4.0)"<<std::endl;
+std::cout<<"--test results: ("<<vectorD<<std::endl;
 std::cout<<"--errors count: "<<errors<<std::endl;
 std::cout<<""<<std::endl;	
 	return (errors==0)? 0:1;

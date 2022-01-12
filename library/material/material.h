@@ -31,9 +31,9 @@ public:
 	int getDensity();
 	//The get functions can be called to get and return the private values
 
-	void setID(int &IDGive);
-	void setName(string &nameGive);
-	void setColour(int &colourGive);
-	void setDensity(int &densityGive);
+	void setID(int& IDGive);
+	void setName(string& nameGive);
+	void setColour(int& colourGive);
+	void setDensity(int& densityGive);
 	//The set functions are called to set the private values
 };

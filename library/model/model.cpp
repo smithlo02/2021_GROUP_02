@@ -35,7 +35,7 @@ int model::getIdFromString(const string& line, int& currentChar)
 	//The currentChar is passed by reference so that changes to the value remain in the instance that calls this function and the value isnt destroyed
 
 	string ID = "";
-	
+
 	//Get the ID number by starting from where the first digit of the ID is then iterating until a space is seen
 	for (int i = currentChar; line[i] != ' '; i++)
 	{
@@ -145,7 +145,7 @@ void model::cellInput(const string& line)
 	int ID;
 	char typeOfShape;
 	material cellMaterial;
-	vector<vec> vertices;
+	vector<Vector3D> vertices;
 	int noOfVertices;
 
 	//currentChar is set to 2 as this is the index of the first digit of the ID
@@ -181,7 +181,7 @@ void model::cellInput(const string& line)
 	else if (typeOfShape == 'h')
 		listOfCells[ID] = hexahedron(vertices);
 
-	
+
 
 }
 
@@ -208,7 +208,7 @@ void model::vectorInput(const string& line)
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors[ID] = vec(xCoord, yCoord, zCoord);
+	listOfVectors[ID] = Vector3D(xCoord, yCoord, zCoord);
 
 }
 

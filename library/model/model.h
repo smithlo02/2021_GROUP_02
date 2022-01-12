@@ -8,6 +8,7 @@
 	//Display the number of cells and each type of cell
 	//Compute the models centre
 
+
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -42,6 +43,8 @@ public:
 	void materialInput(const string& line);
 
 	void vectorInput(const string& line);
+
+	material getMaterial(const int& index);
 
 
 };

@@ -45,7 +45,7 @@ cell::cell(const cell& cellToCopy)
 }
 
 // Destructor
-cell :: ~cell() {}
+cell::~cell() {}
 
 //------------------------------------------------------------------------------------------------------------------
 //The get functions are used to call the private/protected values
@@ -196,6 +196,8 @@ void tetrahedron::calc_cellVolume()
 
 }
 
+tetrahedron::~tetrahedron() {}
+
 //------------------------------------------------------------------------------------------------------------------
 // For Hexahedrons
 //------------------------------------------------------------------------------------------------------------------
@@ -220,10 +222,7 @@ hexahedron::hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector
 // Hexahedron Initialisation - Vector of Vector3D Points    // (Is this necessary if cell can already do it?)
 hexahedron::hexahedron(vector<Vector3D> hexa_points) : cell()
 {
-    for (int i = 0; i < hexa_points.size(); i++)
-    {
-        this->cellPoints.at(i) = hexa_points.at(i);
-    }
+    cellPoints = hexa_points;
 }
 
 // Hexahedron Initialisation - Hexahedron Copy Constructor  // (Is this necessary if cell can already do it?)
@@ -234,6 +233,8 @@ hexahedron::hexahedron(const hexahedron& thisHexahedron) : cell()
         this->cellPoints.at(i) = thisHexahedron.cellPoints.at(i);
     }
 }
+
+hexahedron::~hexahedron() {}
 
 // Hexahedron Volume - A Hexahedron is essentially made up of six Tetrahedrons,
 // so we do six volume calculations and add them together
@@ -297,6 +298,8 @@ pyramid::pyramid(vector<Vector3D> pyra_points) : cell()
         this->cellPoints.at(i) = pyra_points.at(i);
     }
 }
+
+pyramid::~pyramid() {}
 
 // Pyramid Initialisation - Pyramid Copy Constructor  // (Is this necessary if cell can already do it?)
 pyramid::pyramid(const pyramid& thisPyramid) : cell()

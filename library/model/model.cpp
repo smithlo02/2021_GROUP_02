@@ -26,6 +26,11 @@ model::~model()
 
 }
 
+material model::getMaterial(const int& index)
+{
+	return this->listOfMaterials[index];
+}
+
 
 int model::getIdFromString(const string& line, int& currentChar)
 {
@@ -53,21 +58,28 @@ int model::getIntFromString(const string& line, int& currentChar)
 	//As currentChar is passed by reference the changes made to it will still be there when the code returns to the instance that calls the function
 
 	int integer;
-	string tempString;
+	string tempString = "        ";
 	int startChar = currentChar;
 
-
+	int i = 0;
 	while (line[currentChar] != ' ')
 	{
+
 		//Iterates through the density until there are no more digits
 		//The digits are placed into a temporary string then will be converted to integer
 		//Starting at tempString[0]
-		tempString[currentChar - startChar] = line[currentChar];
+		tempString[i] = line[currentChar];
 		currentChar++;
+		i++;
 	}
 	//The stoi function converts a c++ string into an integer value
-	integer = stoi(tempString);
-
+	try {
+		integer = stoi(tempString);
+	}
+	catch (...) {
+		//If the string cannot be converted then convert it to a hex integer value
+		integer = stoi(tempString, nullptr, 16);
+	}
 	currentChar++;
 
 	return integer;
@@ -79,17 +91,18 @@ float model::getFloatFromString(const string& line, int& currentChar)
 	//The required arguments are the line of text as a string and the index of the first character of the float value as an integer
 
 	float floatValue;
-	string tempString;
+	string tempString = "       ";
 	int startChar = currentChar;
 
-
-	while (line[currentChar] != ' ')
+	int i = 0;
+	while (line[currentChar] != ' ' && line[currentChar])
 	{
 		//Iterates through the density until there are no more digits
 		//The digits are placed into a temporary string then will be converted to float
 		//Starting at tempString[0]
-		tempString[currentChar - startChar] = line[currentChar];
+		tempString[i] = line[currentChar];
 		currentChar++;
+		i++;
 	}
 	//The stoi function converts a c++ string into an integer value
 	floatValue = stoi(tempString);
@@ -106,6 +119,8 @@ void model::materialInput(const string& line)
 	//It requires the argument of a line of text as a string
 	//The information taken from the line is passed to a material object constructor
 
+	cout << "Analysing material object" << endl;
+
 	int ID;
 	int density;
 	int colour;
@@ -116,23 +131,26 @@ void model::materialInput(const string& line)
 
 	ID = getIdFromString(line, currentChar);
 
-
 	//Get the density from the string
+	currentChar++;
 	density = getIntFromString(line, currentChar);
 
 	//Get the colour from the string
 	colour = getIntFromString(line, currentChar);
 
 	//Get the name of the material from the string
-	for (int i = currentChar; line[i] != ' '; i++)
+
+	int i = currentChar;
+	while (line[i] != ' ' && line[i])
 	{
 		name = name + line[i];
+		i++;
 		//No need to increase currentChar as no more information is available after the name
 	}
 
 	//Give the information to the material constructor
 	//The material object made is then placed into the vector at the index of the ID number
-	listOfMaterials[ID] = material(ID, density, colour, name);
+	listOfMaterials.push_back(material(ID, density, colour, name));
 
 }
 
@@ -154,6 +172,8 @@ void model::cellInput(const string& line)
 	//use the get id function to get the id integer
 	ID = getIdFromString(line, currentChar);
 
+	currentChar++;
+
 	//The type of shape is a single letter character which can be simply taken out of the line without the need for a function
 	typeOfShape = line[currentChar];
 	currentChar++;
@@ -163,23 +183,23 @@ void model::cellInput(const string& line)
 		noOfVertices = 4;
 	else if (typeOfShape == 'p')
 		noOfVertices = 5;
-	else if (typeOfShape == 'h')
+	else
 		noOfVertices = 8;
 
 	//Iterate through the line recording the information on the vertices
 	for (int i = 0; i < noOfVertices; i++)
 	{
-		vertices[i] = listOfVectors[ID];
+		vertices.push_back(listOfVectors[ID]);
 	}
 
 
 
 	if (typeOfShape == 't')
-		listOfCells[ID] = tetrahedron(vertices);
+		listOfCells.push_back(tetrahedron(vertices));
 	else if (typeOfShape == 'p')
-		listOfCells[ID] = pyramid(vertices);
+		listOfCells.push_back(pyramid(vertices));
 	else if (typeOfShape == 'h')
-		listOfCells[ID] = hexahedron(vertices);
+		listOfCells.push_back(hexahedron(vertices));
 
 
 
@@ -202,13 +222,15 @@ void model::vectorInput(const string& line)
 	//Use the get id function to get the id integer
 	ID = getIdFromString(line, currentChar);
 
+	currentChar++;
+
 	xCoord = getFloatFromString(line, currentChar);
 	yCoord = getFloatFromString(line, currentChar);
 	zCoord = getFloatFromString(line, currentChar);
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors[ID] = Vector3D(xCoord, yCoord, zCoord);
+	listOfVectors.push_back(Vector3D(xCoord, yCoord, zCoord));
 
 }
 
@@ -218,21 +240,20 @@ void model::analyseLine(const string& line)
 
 {
 
-	for (char const& character : line)
+	char const& character = line[0];
+
+	if (character == '#') cout << "comment" << endl; //if the character is a # then ignore this line as it is a comment
+	else if (character == 'm') //If the character is an m then begin to fill in a material object with the data on this line 
 	{
-		if (character == '#') break; //if the character is a # then ignore this line as it is a comment
-		else if (character == 'm') //If the character is an m then begin to fill in a material object with the data on this line 
-		{
-			materialInput(line);
-		}
-		else if (character == 'v')
-		{
-			vectorInput(line);
-		}
-		else if (character == 'c')
-		{
-			cellInput(line);
-		}
+		materialInput(line);
+	}
+	else if (character == 'v')
+	{
+		vectorInput(line);
+	}
+	else if (character == 'c')
+	{
+		cellInput(line);
 	}
 
 }
@@ -241,18 +262,25 @@ void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method
 //The argument required is the filename of the text file to be read as a string
 {
+	cout << "opening file" << endl;
 	string line;
 
-	ifstream modelFile(filename);
+	ifstream modelFile;
 	modelFile.open(filename);
 
 	if (modelFile.is_open())
 	{
-		while (getline(modelFile, line))
+		cout << "File is open" << endl;
+		getline(modelFile, line);
+
+		cout << line << endl;
+
+		do
 		{
 			//Takes an individual line and passes it to the analyseLine function
+			cout << "Analysing line" << endl;
 			analyseLine(line);
-		}
+		} while (getline(modelFile, line));
 		modelFile.close();
 	}
 

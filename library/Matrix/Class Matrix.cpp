@@ -130,7 +130,6 @@ Matrix Matrix::operator*(const Matrix& Mat)
 
             for (k = 0; k < 3; k++) {
 
-                // Declare Value and pass a pointer so GetElement can update its value
                 double MatB;
                 Mat.Get_Element(k, j, &MatB);
 
@@ -147,7 +146,28 @@ Matrix Matrix::operator*(const Matrix& Mat)
     return Multiple;
 
 }
+// Matrix Multiplication operator with vector
+// Multiple Matrix with vector
+double Vector3D::operator*(const Vector3D& Vec)
+{
+    Vector3D MultipleVec;
 
+    double TempVecArray[3];
+
+    unsigned i;
+
+    for (i = 0; i < 3; i++) {
+
+        double TempValue = (Vec.x * this->MatrixArray[i][0]+ Vec.y * this->MatrixArray[i][1]+ Vec.z * this->MatrixArray[i][2]);
+
+        TempVecArray[i] = TempValue;
+    }
+    MultipleVec.x = TempVecArray[0];
+    MultipleVec.y = TempVecArray[1];
+    MultipleVec.z = TempVecArray[2];
+
+    return MultipleVec;
+}
 // Matrix Multiplication operator with Scalar
 // Multiple Matrix with Scalar together
 

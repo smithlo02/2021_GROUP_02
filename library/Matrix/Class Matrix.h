@@ -37,6 +37,7 @@ public:
 	Matrix operator-(const Matrix& Mat);
 
 	Matrix operator*(const Matrix& Mat);
+    Vector3D operator*(const Vector3D& Vec);
     Matrix operator*(double Scalar);
 
 	Matrix Inverse();

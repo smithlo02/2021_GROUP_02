@@ -37,12 +37,11 @@ public:
 	Matrix operator-(const Matrix& Mat);
 
 	Matrix operator*(const Matrix& Mat);
-	/*
-    Vector3D operator*(const Vector3D& Vec);
-    Matrix operator*(double Scalar);
-    */
+
     void setdiagonal(const Vector3D& vec);
-    void operator*(const Vector3D& vec);
+    /*
+    void Matrix operator*(const Vector3D& vec);
+    */
     Matrix operator*(double Scalar);
 	Matrix Inverse();
 

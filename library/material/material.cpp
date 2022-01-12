@@ -19,9 +19,11 @@ material::material(int& IDGive, int& densityGive, int& colourGive, string& nameG
 {
 	//This is the class constructor which is called to create an object
 	this->ID = IDGive;
-	this->name = nameGive;
-	this->colour = colourGive;
 	this->density = densityGive;
+	this->colour = colourGive;
+	this->name = nameGive;
+	
+	
 }
 
 // Default constructor used when no arguments provided - added by SAM -------------------------------------------------------------------------

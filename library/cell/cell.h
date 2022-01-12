@@ -4,8 +4,8 @@
 #define CELL_H_INCLUDED
 
 #include <vector>
-#include "..\Vector3D\Vector3D2.h"
-#include "..\material\material.h"
+#include "Vector3D.h"
+#include "material.h"
 #include <math.h>
 
 // Header file declares all the things that are required to use the source functions
@@ -105,10 +105,11 @@ protected:
 public: // Member variables that can be accessed by any other object
 
     // Constructor and Destructor
-    hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
-        Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7);
+    hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
+                Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7);
     hexahedron(vector<Vector3D> hexa_points);
     hexahedron(const hexahedron& thisHexahedron);   // tetrahedron copy constructor
+                                                    // Assignment Operator Needed
     ~hexahedron();
 };
 //-end-------------------------------------------------------------------------------------------------------------

@@ -11,7 +11,7 @@
 cell::cell()
 {
     this->cellID = 0;
-    this->cellType = 0;
+    this->cellType = 'c';
     this->cellPoints = {};
     this->cellMaterial = {};      // How TF do you set a default material? - Include it in the material header and source files
     this->cellVolume = 0;
@@ -50,21 +50,21 @@ cell::~cell() {}
 //------------------------------------------------------------------------------------------------------------------
 //The get functions are used to call the private/protected values
 //------------------------------------------------------------------------------------------------------------------
-char cell::getcellID() { return this->cellID; }                 // Function to get ID of a cell
-char cell::getcellType() { return this->cellType; }               // Function to get type of a cell
-material cell::getcellMaterial() { return this->cellMaterial; }           // Function to get the material of a cell
-vector<Vector3D> cell::getPoints() { return this->cellPoints; }             // Function to get the vector points of a cell
-float cell::getcellVolume() { return this->cellVolume; }             // Function to get the volume of a cell
-float cell::getcellWeight() { return this->cellWeight; }             // Function to get the weight of a cell
-Vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }    // Function to calculate the centre of gravity of a cell
+char cell::getcellID() { return this->cellID; }                                 // Function to get ID of a cell
+char cell::getcellType() { return this->cellType; }                             // Function to get type of a cell
+material cell::getcellMaterial() { return this->cellMaterial; }                 // Function to get the material of a cell
+vector<Vector3D> cell::getPoints() { return this->cellPoints; }                 // Function to get the vector points of a cell
+float cell::getcellVolume() { return this->cellVolume; }                        // Function to get the volume of a cell
+float cell::getcellWeight() { return this->cellWeight; }                        // Function to get the weight of a cell
+Vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }   // Function to calculate the centre of gravity of a cell
 
 //------------------------------------------------------------------------------------------------------------------
 // The accessor/set functions are used to return values to the private/protected values
 //------------------------------------------------------------------------------------------------------------------
-void cell::setcellID(char& thatID) { this->cellID = thatID; }               // Function to set the ID of the cell
-void cell::setcellType(char& thatType) { this->cellType = thatType; }           // Function to set the type of cell
-void cell::setMaterial(material& thatMaterial) { this->cellMaterial = thatMaterial; }   // Function to set the material of the cell
-void cell::setPoints(vector<Vector3D>& thesecellPoints) { this->cellPoints = thesecellPoints; }  // Function to set the vertex vectors of the cell
+void cell::setcellID(char& thatID) { this->cellID = thatID; }                                   // Function to set the ID of the cell
+void cell::setcellType(char& thatType) { this->cellType = thatType; }                           // Function to set the type of cell
+void cell::setMaterial(material& thatMaterial) { this->cellMaterial = thatMaterial; }           // Function to set the material of the cell
+void cell::setPoints(vector<Vector3D>& thesecellPoints) { this->cellPoints = thesecellPoints; } // Function to set the vertex vectors of the cell
 
 //------------------------------------------------------------------------------------------------------------------
 // Functions to manipulate the values of individual points of a cell
@@ -91,7 +91,6 @@ void cell::insert_Point(int thisPosition, Vector3D newPoint) // Insert a new poi
     }
 }
 
-//------------------------------------------
 //------------------------------------------------------------------------------------------------------------------
 //The calculate functions are used to compute values using generic cell members
 //------------------------------------------------------------------------------------------------------------------
@@ -118,7 +117,7 @@ void cell::calc_cellVolume()
     But tbh I don't think this would work.
     */
 
-    cout << "I don't really know how to do that tbh." << std::endl;
+    cout << "I don't really know how to do that tbh." << endl;
 
 }
 
@@ -157,9 +156,8 @@ void cell::calc_cellCentreOfGravity()
 // Tetrahedron Initialisation - Constructor using individual Vector3D points
 tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3) : cell()
 {
-    //char t;
-    //this->cellType = t;
-
+    
+    this->cellType = 't';
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;
     this->cellPoints.at(2) = point2;
@@ -188,27 +186,24 @@ tetrahedron::tetrahedron(const tetrahedron& thisTetrahedron) : cell()
 void tetrahedron::calc_cellVolume()
 {
     // Vector calculation to find the volume of a tetrahedron
-    this->cellVolume = 1 / 6 *
-        abs((this->cellPoints.at(0) - this->cellPoints.at(3)) *
-            ((this->cellPoints.at(1) - this->cellPoints.at(3)) ^
-                (this->cellPoints.at(2) - this->cellPoints.at(3))));
+    this->cellVolume = 1 / 6 * abs  ((this->cellPoints.at(0) - this->cellPoints.at(3)) *
+                                    ((this->cellPoints.at(1) - this->cellPoints.at(3)) ^
+                                     (this->cellPoints.at(2) - this->cellPoints.at(3))));
 
 
 }
 
-tetrahedron::~tetrahedron() {}
+tetrahedron::~tetrahedron() {} // Tetrahedron Deconstructor
 
 //------------------------------------------------------------------------------------------------------------------
 // For Hexahedrons
 //------------------------------------------------------------------------------------------------------------------
 
 // Hexahedron Initialisation - Constructor using individual Vector3D points
-hexahedron::hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
-    Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7) : cell()
+hexahedron::hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
+                        Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7) : cell()
 {
-    //char h;
-    //this->cellType = h;
-
+    this->cellType = 'h';
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;
     this->cellPoints.at(2) = point2;
@@ -234,7 +229,7 @@ hexahedron::hexahedron(const hexahedron& thisHexahedron) : cell()
     }
 }
 
-hexahedron::~hexahedron() {}
+hexahedron::~hexahedron() {} // Hexahedron Deconstructor
 
 // Hexahedron Volume - A Hexahedron is essentially made up of six Tetrahedrons,
 // so we do six volume calculations and add them together
@@ -245,31 +240,31 @@ void hexahedron::calc_cellVolume()
 
     // Vector calculations to find the volumes of the tetrahedrons
     tetra_volA = 1 / 6 * abs((this->cellPoints.at(0) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(1) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(2) - this->cellPoints.at(5))));  // Tetrahedron A Volume
+                            ((this->cellPoints.at(1) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(2) - this->cellPoints.at(5))));  // Tetrahedron A Volume
 
     tetra_volB = 1 / 6 * abs((this->cellPoints.at(2) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(3) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(6) - this->cellPoints.at(5))));   // Tetrahedron B Volume
+                            ((this->cellPoints.at(3) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(6) - this->cellPoints.at(5))));   // Tetrahedron B Volume
 
     tetra_volC = 1 / 6 * abs((this->cellPoints.at(3) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(6) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(7) - this->cellPoints.at(5))));   // Tetrahedron C Volume
+                            ((this->cellPoints.at(6) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(7) - this->cellPoints.at(5))));   // Tetrahedron C Volume
 
     tetra_volD = 1 / 6 * abs((this->cellPoints.at(0) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(2) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(3) - this->cellPoints.at(5))));   // Tetrahedron D Volume
+                            ((this->cellPoints.at(2) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(3) - this->cellPoints.at(5))));   // Tetrahedron D Volume
 
     tetra_volE = 1 / 6 * abs((this->cellPoints.at(3) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(4) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(7) - this->cellPoints.at(5))));   // Tetrahedron E Volume
+                            ((this->cellPoints.at(4) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(7) - this->cellPoints.at(5))));   // Tetrahedron E Volume
 
     tetra_volF = 1 / 6 * abs((this->cellPoints.at(0) - this->cellPoints.at(5)) *
-        ((this->cellPoints.at(3) - this->cellPoints.at(5)) ^
-            (this->cellPoints.at(4) - this->cellPoints.at(5))));   // Tetrahedron F Volume
+                            ((this->cellPoints.at(3) - this->cellPoints.at(5)) ^
+                             (this->cellPoints.at(4) - this->cellPoints.at(5))));   // Tetrahedron F Volume
 
 
-// Total Hexahedron Volume = Sum of Tetrahedrons
+    // Total Hexahedron Volume = Sum of Tetrahedrons
     this->cellVolume = tetra_volA + tetra_volB + tetra_volC + tetra_volD + tetra_volE + tetra_volF;
 }
 
@@ -280,9 +275,7 @@ void hexahedron::calc_cellVolume()
 // Pyramid Initialisation - Constructor using individual Vector3D points
 pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4) : cell()
 {
-    //char p;
-    //this->cellType = p;
-
+    this->cellType = 'p';
     this->cellPoints.at(0) = point0;
     this->cellPoints.at(1) = point1;
     this->cellPoints.at(2) = point2;
@@ -299,8 +292,6 @@ pyramid::pyramid(vector<Vector3D> pyra_points) : cell()
     }
 }
 
-pyramid::~pyramid() {}
-
 // Pyramid Initialisation - Pyramid Copy Constructor  // (Is this necessary if cell can already do it?)
 pyramid::pyramid(const pyramid& thisPyramid) : cell()
 {
@@ -309,6 +300,8 @@ pyramid::pyramid(const pyramid& thisPyramid) : cell()
         this->cellPoints.at(i) = thisPyramid.cellPoints.at(i);
     }
 }
+
+pyramid::~pyramid() {} // Pyramid Deconstructor
 
 // Pyramid Volume
 // A Hexahedron is essentially made up of two Tetrahedrons, so we do six volume calculations and add them together
@@ -319,14 +312,14 @@ void pyramid::calc_cellVolume()
 
     // Vector calculations to find the volumes of the tetrahedrons
     tetra_volA = 1 / 6 * abs((this->cellPoints.at(0) - this->cellPoints.at(4)) *
-        ((this->cellPoints.at(1) - this->cellPoints.at(4)) ^
-            (this->cellPoints.at(2) - this->cellPoints.at(4))));  // Tetrahedron A Volume
+                            ((this->cellPoints.at(1) - this->cellPoints.at(4)) ^
+                             (this->cellPoints.at(2) - this->cellPoints.at(4))));  // Tetrahedron A Volume
 
     tetra_volB = 1 / 6 * abs((this->cellPoints.at(0) - this->cellPoints.at(4)) *
-        ((this->cellPoints.at(2) - this->cellPoints.at(4)) ^
-            (this->cellPoints.at(3) - this->cellPoints.at(4))));   // Tetrahedron B Volume
+                            ((this->cellPoints.at(2) - this->cellPoints.at(4)) ^
+                             (this->cellPoints.at(3) - this->cellPoints.at(4))));   // Tetrahedron B Volume
 
 
-// Total Pyramid Volume = Sum of Tetrahedrons
+    // Total Pyramid Volume = Sum of Tetrahedrons
     this->cellVolume = tetra_volA + tetra_volB;
 }

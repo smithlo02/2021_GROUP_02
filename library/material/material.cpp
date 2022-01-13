@@ -15,14 +15,13 @@ material::~material()
 
 }
 
-material::material(int& IDGive, int& densityGive, int& colourGive, string& nameGive)
+material::material(int IDGive, int densityGive, int colourGive, string nameGive)
 {
 	//This is the class constructor which is called to create an object
 	this->ID = IDGive;
 	this->density = densityGive;
 	this->colour = colourGive;
 	this->name = nameGive;
-	
 	
 }
 
@@ -53,22 +52,22 @@ int material::getDensity()
 
 //Below are the setter functions which are used to set the values of the attributes of the object
 
-void material::setID(int& IDGive)
+void material::setID(int const &IDGive)
 {
 	this->ID = IDGive;
 }
 
-void material::setName(string& nameGive)
+void material::setName(string const &nameGive)
 {
 	this->name = nameGive;
 }
 
-void material::setColour(int& colourGive)
+void material::setColour(int const &colourGive)
 {
 	this->colour = colourGive;
 }
 
-void material::setDensity(int& densityGive)
+void material::setDensity(int const &densityGive)
 {
 	this->density = densityGive;
 }

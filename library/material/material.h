@@ -21,7 +21,7 @@ private:
 public:
 	//Everything under public: is able to be used by other parts of code outside of the class.
 
-	material(int& IDGive, int& densityGive, int& colourGive, string& nameGive); //The class constructor
+	material(int IDGive, int densityGive, int colourGive, string nameGive); //The class constructor
 	material(); // Default constructor used when no arguments provided - added by SAM ----------------------------------------------------------
 	~material(); //The class destructor
 
@@ -31,9 +31,9 @@ public:
 	int getDensity();
 	//The get functions can be called to get and return the private values
 
-	void setID(int& IDGive);
-	void setName(string& nameGive);
-	void setColour(int& colourGive);
-	void setDensity(int& densityGive);
+	void setID(int const &IDGive);
+	void setName(string const &nameGive);
+	void setColour(int const &colourGive);
+	void setDensity(int const &densityGive);
 	//The set functions are called to set the private values
 };

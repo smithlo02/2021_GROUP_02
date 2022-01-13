@@ -11,6 +11,8 @@
 using namespace std;
 
 int main() {
+
+	
 	//The colour is stored as a hex value indicated by the "0x" before the hex value
 	material copper(1, 9000, 0xb87337, "Cooper");
 	int ID = copper.getID();

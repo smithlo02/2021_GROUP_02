@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------------------------------------------
+// file: cell.cpp
+// Copyright: Samuel Ajayi - [20278110]
+// Required header files: iostream, cmath, cell.h
+//------------------------------------------------------------------------------------------------------------------
+
 #include <iostream>
 #include <cmath>
 
@@ -33,7 +39,7 @@ cell::cell(char c_ID, char c_type, vector<Vector3D> verts, material c_material, 
 }
 
 // Copy constructor
-cell::cell(const cell& cellToCopy)
+cell::cell(const cell &cellToCopy)
 {
     this->cellID = cellToCopy.cellID;
     this->cellType = cellToCopy.cellType;
@@ -61,38 +67,13 @@ Vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }   
 //------------------------------------------------------------------------------------------------------------------
 // The accessor/set functions are used to return values to the private/protected values
 //------------------------------------------------------------------------------------------------------------------
-void cell::setcellID(char& thatID) { this->cellID = thatID; }                                   // Function to set the ID of the cell
-void cell::setcellType(char& thatType) { this->cellType = thatType; }                           // Function to set the type of cell
-void cell::setMaterial(material& thatMaterial) { this->cellMaterial = thatMaterial; }           // Function to set the material of the cell
-void cell::setPoints(vector<Vector3D>& thesecellPoints) { this->cellPoints = thesecellPoints; } // Function to set the vertex vectors of the cell
+void cell::setcellID(char const &thatID) { this->cellID = thatID; }                                   // Function to set the ID of the cell
+void cell::setcellType(char const &thatType) { this->cellType = thatType; }                           // Function to set the type of cell
+void cell::setMaterial(material &thatMaterial) { this->cellMaterial = thatMaterial; }           // Function to set the material of the cell
+void cell::setPoints(vector<Vector3D> &thesecellPoints) { this->cellPoints = thesecellPoints; } // Function to set the vertex vectors of the cell
 
 //------------------------------------------------------------------------------------------------------------------
-// Functions to manipulate the values of individual points of a cell
-//------------------------------------------------------------------------------------------------------------------
-void cell::replace_Point(int thisPosition, Vector3D newPoint) // Replace a single point of a cell with a new one
-{
-    this->cellPoints.at(thisPosition) = newPoint;
-}
-
-void cell::add_Point(Vector3D newPoint) // Add a new point to the end of the cell
-{
-    this->cellPoints.push_back(newPoint);
-}
-
-void cell::insert_Point(int thisPosition, Vector3D newPoint) // Insert a new point between existing cells
-{
-    if (thisPosition < this->cellPoints.size())
-    {
-        this->cellPoints.insert(this->cellPoints.begin() + thisPosition, newPoint);
-    }
-    else
-    {
-        cout << "Invalid position; the cell is too small" << std::endl;
-    }
-}
-
-//------------------------------------------------------------------------------------------------------------------
-//The calculate functions are used to compute values using generic cell members
+// The calculate functions are used to compute values using generic cell members
 //------------------------------------------------------------------------------------------------------------------
 
 void cell::calc_cellVolume()
@@ -101,15 +82,15 @@ void cell::calc_cellVolume()
 
     // I guess you could ask what cell type it is and then choose the operation from there?:
     /*
-    if(this-> cellType = t)
+    if(this-> cellType = 't')
     {
         tetrahedron.calc_cellvolume;
     }
-    else if(this-> cellType = p)
+    else if(this-> cellType = 'p')
     {
         pyramid.calc_cellvolume;
     }
-    else if(this-> cellType = h)
+    else if(this-> cellType = 'h')
     {
         hexahedron.calc_cellvolume;
     }
@@ -144,6 +125,30 @@ void cell::calc_cellCentreOfGravity()
     this->cellCentreOfGravity = sumOfPoints;
 }
 
+//------------------------------------------------------------------------------------------------------------------
+// Functions to manipulate the values of individual points of a cell
+//------------------------------------------------------------------------------------------------------------------
+void cell::replace_Point(int thisPosition, Vector3D newPoint) // Replace a single point of a cell with a new one
+{
+    this->cellPoints.at(thisPosition) = newPoint;
+}
+
+void cell::add_Point(Vector3D newPoint) // Add a new point to the end of the cell
+{
+    this->cellPoints.push_back(newPoint);
+}
+
+void cell::insert_Point(int thisPosition, Vector3D newPoint) // Insert a new point between existing cells
+{
+    if (thisPosition < this->cellPoints.size())
+    {
+        this->cellPoints.insert(this->cellPoints.begin() + thisPosition, newPoint);
+    }
+    else
+    {
+        cout << "Invalid position; the cell is too small" << std::endl;
+    }
+}
 
 //------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------
@@ -152,6 +157,9 @@ void cell::calc_cellCentreOfGravity()
 //------------------------------------------------------------------------------------------------------------------
 // For Tetrahedrons
 //------------------------------------------------------------------------------------------------------------------
+
+// Tetrahedron Initialisation - Default Constructor
+tetrahedron::tetrahedron() : cell() {this->cellType = 't';}
 
 // Tetrahedron Initialisation - Constructor using individual Vector3D points
 tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3) : cell()
@@ -164,7 +172,7 @@ tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vect
     this->cellPoints.at(3) = point3;
 }
 
-// Tetrahedron Initialisation - Vector of Vector3D Points   // (Is this necessary if cell can already do it?)
+// Tetrahedron Initialisation - Vector of Vector3D Points
 tetrahedron::tetrahedron(vector<Vector3D> tetra_points) : cell()
 {
     for (int i = 0; i < tetra_points.size(); i++)
@@ -173,14 +181,16 @@ tetrahedron::tetrahedron(vector<Vector3D> tetra_points) : cell()
     }
 }
 
-// Tetrahedron Initialisation - Tetrahedron Copy Constructor    // (Is this necessary if cell can already do it?)
-tetrahedron::tetrahedron(const tetrahedron& thisTetrahedron) : cell()
+// Tetrahedron Initialisation - Tetrahedron Copy Constructor
+tetrahedron::tetrahedron(const tetrahedron &thisTetrahedron) : cell()
 {
     for (int i = 0; i < thisTetrahedron.cellPoints.size(); i++)
     {
         this->cellPoints.at(i) = thisTetrahedron.cellPoints.at(i);
     }
 }
+
+tetrahedron::~tetrahedron() {} // Tetrahedron Deconstructor
 
 // Tetrahedron Volume Calculation
 void tetrahedron::calc_cellVolume()
@@ -189,15 +199,14 @@ void tetrahedron::calc_cellVolume()
     this->cellVolume = 1 / 6 * abs  ((this->cellPoints.at(0) - this->cellPoints.at(3)) *
                                     ((this->cellPoints.at(1) - this->cellPoints.at(3)) ^
                                      (this->cellPoints.at(2) - this->cellPoints.at(3))));
-
-
 }
-
-tetrahedron::~tetrahedron() {} // Tetrahedron Deconstructor
 
 //------------------------------------------------------------------------------------------------------------------
 // For Hexahedrons
 //------------------------------------------------------------------------------------------------------------------
+
+// Hexahedron Initialisation - Default Constructor
+tetrahedron::tetrahedron() : cell() {this->cellType = 'h';}
 
 // Hexahedron Initialisation - Constructor using individual Vector3D points
 hexahedron::hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
@@ -214,14 +223,14 @@ hexahedron::hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vecto
     this->cellPoints.at(7) = point7;
 }
 
-// Hexahedron Initialisation - Vector of Vector3D Points    // (Is this necessary if cell can already do it?)
+// Hexahedron Initialisation - Vector of Vector3D Points
 hexahedron::hexahedron(vector<Vector3D> hexa_points) : cell()
 {
     cellPoints = hexa_points;
 }
 
-// Hexahedron Initialisation - Hexahedron Copy Constructor  // (Is this necessary if cell can already do it?)
-hexahedron::hexahedron(const hexahedron& thisHexahedron) : cell()
+// Hexahedron Initialisation - Hexahedron Copy Constructor
+hexahedron::hexahedron(const hexahedron &thisHexahedron) : cell()
 {
     for (int i = 0; i < thisHexahedron.cellPoints.size(); i++)
     {
@@ -272,6 +281,9 @@ void hexahedron::calc_cellVolume()
 // For Pyramids
 //------------------------------------------------------------------------------------------------------------------
 
+// Pyramid Initialisation - Default Constructor
+tetrahedron::tetrahedron() : cell() {this->cellType = 'p';}
+
 // Pyramid Initialisation - Constructor using individual Vector3D points
 pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4) : cell()
 {
@@ -293,7 +305,7 @@ pyramid::pyramid(vector<Vector3D> pyra_points) : cell()
 }
 
 // Pyramid Initialisation - Pyramid Copy Constructor  // (Is this necessary if cell can already do it?)
-pyramid::pyramid(const pyramid& thisPyramid) : cell()
+pyramid::pyramid(const pyramid &thisPyramid) : cell()
 {
     for (int i = 0; i < thisPyramid.cellPoints.size(); i++)
     {

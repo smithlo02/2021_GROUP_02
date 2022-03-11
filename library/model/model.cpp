@@ -288,7 +288,6 @@ void model::analyseLine(const string& line)
 /**
 * If the entire model file needs to be analysed then use this function that takes the filename as a string as an argument
 */
-
 void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method
 //The argument required is the filename of the text file to be read as a string

@@ -3,11 +3,12 @@
 
 using namespace std;
 
-//This header file declares the class material
-//The material class has 4 attributes, ID(int), density(int), colour(int as hex value) and name(string)
-//All of the attributes are private so cannot be accessed by any functions outside of the class
-//The getters and setters are used to read and write to these values respectively
-
+/**
+*This header file declares the class material
+*The material class has 4 attributes, ID(int), density(int), colour(int as hex value) and name(string)
+*All of the attributes are private so cannot be accessed by any functions outside of the class
+*The getters and setters are used to read and write to these values respectively
+*/
 class material
 {
 private:

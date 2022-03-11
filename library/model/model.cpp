@@ -7,6 +7,19 @@
 	//Display the number of cells and each type of cell
 	//Compute the models centre
 
+/** @file
+* This file contains the declarations of all exported functions.
+* This is the c++ file used to define the model class
+*The model class is responsible for reading the model entities from the datafile
+* The model class can load multiple cells to create a model
+* The model class can also save models to a different datafile and then re load it
+* The model class can perfrom the following operations on a model
+*	Display the number of vertices in the model
+*	Display the number of cells and each type of cell
+*	Compute the models centre
+*/
+
+
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -16,16 +29,26 @@
 #include "..\material\material.h"
 #include "model.h"
 
+
+/** 
+* Constructor
+*/
 model::model()
 {
 
 }
 
+/**
+* Destructor
+*/
 model::~model()
 {
 
 }
 
+/**
+* Get material function requires input of the materials list index and returns the material at that index
+*/
 material model::getMaterial(const int& index)
 {
 	return this->listOfMaterials[index];
@@ -234,6 +257,10 @@ void model::vectorInput(const string& line)
 
 }
 
+/**
+* Requires the line with the information to be added to the model as an argument
+* This will look at the first letter then pass data to the relevant function 
+*/
 void model::analyseLine(const string& line)
 //This method analyses the first letter of each line then sends it to a corresponding function based upon what the first letter is
 //The argument needed is the line of text as a string
@@ -257,6 +284,10 @@ void model::analyseLine(const string& line)
 	}
 
 }
+
+/**
+* If the entire model file needs to be analysed then use this function that takes the filename as a string as an argument
+*/
 
 void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method

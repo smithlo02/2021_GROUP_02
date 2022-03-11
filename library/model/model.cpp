@@ -30,7 +30,7 @@
 #include "model.h"
 
 
-/** 
+/** Brief description
 * Constructor
 */
 model::model()
@@ -38,7 +38,7 @@ model::model()
 
 }
 
-/**
+/** Brief description
 * Destructor
 */
 model::~model()
@@ -46,7 +46,7 @@ model::~model()
 
 }
 
-/**
+/** Brief description
 * Get material function requires input of the materials list index and returns the material at that index
 */
 material model::getMaterial(const int& index)
@@ -257,7 +257,7 @@ void model::vectorInput(const string& line)
 
 }
 
-/**
+/** Brief description
 * Requires the line with the information to be added to the model as an argument
 * This will look at the first letter then pass data to the relevant function 
 */
@@ -285,7 +285,7 @@ void model::analyseLine(const string& line)
 
 }
 
-/**
+/** Brief description
 * If the entire model file needs to be analysed then use this function that takes the filename as a string as an argument
 */
 void model::readModelFile(const string& filename)

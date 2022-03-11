@@ -1,5 +1,5 @@
 #pragma once
-/**
+/** @file
 *
 *
 *This is the header file used to define the model class

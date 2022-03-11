@@ -19,7 +19,7 @@ material::~material()
 
 }
 
-/**
+/** Brief description
 * Constructor
 */
 material::material(int IDGive, int densityGive, int colourGive, string nameGive)
@@ -32,35 +32,35 @@ material::material(int IDGive, int densityGive, int colourGive, string nameGive)
 	
 }
 
-/**
+/** Brief description
 * Default constructor for when no arguments are passed
 */
 // Default constructor used when no arguments provided - added by SAM -------------------------------------------------------------------------
 material::material() { ID = 0; name = "not chosen"; colour = 0; density = 0; }
 
 //Below are the getter functions which are used to return information about the material
-/**
+/** Brief description
 * Getter function
 */
 int material::getID()
 {
 	return this->ID;
 }
-/**
+/** Brief description
 * Getter function
 */
 string material::getName()
 {
 	return this->name;
 }
-/**
+/** Brief description
 * Getter function
 */
 int material::getColour()
 {
 	return this->colour;
 }
-/**
+/** Brief description
 * Getter function
 */
 int material::getDensity()
@@ -71,28 +71,28 @@ int material::getDensity()
 //Below are the setter functions which are used to set the values of the attributes of the object
 
 
-/**
+/** Brief description
 * Setter function
 */
 void material::setID(int const &IDGive)
 {
 	this->ID = IDGive;
 }
-/**
+/** Brief description
 * Setter function
 */
 void material::setName(string const &nameGive)
 {
 	this->name = nameGive;
 }
-/**
+/** Brief description
 * Setter function
 */
 void material::setColour(int const &colourGive)
 {
 	this->colour = colourGive;
 }
-/**
+/** Brief description
 * Setter function
 */
 void material::setDensity(int const &densityGive)

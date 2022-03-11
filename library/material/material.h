@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/**
+/** @file
 *This header file declares the class material
 *The material class has 4 attributes, ID(int), density(int), colour(int as hex value) and name(string)
 *All of the attributes are private so cannot be accessed by any functions outside of the class
@@ -11,6 +11,9 @@ using namespace std;
 */
 class material
 {
+	/** Private attributes
+	* Private Attributes
+	*/
 private:
 	int ID;
 	string name;
@@ -19,6 +22,9 @@ private:
 
 	//The private values are not to be accessed other than by the get and set functions that are provided
 
+	/** Public attributes
+	* Public Attributes
+	*/
 public:
 	//Everything under public: is able to be used by other parts of code outside of the class.
 

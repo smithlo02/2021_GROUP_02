@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['setcolour_19',['setColour',['../classmaterial.html#ab1d0cce8f24a884bd77f27843bb5f9d0',1,'material']]],
-  ['setdensity_20',['setDensity',['../classmaterial.html#a1f4856065cd6525c9d08f205509ce544',1,'material']]],
-  ['setid_21',['setID',['../classmaterial.html#a9a90095d349205b1027597bea61f7f2b',1,'material']]],
-  ['setname_22',['setName',['../classmaterial.html#a179737dc865c3ca0a759e878c5745053',1,'material']]]
+  ['setcolour_21',['setColour',['../classmaterial.html#ab1d0cce8f24a884bd77f27843bb5f9d0',1,'material']]],
+  ['setdensity_22',['setDensity',['../classmaterial.html#a1f4856065cd6525c9d08f205509ce544',1,'material']]],
+  ['setid_23',['setID',['../classmaterial.html#a9a90095d349205b1027597bea61f7f2b',1,'material']]],
+  ['setname_24',['setName',['../classmaterial.html#a179737dc865c3ca0a759e878c5745053',1,'material']]]
 ];

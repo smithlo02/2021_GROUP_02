@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tetrahedron_23',['tetrahedron',['../classtetrahedron.html',1,'']]]
+  ['tetrahedron_25',['tetrahedron',['../classtetrahedron.html',1,'']]]
 ];

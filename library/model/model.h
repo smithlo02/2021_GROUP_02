@@ -25,8 +25,20 @@ class model
 {
 private:
 	//The private vector attributes will be used to store all of the different material, vector and cell objects that are read then created from the file
+
+	/** The list of material objects
+	* A vector list of materials made using the materials class
+	*/
 	vector<material> listOfMaterials;
+
+	/** The list of vector objects
+	* A vector list of vectors that are made using the Vector3D class
+	*/
 	vector<Vector3D> listOfVectors;
+
+	/** The list of cells
+	* A vector list of cells that are made using the cell class
+	*/
 	vector<cell> listOfCells;
 
 	void analyseLine(const string& line);

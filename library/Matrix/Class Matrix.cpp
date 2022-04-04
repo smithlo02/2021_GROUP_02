@@ -6,7 +6,14 @@
 #define PI 3.14
 using namespace std;
 
+/** @file
+* This is the source file for the matrix class.
+* The matrix class is not fully integrated to the library
+*/
 
+/** Constructor
+* The default constructor for the matrix
+*/
 Matrix::Matrix() {
 
     unsigned i, j;
@@ -30,7 +37,9 @@ Matrix::Matrix() {
 
 // -------------------------------------------------------------------------------------------------
 // Constructor to input in a 3x3 matrix
-
+/** Constructor
+* The matrix constructor for a 3x3 matrix with known values
+*/
 Matrix::Matrix(double a, double b, double c,double d, double e, double f,double g, double h, double z) {
 
     double elements[] = {a, b, c, d, e, f, g, h, z };
@@ -48,9 +57,17 @@ Matrix::Matrix(double a, double b, double c,double d, double e, double f,double 
 
     return;
 }
+
 //Matrix Destructor
+/** Destructor
+* The Matrix destructor
+*/
 Matrix::~Matrix() {}
+
 //Matrix copy constructor
+/** Constructor
+* The matrix copy constructor that requires the input of another matrix to be copied.
+*/
 Matrix::Matrix(const Matrix& Mat) {
 
     unsigned i, j;
@@ -72,6 +89,9 @@ Matrix::Matrix(const Matrix& Mat) {
 
 // Matrix addition operator
 // Addition 2 Matrix together
+/** Matrix addition
+* The overloaded operator to add together two matrices
+*/
 Matrix Matrix::operator+(const Matrix &Mat)
 {
 	Matrix Addition;
@@ -95,6 +115,10 @@ Matrix Matrix::operator+(const Matrix &Mat)
 // -------------------------------------------------------------------------------------------------
 // Matrix subtraction operator
 // Subtraction 2 Matrix together
+
+/** Matrix subtraction
+* The overloaded operator used to subtract one matrix from another
+*/
 Matrix Matrix::operator-(const Matrix& Mat)
 {
     Matrix Subtraction;
@@ -114,6 +138,10 @@ Matrix Matrix::operator-(const Matrix& Mat)
 
 //Matrix Multiplication operator
 //Multiple 2 Matrix together
+
+/** Matrix multiplication
+* The overloaded operator used to multiply two matrices together
+*/
 Matrix Matrix::operator*(const Matrix& Mat)
 {
     Matrix Multiple;
@@ -147,6 +175,9 @@ Matrix Matrix::operator*(const Matrix& Mat)
 
 }
 // Set Matrix diagonal
+/** Set matrix diagonal
+* This function is used to set the matrix diagonal using the input of a Vetor3D coordinate
+*/
 void Matrix::setdiagonal(const Vector3D& vec) {
     this->MatrixArray[0][0] = this->MatrixArray[2][2] = 0.0;
     this->MatrixArray[3][3]= this->MatrixArray[5][5] = 0.0;
@@ -175,6 +206,10 @@ void Matrix ::operator*(const Vector3D& vec){
 */
 // Matrix Multiplication operator with Scalar
 // Multiple Matrix with Scalar together
+
+/** Multiply matrix with a scalar
+* This overloaded operator allows a matrix to be multiplied with a scalar value that is provided as a double.
+*/
 Matrix Matrix::operator*(double Scalar)
 {
     Matrix MultipleScalar;
@@ -195,6 +230,9 @@ Matrix Matrix::operator*(double Scalar)
 
 
 //Matrix  inverse function
+/** Matrix inverter
+* This function allows a matrix to be inverted returning the inverse of the original matrix
+*/
 Matrix Matrix::Inverse()
 {
     // computes the inverse of a matrix m
@@ -275,6 +313,9 @@ Matrix Matrix::Inverse()
 
 
 // Matrix transpose function
+/** Matrix Transposition
+* This function is used to return a matrix after it has been tranposed
+*/
 Matrix Matrix::Transpose()
 {
     Matrix Transpose;
@@ -295,6 +336,10 @@ Matrix Matrix::Transpose()
 
 }
 //Matrix rotation X-AXIS
+
+/** Matrix rotation X-AXIS
+* This function rotates a matrix through the provided angle theta in the x axis
+*/
 void Matrix::RotateX(double Theta){
 	double angle;
 	angle = Theta * PI / 180.0;
@@ -302,7 +347,11 @@ void Matrix::RotateX(double Theta){
           0.0, cos(angle),-sin(angle),
 		  0.0, sin(angle), cos(angle));
 }
+
 //Matrix rotation Y-AXIS
+/** Matrix rotation Y-AXIS
+* This function rotates a matrix through the provided angle theta in the y axis
+*/
 void Matrix::RotateY(double Theta){
 	double angle;
 	angle = Theta * PI / 180.0;
@@ -310,7 +359,11 @@ void Matrix::RotateY(double Theta){
           0.0, 1.0,0.0,
 		  -sin(angle), 0.0, cos(angle));
 }
+
 //Matrix rotation Z-AXIS
+/** Matrix rotation Z-AXIS
+* This function rotates a matrix through the provided angle theta in the z axis
+*/
 void Matrix::RotateZ(double Theta){
 	double angle;
 	angle = Theta * PI / 180.0;
@@ -318,7 +371,11 @@ void Matrix::RotateZ(double Theta){
                    sin(angle),cos(angle), 0.0,
                    0.0, 0.0 ,1.0);
 }
+
 // ResetMatrix
+/** Resets the values in a matrix
+* Allows the values within a matrix to be manually changed by inputting the new values as doubles
+*/
 void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f,double g, double h, double z) {
 
     double elements[] = { a, b, c, d, e, f, g, h, z};
@@ -336,6 +393,10 @@ void Matrix::SetMatrix(double a, double b, double c,double d, double e, double f
 
 
 //SetElement change the value
+/** Change the value of an element
+* This function changes the value of an individual element in the matrix
+* The matrix coordinates need to be provided as integers as well as the value that is being changed
+*/
 bool Matrix::Set_Element(int i, int j, double MatB)
 {
     if (i < 0 && j > 3 && i < 0 && j > 3)
@@ -352,7 +413,11 @@ bool Matrix::Set_Element(int i, int j, double MatB)
 
 // -------------------------------------------------------------------------------------------------
 // GetElement returns the value
-
+/** Gets an element from the Matrix
+* Gets the value in the matrix at the coordinates passed to the function
+* The value is passed by reference 
+* True is returned if the process was successful and false is returned is the proccess failed.
+*/
 bool Matrix::Get_Element(int i, int j, double* Element) const
 {
     if (i< 0 && j > 3 && i < 0 && j > 3)
@@ -372,6 +437,10 @@ bool Matrix::Get_Element(int i, int j, double* Element) const
 
 }
 //Matrix Output
+
+/** Outputs the matrix into the console
+* Outputs a 3x3 matrix into the console.
+*/
 void Matrix::OutputMatrix() {
 
     unsigned i, j;

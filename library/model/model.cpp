@@ -30,15 +30,15 @@
 #include "model.h"
 
 
-/** Brief description
-* Constructor
+/** Destructor
+* Default constructor
 */
 model::model()
 {
 
 }
 
-/** Brief description
+/** Destructor
 * Destructor
 */
 model::~model()
@@ -46,7 +46,7 @@ model::~model()
 
 }
 
-/** Brief description
+/** Get a material from the model
 * Get material function requires input of the materials list index and returns the material at that index
 */
 material model::getMaterial(const int& index)
@@ -54,7 +54,11 @@ material model::getMaterial(const int& index)
 	return this->listOfMaterials[index];
 }
 
-
+/** Retrives the ID number from a one line string
+* Returns the ID number of the model from a string using the position of the first character of the ID
+* Returns the ID number as an integer
+* CurrentChar is passed by reference so is updated at the points where the function is called from
+*/
 int model::getIdFromString(const string& line, int& currentChar)
 {
 	//This function gets and ID number from a string
@@ -74,6 +78,10 @@ int model::getIdFromString(const string& line, int& currentChar)
 	return stoi(ID);
 }
 
+/** Retrieves an integer from a one line string
+* Returns an integer value from a string using the position of the first character of the integer 
+* CurrentChar is passed by reference so is updated at the points where the function is called from
+*/
 int model::getIntFromString(const string& line, int& currentChar)
 {
 	//This function is used to get an integer from a string if the index of the first character is known 
@@ -108,6 +116,10 @@ int model::getIntFromString(const string& line, int& currentChar)
 	return integer;
 }
 
+/** Returns a float value from a string
+* Returns a float value from a string using the position of the first character of the float which is provided as currentChar
+* CurrentChar is passed by reference so is updated at the points where the function is called from
+*/
 float model::getFloatFromString(const string& line, int& currentChar)
 {
 	//This function is used to get a float from a string if the index of the first character is known 
@@ -136,6 +148,11 @@ float model::getFloatFromString(const string& line, int& currentChar)
 	return floatValue;
 }
 
+/** Adds a material to the model
+* The function takes the input of a one line string that begins with m
+* The information in the string is processed then a material object is made using this information
+* The material object is then placed into the listOfMaterials vector
+*/
 void model::materialInput(const string& line)
 {
 	//This method is used to take the input of a line that begins with an m in the datafile
@@ -177,6 +194,10 @@ void model::materialInput(const string& line)
 
 }
 
+/** Adds a cell to the model
+* This function takes a one line string that begins with the letter c and creates a cell object with the information on the line
+* The cell that is made is added to the ListOfCells vector list as either a pyramid, tetrahedron or hexahedron
+*/
 void model::cellInput(const string& line)
 {
 	//This method inputs the information to a cell object using a line of text beginning with the letter c
@@ -228,6 +249,10 @@ void model::cellInput(const string& line)
 
 }
 
+/** Allows a vector3D to be added to the model
+* Uses a one line string that begins with the letter v to create a Vector3D object using the information on the line
+* A vector3D object is created and added to the model in the listOfVectors vector list.
+*/
 void model::vectorInput(const string& line)
 {
 	//This method inputs the information to a vector object using a line of text beginning with the letter v

@@ -3,6 +3,11 @@
 //Copyright  Code part:Shiyu Wang(20158146)
 //Required header files: vector.h math.h(for some mathematic functions)
 //---------------------------------------------------------
+
+/** @file
+* The header file for the Vector3D class
+*/
+
 #include <vector>
 #include <math.h>
 
@@ -20,6 +25,9 @@ class Vector3D
 {
     friend class Matrix;
 public:
+    /** Public Attributes
+    * The public attributes for the class
+    */
     Vector3D();// Constructor
     Vector3D(double, double, double);// giving object value
     virtual ~Vector3D();// Destructor
@@ -47,6 +55,9 @@ public:
 protected:
 
 private:
+    /** Private attributes
+    * The private attributes for ther class
+    */
     int ID;
     double x, y, z;
 

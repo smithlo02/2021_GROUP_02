@@ -4,6 +4,10 @@
 // Required header files: vector, math.h, Vector3D.h, material.h
 //------------------------------------------------------------------------------------------------------------------
 
+/** @file
+* The header file for the cell class
+*/
+
 #ifndef CELL_H_INCLUDED
 #define CELL_H_INCLUDED
 

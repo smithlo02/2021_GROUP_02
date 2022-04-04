@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_2a_19',['operator*',['../class_matrix.html#a36ee2860aa71642d26de246d3c50ce0f',1,'Matrix']]],
-  ['outlinefilter_20',['outLineFilter',['../classfilter.html#a58a24cc14f0ec41ace88f8f65ab5ca56',1,'filter']]]
+  ['insert_5fpoint_16',['insert_Point',['../classcell.html#a5c2d65f6b0b1044faf2abc632ac4d366',1,'cell']]]
 ];

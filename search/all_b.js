@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7ematerial_32',['~material',['../classmaterial.html#a81832a5543032ea194fbdbdba352efa7',1,'material']]],
-  ['_7emodel_33',['~model',['../classmodel.html#a23a7dbff52aedc7c5fbd1c81d419688f',1,'model']]]
+  ['tetrahedron_39',['tetrahedron',['../classtetrahedron.html',1,'tetrahedron'],['../classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6',1,'tetrahedron::tetrahedron()'],['../classtetrahedron.html#ac01450fd601c8e90bfaa048e3a3b4e9b',1,'tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3)'],['../classtetrahedron.html#a1034204ab53b09e7f76dd2583cf96037',1,'tetrahedron::tetrahedron(vector&lt; Vector3D &gt; tetra_points)'],['../classtetrahedron.html#a85baa5ddc41b1216ef57e137ba26902c',1,'tetrahedron::tetrahedron(const tetrahedron &amp;thisTetrahedron)']]]
 ];

@@ -1,12 +1,4 @@
 var searchData=
 [
-  ['mainwindow_10',['MainWindow',['../class_main_window.html',1,'']]],
-  ['material_11',['material',['../classmaterial.html',1,'material'],['../classmaterial.html#a6b40f27c0db450df5a9061a0461d3151',1,'material::material(int IDGive, int densityGive, int colourGive, string nameGive)'],['../classmaterial.html#abcbc2f61c24746fe8923983a4ba39d1e',1,'material::material()']]],
-  ['material_2ecpp_12',['material.cpp',['../material_8cpp.html',1,'']]],
-  ['material_2eh_13',['material.h',['../material_8h.html',1,'']]],
-  ['matrix_14',['Matrix',['../class_matrix.html',1,'']]],
-  ['model_15',['model',['../classmodel.html',1,'model'],['../classmodel.html#a89150458364164cfaf05f700365c1416',1,'model::model()']]],
-  ['model_2ecpp_16',['model.cpp',['../model_8cpp.html',1,'']]],
-  ['model_2eh_17',['model.h',['../model_8h.html',1,'']]],
-  ['modelrender_18',['ModelRender',['../class_model_render.html',1,'']]]
+  ['hexahedron_15',['hexahedron',['../classhexahedron.html',1,'hexahedron'],['../classhexahedron.html#ada3b701a84f4165e71cb77d5752196ff',1,'hexahedron::hexahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7)'],['../classhexahedron.html#a07b6bf6c7db34b3c69b2e670656b8dfd',1,'hexahedron::hexahedron(vector&lt; Vector3D &gt; hexa_points)'],['../classhexahedron.html#ad61602541bde4883331fa919a2cd3e3c',1,'hexahedron::hexahedron(const hexahedron &amp;thisHexahedron)']]]
 ];

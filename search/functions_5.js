@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7ematerial_64',['~material',['../classmaterial.html#a81832a5543032ea194fbdbdba352efa7',1,'material']]],
-  ['_7emodel_65',['~model',['../classmodel.html#a23a7dbff52aedc7c5fbd1c81d419688f',1,'model']]]
+  ['material_76',['material',['../classmaterial.html#a6b40f27c0db450df5a9061a0461d3151',1,'material::material(int IDGive, int densityGive, int colourGive, string nameGive)'],['../classmaterial.html#abcbc2f61c24746fe8923983a4ba39d1e',1,'material::material()']]],
+  ['model_77',['model',['../classmodel.html#a89150458364164cfaf05f700365c1416',1,'model']]]
 ];

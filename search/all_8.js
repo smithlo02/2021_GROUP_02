@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['setcolour_26',['setColour',['../classmaterial.html#ab1d0cce8f24a884bd77f27843bb5f9d0',1,'material']]],
-  ['setdensity_27',['setDensity',['../classmaterial.html#a1f4856065cd6525c9d08f205509ce544',1,'material']]],
-  ['setid_28',['setID',['../classmaterial.html#a9a90095d349205b1027597bea61f7f2b',1,'material']]],
-  ['setname_29',['setName',['../classmaterial.html#a179737dc865c3ca0a759e878c5745053',1,'material']]]
+  ['pyramid_28',['pyramid',['../classpyramid.html',1,'pyramid'],['../classpyramid.html#aa4ca2efcabb2e40c473993d63f803019',1,'pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4)'],['../classpyramid.html#a53e2f8379256aa2d9db5494edba0f8d2',1,'pyramid::pyramid(vector&lt; Vector3D &gt; pyra_points)'],['../classpyramid.html#a715a9ffb9d2659569ae03823a7e3ebee',1,'pyramid::pyramid(const pyramid &amp;thisPyramid)']]]
 ];

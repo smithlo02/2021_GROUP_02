@@ -1,5 +1,9 @@
 #include "filter.h"
 
+/** @file
+* This file contains the cpp code for the filters.
+*/
+
 filter::filter(){
 
     /***************Outline filter************************/
@@ -41,6 +45,10 @@ filter::filter(){
 /*
  * add an outline to a filter
  * pipeline: Model->polydata->filter->mapper->actor->render->renderwindow
+ */
+
+ /** Brief description of outLineFilter
+ * This description will hopefully be picked up on by doxygen
  */
 void filter::outLineFilter(ModelRender* OutlineModel){
     outlinepolydata=OutlineModel->getPolyData();

@@ -267,7 +267,7 @@ void tetrahedron::calc_cellVolume()
 /** Brief description
 * Default hexahedron constructor
 */
-tetrahedron::tetrahedron() : cell() {this->cellType = 'h';}
+hexahedron::hexahedron() : cell() {this->cellType = 'h';}
 
 // Hexahedron Initialisation - Constructor using individual Vector3D points
 /** Brief description
@@ -361,7 +361,7 @@ void hexahedron::calc_cellVolume()
 /** Brief description
 * Pyramid default constructor
 */
-tetrahedron::tetrahedron() : cell() {this->cellType = 'p';}
+pyramid::pyramid() : cell() {this->cellType = 'p';}
 
 // Pyramid Initialisation - Constructor using individual Vector3D points
 /** Brief description

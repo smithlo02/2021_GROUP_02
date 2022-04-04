@@ -25,10 +25,10 @@ set( CMAKE_AUTOUIC ON )
 # lib directories, and the necessary static libraries for linking.
 find_package( Qt5Widgets )
 
-set( UIS mainwindow.ui )
+set( UIS application/mainwindow.ui )
 qt5_wrap_ui( UI_Srcs ${UIS} )
 
-set( ICONS Icons/icons.qrc )
+set( ICONS application/Icons/icons.qrc )
 qt5_add_resources( QRC_Srcs ${ICONS} )
 
 
@@ -36,19 +36,38 @@ qt5_add_resources( QRC_Srcs ${ICONS} )
 find_package( VTK REQUIRED )
 include( ${VTK_USE_FILE} )
 
+if(WIN32)
+	set(CPACK_GENERATOR "NSIS")
+else()
+	set(CPACK_GENERATOR "ZIP")
+endif()
+include(CPack)
+
+
 # Define the executable output and its sources
+add_library(cell library/cell/cell.cpp)
+add_library(material library/material/material.cpp)
+add_library(model library/model/model.cpp)
+add_library(Vector3D library/Vector3D/Vector3D.cpp)
+add_library(ModelRender application/ModelRender.cpp)
+add_library(mainwindow application/mainwindow.cpp)
+
+
 add_executable( 2021_GROUP_02 MACOSX_BUNDLE
-				library/cell/cell.cpp library/cell/cell.h
-				library/material/material.cpp libary/material/material.h
-				library/matrix/matrix.cpp library/matrix/matrix.h
-				library/model/model.cpp library/model/model.h
-				library/Vector3D/Vector3D.cpp library/Vector3D/Vector3D.h
+				application/main.cpp
 				${UI_Srcs}
 				${QRC_Srcs}
 				)
+
+target_link_libraries(2021_GROUP_02 cell material model Vector3D ModelRender mainwindow)
 
 # Tell CMake that the executable depends on the Qt::Widget libraries.
 target_link_libraries( 2021_GROUP_02 Qt5::Widgets )
 
 # Tell CMake that the executable depends on the VTK libraries
 target_link_libraries( 2021_GROUP_02 ${VTK_LIBRARIES} )
+
+install(TARGETS 2021_GROUP_02 
+RUNTIME DESTINATION bin
+LIBRARY DESTINATION lib
+ARCHIVE DESTINATION lib/static)

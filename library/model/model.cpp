@@ -79,7 +79,7 @@ int model::getIdFromString(const string& line, int& currentChar)
 }
 
 /** Retrieves an integer from a one line string
-* Returns an integer value from a string using the position of the first character of the integer 
+* Returns an integer value from a string using the position of the first character of the integer.
 * CurrentChar is passed by reference so is updated at the points where the function is called from
 */
 int model::getIntFromString(const string& line, int& currentChar)
@@ -117,7 +117,7 @@ int model::getIntFromString(const string& line, int& currentChar)
 }
 
 /** Returns a float value from a string
-* Returns a float value from a string using the position of the first character of the float which is provided as currentChar
+* Returns a float value from a string using the position of the first character of the float which is provided as currentChar.
 * CurrentChar is passed by reference so is updated at the points where the function is called from
 */
 float model::getFloatFromString(const string& line, int& currentChar)
@@ -149,9 +149,9 @@ float model::getFloatFromString(const string& line, int& currentChar)
 }
 
 /** Adds a material to the model
-* The function takes the input of a one line string that begins with m
-* The information in the string is processed then a material object is made using this information
-* The material object is then placed into the listOfMaterials vector
+* The function takes the input of a one line string that begins with m.
+* The information in the string is processed then a material object is made using this information.
+* The material object is then placed into the listOfMaterials vector.
 */
 void model::materialInput(const string& line)
 {
@@ -195,8 +195,8 @@ void model::materialInput(const string& line)
 }
 
 /** Adds a cell to the model
-* This function takes a one line string that begins with the letter c and creates a cell object with the information on the line
-* The cell that is made is added to the ListOfCells vector list as either a pyramid, tetrahedron or hexahedron
+* This function takes a one line string that begins with the letter c and creates a cell object with the information on the line.
+* The cell that is made is added to the ListOfCells vector list as either a pyramid, tetrahedron or hexahedron.
 */
 void model::cellInput(const string& line)
 {
@@ -250,7 +250,7 @@ void model::cellInput(const string& line)
 }
 
 /** Allows a vector3D to be added to the model
-* Uses a one line string that begins with the letter v to create a Vector3D object using the information on the line
+* Uses a one line string that begins with the letter v to create a Vector3D object using the information on the line.
 * A vector3D object is created and added to the model in the listOfVectors vector list.
 */
 void model::vectorInput(const string& line)
@@ -283,8 +283,8 @@ void model::vectorInput(const string& line)
 }
 
 /** Brief description
-* Requires the line with the information to be added to the model as an argument
-* This will look at the first letter then pass data to the relevant function 
+* Requires the line with the information to be added to the model as an argument.
+* This will look at the first letter then pass data to the relevant function.
 */
 void model::analyseLine(const string& line)
 //This method analyses the first letter of each line then sends it to a corresponding function based upon what the first letter is
@@ -311,7 +311,7 @@ void model::analyseLine(const string& line)
 }
 
 /** Brief description
-* If the entire model file needs to be analysed then use this function that takes the filename as a string as an argument
+* If the entire model file needs to be analysed then use this function that takes the filename as a string as an argument.
 */
 void model::readModelFile(const string& filename)
 //This method is used to read through the text file given and pass each individual line to the analyseLine method

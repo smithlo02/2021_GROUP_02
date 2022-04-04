@@ -5,5 +5,6 @@ var searchData=
   ['calc_5fcellweight_3',['calc_cellWeight',['../classcell.html#a753e704a58809c91d730b27b9e33b49e',1,'cell']]],
   ['cell_4',['cell',['../classcell.html',1,'cell'],['../classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca',1,'cell::cell()'],['../classcell.html#a546834ca7f5ee808f15c78e1cfeb5c42',1,'cell::cell(char cellID, char cellType, vector&lt; Vector3D &gt; cellPoints, material cellMaterial, float cellVolume, float cellWeight, Vector3D cellCentreOfGravity)'],['../classcell.html#ab7e25711808e0505917c3669bce9da6c',1,'cell::cell(const cell &amp;cellToCopy)']]],
   ['cell_2ecpp_5',['cell.cpp',['../cell_8cpp.html',1,'']]],
-  ['cell_5freadme_6',['CELL_README',['../md_library_cell__c_e_l_l__r_e_a_d_m_e.html',1,'']]]
+  ['cell_2eh_6',['cell.h',['../cell_8h.html',1,'']]],
+  ['cell_5freadme_7',['CELL_README',['../md_library_cell__c_e_l_l__r_e_a_d_m_e.html',1,'']]]
 ];

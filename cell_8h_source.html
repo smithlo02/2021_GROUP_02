@@ -69,152 +69,152 @@ $(function() {
 <div class="title">cell.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//------------------------------------------------------------------------------------------------------------------</span></div>
+<a href="cell_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//------------------------------------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// file: cell.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright: Samuel Ajayi - [20278110]</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Required header files: vector, math.h, Vector3D.h, material.h</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//------------------------------------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef CELL_H_INCLUDED</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define CELL_H_INCLUDED</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Vector3D.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="material_8h.html">material.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// Header file declares all the things that are required to use the source functions</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//-start------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// A cell class that stores the blueprint for making a cell</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//------------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classcell.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcell.html">cell</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Protected =&gt; Derived class can access this but outside classes can&#39;t</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// access/change these variables (other than by the public get and set functions that are provided)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Fixed values</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">char</span> cellID;                    <span class="comment">// The unique identifier for the cell</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">char</span> cellType;                  <span class="comment">// The type of cell it is</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Variable values</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classmaterial.html">material</a> cellMaterial;          <span class="comment">// The type of material the cell is made of</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    vector&lt;Vector3D&gt; cellPoints;    <span class="comment">// An array of vectors that define the cellPoints of the cell</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> cellVolume;               <span class="comment">// The volume value of the cell</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> cellWeight;               <span class="comment">// The weight value of the cell</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_vector3_d.html">Vector3D</a> cellCentreOfGravity;   <span class="comment">// The single vector that defines the centre of gravity of the cell</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// Public =&gt; Things that can be accessed by any other classes and changed. This enables them to be recognised as unique</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Constructors and Destructor</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>(<span class="keywordtype">char</span> cellID, <span class="keywordtype">char</span> cellType, vector&lt;Vector3D&gt; cellPoints, <a class="code" href="classmaterial.html">material</a> cellMaterial, <span class="keywordtype">float</span> cellVolume, <span class="keywordtype">float</span> cellWeight,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="class_vector3_d.html">Vector3D</a> cellCentreOfGravity);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classcell.html#a335fd618a8e84f4e36572f801b35b3f9">~cell</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>(<span class="keyword">const</span> <a class="code" href="classcell.html">cell</a> &amp;cellToCopy);<span class="comment">// cell copy constructor</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">//The get functions are used to call the values of the private/protected members</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classcell.html#a8b824451221d13c873168a7217b2d093">getcellID</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">char</span> getcellType();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classmaterial.html">material</a> getcellMaterial();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    vector&lt;Vector3D&gt; getPoints();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span> getcellWeight();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_vector3_d.html">Vector3D</a> getcellCentreOfGravity();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">float</span> getcellVolume();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// The set functions are used to return to the private/protected values</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#ade68bce32dd9d6cce8ed7843eddc8e96">setcellID</a>(<span class="keywordtype">char</span> <span class="keyword">const</span> &amp;thatID);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> setcellType(<span class="keywordtype">char</span> <span class="keyword">const</span> &amp;thatType);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setMaterial(<a class="code" href="classmaterial.html">material</a> &amp;thatMaterial);           <span class="comment">// Function to set the material of the cell</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> setPoints(vector&lt;Vector3D&gt; &amp;thesecellPoints);  <span class="comment">// Function to set the vectors of the cellPoints of the cell</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Functions to manipulate the values of individual points of a cell</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a21cb2ab7c41a8742bda448d8889f534a">replace_Point</a>(<span class="keywordtype">int</span> thisPosition, <a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#ab4914aa051639c81c745898337d30d02">add_Point</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a5c2d65f6b0b1044faf2abc632ac4d366">insert_Point</a>(<span class="keywordtype">int</span> thisPosition, <a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Functions that calculate required values based on the values of the cell, and set them</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a753e704a58809c91d730b27b9e33b49e">calc_cellWeight</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a2bf0df383113435ffb0c7c926a3185f7">calc_cellCentreOfGravity</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcell.html#a9f1fbaa2f61c0a7032789e717f1af7f0">calc_cellVolume</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// A tetrahedron class that stores the &#39;blueprint&#39; for making a tetrahedron</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// A tetrahedron is derived from a cell</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classtetrahedron.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtetrahedron.html">tetrahedron</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a tetrahedron that enable them to be recognised as unique</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtetrahedron.html#a8018054c3f95667e3747774683cd4b05">calc_cellVolume</a>();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// Default Constructor and Destructor</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3);        <span class="comment">// Constructor using individual Vector3D points</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(vector&lt;Vector3D&gt; tetra_points);                                             <span class="comment">// Constructor using a vector of Vector3D points</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(<span class="keyword">const</span> <a class="code" href="classtetrahedron.html">tetrahedron</a> &amp;thisTetrahedron);                                        <span class="comment">// Copy constructor.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                                                                            <span class="comment">// Assignment Operator Needed</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classtetrahedron.html#a759aee355bf52c83ff28bbb94ce33d4b">~tetrahedron</a>();                                                                         <span class="comment">// Destructor</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">// A hexahedron class that stores the &#39;blueprint&#39; for making a hexahedron</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">// A hexahedron is derived from a cell</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classhexahedron.html">  102</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhexahedron.html">hexahedron</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a hexahedron that enable them to be recognised as unique</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhexahedron.html#a36513d14e6e78840c529ca7adba030ab">calc_cellVolume</a>();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// Constructor and Destructor</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>( <a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <a class="code" href="class_vector3_d.html">Vector3D</a> point4, <a class="code" href="class_vector3_d.html">Vector3D</a> point5, <a class="code" href="class_vector3_d.html">Vector3D</a> point6, <a class="code" href="class_vector3_d.html">Vector3D</a> point7);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>(vector&lt;Vector3D&gt; hexa_points);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>(<span class="keyword">const</span> <a class="code" href="classhexahedron.html">hexahedron</a> &amp;thisHexahedron);   <span class="comment">// tetrahedron copy constructor</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                                                    <span class="comment">// Assignment Operator Needed</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="classhexahedron.html#aba2e30de0ff6b122fd6ff70c19d7702c">~hexahedron</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">// A pyramid class that stores the &#39;blueprint&#39; for making a pyramid</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">// A pyramid is derived from a cell</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classpyramid.html">  126</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpyramid.html">pyramid</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a pyramid that enable them to be recognised as unique</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpyramid.html#ad789f07f19cd292b5207be09415d0546">calc_cellVolume</a>();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">// Constructor and Destructor</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3, <a class="code" href="class_vector3_d.html">Vector3D</a> point4);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(vector&lt;Vector3D&gt; pyra_points);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(<span class="keyword">const</span> <a class="code" href="classpyramid.html">pyramid</a> &amp;thisPyramid);    <span class="comment">// tetrahedron copy constructor.</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                                            <span class="comment">// Assignment Operator Needed</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    ~<a class="code" href="classpyramid.html">pyramid</a>();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif // CELL_HEADER_H_INCLUDED</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef CELL_H_INCLUDED</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define CELL_H_INCLUDED</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_vector3_d_8h.html">Vector3D.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="material_8h.html">material.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Header file declares all the things that are required to use the source functions</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//-start------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// A cell class that stores the blueprint for making a cell</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//------------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classcell.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcell.html">cell</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Protected =&gt; Derived class can access this but outside classes can&#39;t</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// access/change these variables (other than by the public get and set functions that are provided)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Fixed values</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">char</span> cellID;                    <span class="comment">// The unique identifier for the cell</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">char</span> cellType;                  <span class="comment">// The type of cell it is</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Variable values</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classmaterial.html">material</a> cellMaterial;          <span class="comment">// The type of material the cell is made of</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    vector&lt;Vector3D&gt; cellPoints;    <span class="comment">// An array of vectors that define the cellPoints of the cell</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">float</span> cellVolume;               <span class="comment">// The volume value of the cell</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">float</span> cellWeight;               <span class="comment">// The weight value of the cell</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_vector3_d.html">Vector3D</a> cellCentreOfGravity;   <span class="comment">// The single vector that defines the centre of gravity of the cell</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Public =&gt; Things that can be accessed by any other classes and changed. This enables them to be recognised as unique</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Constructors and Destructor</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>(<span class="keywordtype">char</span> cellID, <span class="keywordtype">char</span> cellType, vector&lt;Vector3D&gt; cellPoints, <a class="code" href="classmaterial.html">material</a> cellMaterial, <span class="keywordtype">float</span> cellVolume, <span class="keywordtype">float</span> cellWeight,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_vector3_d.html">Vector3D</a> cellCentreOfGravity);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classcell.html#a335fd618a8e84f4e36572f801b35b3f9">~cell</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a>(<span class="keyword">const</span> <a class="code" href="classcell.html">cell</a> &amp;cellToCopy);<span class="comment">// cell copy constructor</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//The get functions are used to call the values of the private/protected members</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classcell.html#a8b824451221d13c873168a7217b2d093">getcellID</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">char</span> getcellType();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classmaterial.html">material</a> getcellMaterial();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    vector&lt;Vector3D&gt; getPoints();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">float</span> getcellWeight();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_vector3_d.html">Vector3D</a> getcellCentreOfGravity();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">float</span> getcellVolume();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// The set functions are used to return to the private/protected values</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#ade68bce32dd9d6cce8ed7843eddc8e96">setcellID</a>(<span class="keywordtype">char</span> <span class="keyword">const</span> &amp;thatID);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> setcellType(<span class="keywordtype">char</span> <span class="keyword">const</span> &amp;thatType);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> setMaterial(<a class="code" href="classmaterial.html">material</a> &amp;thatMaterial);           <span class="comment">// Function to set the material of the cell</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> setPoints(vector&lt;Vector3D&gt; &amp;thesecellPoints);  <span class="comment">// Function to set the vectors of the cellPoints of the cell</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Functions to manipulate the values of individual points of a cell</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a21cb2ab7c41a8742bda448d8889f534a">replace_Point</a>(<span class="keywordtype">int</span> thisPosition, <a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#ab4914aa051639c81c745898337d30d02">add_Point</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a5c2d65f6b0b1044faf2abc632ac4d366">insert_Point</a>(<span class="keywordtype">int</span> thisPosition, <a class="code" href="class_vector3_d.html">Vector3D</a> newPoint);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Functions that calculate required values based on the values of the cell, and set them</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a753e704a58809c91d730b27b9e33b49e">calc_cellWeight</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classcell.html#a2bf0df383113435ffb0c7c926a3185f7">calc_cellCentreOfGravity</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classcell.html#a9f1fbaa2f61c0a7032789e717f1af7f0">calc_cellVolume</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">// A tetrahedron class that stores the &#39;blueprint&#39; for making a tetrahedron</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">// A tetrahedron is derived from a cell</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classtetrahedron.html">   82</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtetrahedron.html">tetrahedron</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a tetrahedron that enable them to be recognised as unique</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtetrahedron.html#a8018054c3f95667e3747774683cd4b05">calc_cellVolume</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Default Constructor and Destructor</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3);        <span class="comment">// Constructor using individual Vector3D points</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(vector&lt;Vector3D&gt; tetra_points);                                             <span class="comment">// Constructor using a vector of Vector3D points</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6">tetrahedron</a>(<span class="keyword">const</span> <a class="code" href="classtetrahedron.html">tetrahedron</a> &amp;thisTetrahedron);                                        <span class="comment">// Copy constructor.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                                                                            <span class="comment">// Assignment Operator Needed</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="classtetrahedron.html#a759aee355bf52c83ff28bbb94ce33d4b">~tetrahedron</a>();                                                                         <span class="comment">// Destructor</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">// A hexahedron class that stores the &#39;blueprint&#39; for making a hexahedron</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">// A hexahedron is derived from a cell</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classhexahedron.html">  106</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhexahedron.html">hexahedron</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a hexahedron that enable them to be recognised as unique</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classhexahedron.html#a36513d14e6e78840c529ca7adba030ab">calc_cellVolume</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// Constructor and Destructor</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>( <a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <a class="code" href="class_vector3_d.html">Vector3D</a> point4, <a class="code" href="class_vector3_d.html">Vector3D</a> point5, <a class="code" href="class_vector3_d.html">Vector3D</a> point6, <a class="code" href="class_vector3_d.html">Vector3D</a> point7);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>(vector&lt;Vector3D&gt; hexa_points);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="classhexahedron.html">hexahedron</a>(<span class="keyword">const</span> <a class="code" href="classhexahedron.html">hexahedron</a> &amp;thisHexahedron);   <span class="comment">// tetrahedron copy constructor</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                                                    <span class="comment">// Assignment Operator Needed</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="classhexahedron.html#aba2e30de0ff6b122fd6ff70c19d7702c">~hexahedron</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//-start-----------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">// A pyramid class that stores the &#39;blueprint&#39; for making a pyramid</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">// A pyramid is derived from a cell</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">// Derived class with public inheritance shares all the base class members and functions</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">//-----------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classpyramid.html">  130</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpyramid.html">pyramid</a> : <span class="keyword">public</span> <a class="code" href="classcell.html">cell</a></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment">// Public =&gt; Things that can be changed about a pyramid that enable them to be recognised as unique</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">public</span>: <span class="comment">// Member variables that can be accessed by any other object</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="comment">// Functions with virtual can be overridden by adding there own version into the derived class:</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpyramid.html#ad789f07f19cd292b5207be09415d0546">calc_cellVolume</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">// Constructor and Destructor</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(<a class="code" href="class_vector3_d.html">Vector3D</a> point0, <a class="code" href="class_vector3_d.html">Vector3D</a> point1, <a class="code" href="class_vector3_d.html">Vector3D</a> point2, <a class="code" href="class_vector3_d.html">Vector3D</a> point3, <a class="code" href="class_vector3_d.html">Vector3D</a> point4);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(vector&lt;Vector3D&gt; pyra_points);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="classpyramid.html">pyramid</a>(<span class="keyword">const</span> <a class="code" href="classpyramid.html">pyramid</a> &amp;thisPyramid);    <span class="comment">// tetrahedron copy constructor.</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                            <span class="comment">// Assignment Operator Needed</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    ~<a class="code" href="classpyramid.html">pyramid</a>();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;};</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">//-end-------------------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif // CELL_HEADER_H_INCLUDED</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_vector3_d_html"><div class="ttname"><a href="class_vector3_d.html">Vector3D</a></div><div class="ttdef"><b>Definition:</b> Vector3D.h:19</div></div>
+<div class="ttc" id="aclass_vector3_d_html"><div class="ttname"><a href="class_vector3_d.html">Vector3D</a></div><div class="ttdef"><b>Definition:</b> Vector3D.h:24</div></div>
 <div class="ttc" id="aclasshexahedron_html_a36513d14e6e78840c529ca7adba030ab"><div class="ttname"><a href="classhexahedron.html#a36513d14e6e78840c529ca7adba030ab">hexahedron::calc_cellVolume</a></div><div class="ttdeci">void calc_cellVolume()</div><div class="ttdef"><b>Definition:</b> cell.cpp:321</div></div>
 <div class="ttc" id="aclassmaterial_html"><div class="ttname"><a href="classmaterial.html">material</a></div><div class="ttdef"><b>Definition:</b> material.h:12</div></div>
 <div class="ttc" id="aclasscell_html_ade68bce32dd9d6cce8ed7843eddc8e96"><div class="ttname"><a href="classcell.html#ade68bce32dd9d6cce8ed7843eddc8e96">cell::setcellID</a></div><div class="ttdeci">void setcellID(char const &amp;thatID)</div><div class="ttdef"><b>Definition:</b> cell.cpp:93</div></div>
@@ -231,12 +231,13 @@ $(function() {
 <div class="ttc" id="aclasscell_html_a9f1fbaa2f61c0a7032789e717f1af7f0"><div class="ttname"><a href="classcell.html#a9f1fbaa2f61c0a7032789e717f1af7f0">cell::calc_cellVolume</a></div><div class="ttdeci">virtual void calc_cellVolume()</div><div class="ttdef"><b>Definition:</b> cell.cpp:104</div></div>
 <div class="ttc" id="aclasscell_html_a5f9e893bce5c3f050bb20db0d0b615ca"><div class="ttname"><a href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell::cell</a></div><div class="ttdeci">cell()</div><div class="ttdef"><b>Definition:</b> cell.cpp:24</div></div>
 <div class="ttc" id="aclasstetrahedron_html_a8018054c3f95667e3747774683cd4b05"><div class="ttname"><a href="classtetrahedron.html#a8018054c3f95667e3747774683cd4b05">tetrahedron::calc_cellVolume</a></div><div class="ttdeci">void calc_cellVolume()</div><div class="ttdef"><b>Definition:</b> cell.cpp:254</div></div>
-<div class="ttc" id="aclasscell_html"><div class="ttname"><a href="classcell.html">cell</a></div><div class="ttdef"><b>Definition:</b> cell.h:20</div></div>
-<div class="ttc" id="aclasstetrahedron_html"><div class="ttname"><a href="classtetrahedron.html">tetrahedron</a></div><div class="ttdef"><b>Definition:</b> cell.h:78</div></div>
+<div class="ttc" id="aclasscell_html"><div class="ttname"><a href="classcell.html">cell</a></div><div class="ttdef"><b>Definition:</b> cell.h:24</div></div>
+<div class="ttc" id="aclasstetrahedron_html"><div class="ttname"><a href="classtetrahedron.html">tetrahedron</a></div><div class="ttdef"><b>Definition:</b> cell.h:82</div></div>
+<div class="ttc" id="a_vector3_d_8h_html"><div class="ttname"><a href="_vector3_d_8h.html">Vector3D.h</a></div></div>
 <div class="ttc" id="aclasspyramid_html_ad789f07f19cd292b5207be09415d0546"><div class="ttname"><a href="classpyramid.html#ad789f07f19cd292b5207be09415d0546">pyramid::calc_cellVolume</a></div><div class="ttdeci">void calc_cellVolume()</div><div class="ttdef"><b>Definition:</b> cell.cpp:411</div></div>
-<div class="ttc" id="aclasspyramid_html"><div class="ttname"><a href="classpyramid.html">pyramid</a></div><div class="ttdef"><b>Definition:</b> cell.h:126</div></div>
+<div class="ttc" id="aclasspyramid_html"><div class="ttname"><a href="classpyramid.html">pyramid</a></div><div class="ttdef"><b>Definition:</b> cell.h:130</div></div>
 <div class="ttc" id="aclasscell_html_a2bf0df383113435ffb0c7c926a3185f7"><div class="ttname"><a href="classcell.html#a2bf0df383113435ffb0c7c926a3185f7">cell::calc_cellCentreOfGravity</a></div><div class="ttdeci">void calc_cellCentreOfGravity()</div><div class="ttdef"><b>Definition:</b> cell.cpp:141</div></div>
-<div class="ttc" id="aclasshexahedron_html"><div class="ttname"><a href="classhexahedron.html">hexahedron</a></div><div class="ttdef"><b>Definition:</b> cell.h:102</div></div>
+<div class="ttc" id="aclasshexahedron_html"><div class="ttname"><a href="classhexahedron.html">hexahedron</a></div><div class="ttdef"><b>Definition:</b> cell.h:106</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

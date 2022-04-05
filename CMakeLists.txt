@@ -21,6 +21,8 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 set( CMAKE_AUTOMOC ON )
 set( CMAKE_AUTOUIC ON )
 
+include(CTest)
+
 # Find the Qt widgets package. This locates the relevant include and
 # lib directories, and the necessary static libraries for linking.
 find_package( Qt5Widgets )
@@ -71,3 +73,8 @@ install(TARGETS 2021_GROUP_02
 RUNTIME DESTINATION bin
 LIBRARY DESTINATION lib
 ARCHIVE DESTINATION lib/static)
+
+add_executable(libraryTest libraryTest.cpp)
+target_link_libraries(libraryTest cell material model Vector3D)
+
+add_test(libraryTest libraryTest)

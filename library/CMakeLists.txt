@@ -8,7 +8,7 @@ foreach(p
   endif()
 endforeach()
 
-PROJECT( 2021_GROUP_02 )
+PROJECT( libraryTest )
 
 # The CMake build process might generate some new files in the current
 # directory. This makes sure they can be found.
@@ -24,7 +24,6 @@ set( CMAKE_AUTOUIC ON )
 include(CTest)
 
 include_directories(Vector3D cell material model)
-
 
 # Define the executable output and its sources
 add_library(cell cell/cell.cpp)

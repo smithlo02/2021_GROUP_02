@@ -294,7 +294,7 @@ void model::vectorInput(const string& line)
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors.push_back(vector3D(xCoord, yCoord, zCoord));
+	listOfVectors.push_back(vector3D(ID, xCoord, yCoord, zCoord));
 
 }
 

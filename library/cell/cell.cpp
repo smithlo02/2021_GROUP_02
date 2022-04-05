@@ -148,9 +148,12 @@ void cell::calc_cellCentreOfGravity()
         sumOfPoints = sumOfPoints + this->cellPoints.at(i);    // The current sum of the points is the total sum + the points at this position (i)
     }
 
-    sumOfPoints.setx((sumOfPoints.get_X() / cellPoints.size())); // Divide the x value by the total number of points in the shape
-    sumOfPoints.sety((sumOfPoints.get_Y() / cellPoints.size())); // Divide the y value by the total number of points in the shape
-    sumOfPoints.setz((sumOfPoints.get_Z() / cellPoints.size())); // Divide the z value by the total number of points in the shape
+    //sumOfPoints.setx((sumOfPoints.get_X() / cellPoints.size())); // Divide the x value by the total number of points in the shape
+    //sumOfPoints.sety((sumOfPoints.get_Y() / cellPoints.size())); // Divide the y value by the total number of points in the shape
+    //sumOfPoints.setz((sumOfPoints.get_Z() / cellPoints.size())); // Divide the z value by the total number of points in the shape
+
+    sumOfPoints.set_Vector((sumOfPoints.get_X() / cellPoints.size()), (sumOfPoints.get_Y() / cellPoints.size()), (sumOfPoints.get_Z() / cellPoints.size()));
+    // Divide the cartesian values by the total number of points in the shape
 
 
     this->cellCentreOfGravity = sumOfPoints;

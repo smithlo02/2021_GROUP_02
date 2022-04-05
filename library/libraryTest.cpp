@@ -1,6 +1,6 @@
 //This is the ctest file that is used to test the library made in semester 1
 
-#include "../library/model/model.h"
+#include "model/model.h"
 
 int main()
 {

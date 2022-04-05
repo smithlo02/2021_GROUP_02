@@ -21,8 +21,6 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 set( CMAKE_AUTOMOC ON )
 set( CMAKE_AUTOUIC ON )
 
-include(CTest)
-
 # Find the Qt widgets package. This locates the relevant include and
 # lib directories, and the necessary static libraries for linking.
 find_package( Qt5Widgets )
@@ -51,17 +49,18 @@ add_library(cell library/cell/cell.cpp)
 add_library(material library/material/material.cpp)
 add_library(model library/model/model.cpp)
 add_library(Vector3D library/Vector3D/Vector3D.cpp)
-#add_library(ModelRender application/ModelRender.cpp)
-#add_library(mainwindow application/mainwindow.cpp)
+add_library(ModelRender application/ModelRender.cpp)
+add_library(mainwindow application/mainwindow.cpp)
 
 
 add_executable( 2021_GROUP_02 MACOSX_BUNDLE
-				main.cpp
+				application/main.cpp
+				${QRC_Srcs}
+				${UI_Srcs}
 				)
-# Add ${UI_Srcs} and ${QRC_Srcs} as executable in above line when final building
-# Also remove qt ui comments above
 
-target_link_libraries(2021_GROUP_02 cell material model Vector3D)
+
+target_link_libraries(2021_GROUP_02 cell material model Vector3D ModelRender mainwindow)
 
 # Tell CMake that the executable depends on the Qt::Widget libraries.
 target_link_libraries( 2021_GROUP_02 Qt5::Widgets )
@@ -73,8 +72,3 @@ install(TARGETS 2021_GROUP_02
 RUNTIME DESTINATION bin
 LIBRARY DESTINATION lib
 ARCHIVE DESTINATION lib/static)
-
-add_executable(libraryTest libraryTest.cpp)
-target_link_libraries(libraryTest cell material model Vector3D)
-
-add_test(libraryTest libraryTest)

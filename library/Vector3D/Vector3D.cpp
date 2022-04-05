@@ -3,7 +3,7 @@
 // Copyright Shiyu Wang(20158146)
 // Include header file for Vector3D
 //-------------------------------------------------------------
-#include "Vector3d.h"
+#include <Vector3d.h>
 //---------------------------------------------------------------------------------------------------------------
 //default constructor
 vector3D ::vector3D()

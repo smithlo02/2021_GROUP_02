@@ -23,7 +23,7 @@ set( CMAKE_AUTOUIC ON )
 
 include(CTest)
 
-include_directories(model Vector3D cell material)
+include_directories(Vector3D cell material model)
 
 
 # Define the executable output and its sources

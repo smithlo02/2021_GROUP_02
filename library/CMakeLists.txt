@@ -31,10 +31,10 @@ add_library(model library/model/model.cpp)
 add_library(Vector3D library/Vector3D/Vector3D.cpp)
 
 
-install(TARGETS 2021_GROUP_02 
-RUNTIME DESTINATION bin
-LIBRARY DESTINATION lib
-ARCHIVE DESTINATION lib/static)
+#install(TARGETS 2021_GROUP_02 
+#RUNTIME DESTINATION bin
+#LIBRARY DESTINATION lib
+#ARCHIVE DESTINATION lib/static)
 
 add_executable(libraryTest libraryTest.cpp)
 target_link_libraries(libraryTest cell material model Vector3D)

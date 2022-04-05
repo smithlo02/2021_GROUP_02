@@ -24,7 +24,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "..\vector3D\vector3D.h"
+#include "..\Vector3D\Vector3D.h"
 #include "..\cell\cell.h"
 #include "..\material\material.h"
 #include "model.h"

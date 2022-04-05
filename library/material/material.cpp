@@ -21,6 +21,7 @@ material::~material()
 
 /** Brief description
 * Constructor
+* This constructor takes the colour as a hexidecimal value
 */
 material::material(int IDGive, int densityGive, int colourGive, string nameGive)
 {

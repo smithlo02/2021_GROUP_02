@@ -36,8 +36,8 @@ cell::cell()
 /** Brief description
 * The cell constructor with specified values
 */
-cell::cell(char c_ID, char c_type, vector<Vector3D> verts, material c_material, float c_volume,
-    float c_weight, Vector3D c_centre)
+cell::cell(char c_ID, char c_type, vector<vector3D> verts, material c_material, float c_volume,
+    float c_weight, vector3D c_centre)
 {
     this->cellID = c_ID;
     this->cellType = c_type;
@@ -79,10 +79,10 @@ cell::~cell() {}
 char cell::getcellID() { return this->cellID; }                                 // Function to get ID of a cell
 char cell::getcellType() { return this->cellType; }                             // Function to get type of a cell
 material cell::getcellMaterial() { return this->cellMaterial; }                 // Function to get the material of a cell
-vector<Vector3D> cell::getPoints() { return this->cellPoints; }                 // Function to get the vector points of a cell
+vector<vector3D> cell::getPoints() { return this->cellPoints; }                 // Function to get the vector points of a cell
 float cell::getcellVolume() { return this->cellVolume; }                        // Function to get the volume of a cell
 float cell::getcellWeight() { return this->cellWeight; }                        // Function to get the weight of a cell
-Vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }   // Function to calculate the centre of gravity of a cell
+vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }   // Function to calculate the centre of gravity of a cell
 
 //------------------------------------------------------------------------------------------------------------------
 // The accessor/set functions are used to return values to the private/protected values
@@ -93,7 +93,7 @@ Vector3D cell::getcellCentreOfGravity() { return this->cellCentreOfGravity; }   
 void cell::setcellID(char const &thatID) { this->cellID = thatID; }                                   // Function to set the ID of the cell
 void cell::setcellType(char const &thatType) { this->cellType = thatType; }                           // Function to set the type of cell
 void cell::setMaterial(material &thatMaterial) { this->cellMaterial = thatMaterial; }           // Function to set the material of the cell
-void cell::setPoints(vector<Vector3D> &thesecellPoints) { this->cellPoints = thesecellPoints; } // Function to set the vertex vectors of the cell
+void cell::setPoints(vector<vector3D> &thesecellPoints) { this->cellPoints = thesecellPoints; } // Function to set the vertex vectors of the cell
 
 //------------------------------------------------------------------------------------------------------------------
 // The calculate functions are used to compute values using generic cell members
@@ -140,7 +140,7 @@ void cell::calc_cellWeight()
 */
 void cell::calc_cellCentreOfGravity()
 {
-    Vector3D sumOfPoints;   // To hold the sum of all the x, y and z values of each point
+    vector3D sumOfPoints;   // To hold the sum of all the x, y and z values of each point
     int i = 0;              // Loop Counter
 
     for (i = 0; i < this->cellPoints.size(); i++)
@@ -148,9 +148,9 @@ void cell::calc_cellCentreOfGravity()
         sumOfPoints = sumOfPoints + this->cellPoints.at(i);    // The current sum of the points is the total sum + the points at this position (i)
     }
 
-    sumOfPoints.setx((sumOfPoints.getx() / cellPoints.size())); // Divide the x value by the total number of points in the shape
-    sumOfPoints.sety((sumOfPoints.gety() / cellPoints.size())); // Divide the y value by the total number of points in the shape
-    sumOfPoints.setz((sumOfPoints.getz() / cellPoints.size())); // Divide the z value by the total number of points in the shape
+    sumOfPoints.setx((sumOfPoints.get_X() / cellPoints.size())); // Divide the x value by the total number of points in the shape
+    sumOfPoints.sety((sumOfPoints.get_Y() / cellPoints.size())); // Divide the y value by the total number of points in the shape
+    sumOfPoints.setz((sumOfPoints.get_Z() / cellPoints.size())); // Divide the z value by the total number of points in the shape
 
 
     this->cellCentreOfGravity = sumOfPoints;
@@ -162,7 +162,7 @@ void cell::calc_cellCentreOfGravity()
 /** Brief description
 * A function to replace a single point of a cell with a new one
 */
-void cell::replace_Point(int thisPosition, Vector3D newPoint) // Replace a single point of a cell with a new one
+void cell::replace_Point(int thisPosition, vector3D newPoint) // Replace a single point of a cell with a new one
 {
     this->cellPoints.at(thisPosition) = newPoint;
 }
@@ -170,7 +170,7 @@ void cell::replace_Point(int thisPosition, Vector3D newPoint) // Replace a singl
 /** Brief description
 * The function to add a new point to the end of a cell
 */
-void cell::add_Point(Vector3D newPoint) // Add a new point to the end of the cell
+void cell::add_Point(vector3D newPoint) // Add a new point to the end of the cell
 {
     this->cellPoints.push_back(newPoint);
 }
@@ -178,7 +178,7 @@ void cell::add_Point(Vector3D newPoint) // Add a new point to the end of the cel
 /** Brief description
 * The function to insert a new point between existing cells
 */
-void cell::insert_Point(int thisPosition, Vector3D newPoint) // Insert a new point between existing cells
+void cell::insert_Point(int thisPosition, vector3D newPoint) // Insert a new point between existing cells
 {
     if (thisPosition < this->cellPoints.size())
     {
@@ -208,7 +208,7 @@ tetrahedron::tetrahedron() : cell() {this->cellType = 't';}
 /** Brief description
 * Tetrahedron constructor using given vector points
 */
-tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3) : cell()
+tetrahedron::tetrahedron(vector3D point0, vector3D point1, vector3D point2, vector3D point3) : cell()
 {
     
     this->cellType = 't';
@@ -222,7 +222,7 @@ tetrahedron::tetrahedron(Vector3D point0, Vector3D point1, Vector3D point2, Vect
 /** Brief description
 * Tetrahedron initialiser using a vector of Vector3D points
 */
-tetrahedron::tetrahedron(vector<Vector3D> tetra_points) : cell()
+tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
 {
     for (int i = 0; i < tetra_points.size(); i++)
     {
@@ -273,8 +273,8 @@ hexahedron::hexahedron() : cell() {this->cellType = 'h';}
 /** Brief description
 * Hexahedron constructor using individual Vector3D points
 */
-hexahedron::hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3,
-                        Vector3D point4, Vector3D point5, Vector3D point6, Vector3D point7) : cell()
+hexahedron::hexahedron( vector3D point0, vector3D point1, vector3D point2, vector3D point3,
+                        vector3D point4, vector3D point5, vector3D point6, vector3D point7) : cell()
 {
     this->cellType = 'h';
     this->cellPoints.at(0) = point0;
@@ -291,7 +291,7 @@ hexahedron::hexahedron( Vector3D point0, Vector3D point1, Vector3D point2, Vecto
 /** Brief description
 * Hexahedron initialiser using a vector of Vector3D points
 */
-hexahedron::hexahedron(vector<Vector3D> hexa_points) : cell()
+hexahedron::hexahedron(vector<vector3D> hexa_points) : cell()
 {
     cellPoints = hexa_points;
 }
@@ -367,7 +367,7 @@ pyramid::pyramid() : cell() {this->cellType = 'p';}
 /** Brief description
 * Pyramid constructor using individual Vector3D points
 */
-pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D point3, Vector3D point4) : cell()
+pyramid::pyramid(vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4) : cell()
 {
     this->cellType = 'p';
     this->cellPoints.at(0) = point0;
@@ -381,7 +381,7 @@ pyramid::pyramid(Vector3D point0, Vector3D point1, Vector3D point2, Vector3D poi
 /** Brief description
 * Pyramid constructor using vector of Vector3D points
 */
-pyramid::pyramid(vector<Vector3D> pyra_points) : cell()
+pyramid::pyramid(vector<vector3D> pyra_points) : cell()
 {
     for (int i = 0; i < pyra_points.size(); i++)
     {

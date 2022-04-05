@@ -24,7 +24,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "..\Vector3D\Vector3D.h"
+#include "..\vector3D\vector3D.h"
 #include "..\cell\cell.h"
 #include "..\material\material.h"
 #include "model.h"
@@ -49,7 +49,7 @@ model::~model()
 /** Get a vector from the model
 * Get vector function requires input of the vector list index and returns the vector at that index
 */
-Vector3D model::getVector(const int& index)
+vector3D model::getVector(const int& index)
 {
 	return this->listOfVectors[index];
 }
@@ -223,7 +223,7 @@ void model::cellInput(const string& line)
 	int ID;
 	char typeOfShape;
 	material cellMaterial;
-	vector<Vector3D> vertices;
+	vector<vector3D> vertices;
 	int noOfVertices;
 
 	//currentChar is set to 2 as this is the index of the first digit of the ID
@@ -294,7 +294,7 @@ void model::vectorInput(const string& line)
 
 	//Give the information to the vector constructor
 	//place the object within the the index of the vectors id
-	listOfVectors.push_back(Vector3D(xCoord, yCoord, zCoord));
+	listOfVectors.push_back(vector3D(xCoord, yCoord, zCoord));
 
 }
 

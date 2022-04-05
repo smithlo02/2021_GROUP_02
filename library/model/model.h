@@ -34,7 +34,7 @@ private:
 	/** The list of vector objects
 	* A vector list of vectors that are made using the Vector3D class
 	*/
-	vector<Vector3D> listOfVectors;
+	vector<vector3D> listOfVectors;
 
 	/** The list of cells
 	* A vector list of cells that are made using the cell class
@@ -63,7 +63,7 @@ public:
 
 	cell getCell(const int& index);
 
-	Vector3D getVector(const int& index);
+	vector3D getVector(const int& index);
 
 
 };

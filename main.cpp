@@ -1,4 +1,4 @@
-#include "library/model/model.h"
+#include <model.h>
 
 int main()
 {

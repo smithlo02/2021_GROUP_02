@@ -13,8 +13,8 @@
 
 #include <vector>
 #include <math.h>
-#include "../Vector3D/Vector3D.h"
-#include "../material/material.h"
+#include <Vector3D.h>
+#include <material.h>
 
 // Header file declares all the things that are required to use the source functions
 

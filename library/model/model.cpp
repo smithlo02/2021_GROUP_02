@@ -27,7 +27,7 @@
 #include <Vector3D.h>
 #include <cell.h>
 #include <material.h>
-#include "model.h"
+#include <model.h>
 
 
 /** Destructor

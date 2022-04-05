@@ -61,5 +61,9 @@ public:
 
 	material getMaterial(const int& index);
 
+	cell getCell(const int& index);
+
+	Vector3D getVector(const int& index);
+
 
 };

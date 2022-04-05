@@ -4,5 +4,9 @@
 
 int main()
 {
+	model testModel();
 
+	const string fileName = "ExampleModel1.mod";
+
+	testModel.readModelFile(filename);
 }

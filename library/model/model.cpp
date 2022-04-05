@@ -46,6 +46,16 @@ model::~model()
 
 }
 
+Vector3D model::getVector(const int& index)
+{
+	return this->listOfVectors[index];
+}
+
+cell model::getCell(const int& index)
+{
+	return this->listOfCells[index];
+}
+
 /** Get a material from the model
 * Get material function requires input of the materials list index and returns the material at that index
 */

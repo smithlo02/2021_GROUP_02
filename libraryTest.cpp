@@ -11,7 +11,8 @@ int main()
 
 	testModel.readModelFile(filename);
 
-	if (testModel.getCell(1) =! cell()
+	if (testModel.getMaterial(0) =! material(0, 8960, 0xb87333, "aluminium");
+		pass = 0;
 
 	return(pass == 1) ? 0 : 1;
 }

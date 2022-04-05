@@ -51,8 +51,8 @@ add_library(cell library/cell/cell.cpp)
 add_library(material library/material/material.cpp)
 add_library(model library/model/model.cpp)
 add_library(Vector3D library/Vector3D/Vector3D.cpp)
-add_library(ModelRender application/ModelRender.cpp)
-add_library(mainwindow application/mainwindow.cpp)
+#add_library(ModelRender application/ModelRender.cpp)
+#add_library(mainwindow application/mainwindow.cpp)
 
 
 add_executable( 2021_GROUP_02 MACOSX_BUNDLE
@@ -61,7 +61,7 @@ add_executable( 2021_GROUP_02 MACOSX_BUNDLE
 				${QRC_Srcs}
 				)
 
-target_link_libraries(2021_GROUP_02 cell material model Vector3D ModelRender mainwindow)
+target_link_libraries(2021_GROUP_02 cell material model Vector3D)
 
 # Tell CMake that the executable depends on the Qt::Widget libraries.
 target_link_libraries( 2021_GROUP_02 Qt5::Widgets )

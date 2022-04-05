@@ -46,11 +46,17 @@ model::~model()
 
 }
 
+/** Get a vector from the model
+* Get vector function requires input of the vector list index and returns the vector at that index
+*/
 Vector3D model::getVector(const int& index)
 {
 	return this->listOfVectors[index];
 }
 
+/** Get a cell from the model
+* Get cell function requires input of the cells list index and returns the cell at that index
+*/
 cell model::getCell(const int& index)
 {
 	return this->listOfCells[index];

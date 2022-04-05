@@ -25,10 +25,10 @@ include(CTest)
 
 
 # Define the executable output and its sources
-add_library(cell library/cell/cell.cpp)
-add_library(material library/material/material.cpp)
-add_library(model library/model/model.cpp)
-add_library(Vector3D library/Vector3D/Vector3D.cpp)
+add_library(cell cell/cell.cpp)
+add_library(material material/material.cpp)
+add_library(model model/model.cpp)
+add_library(Vector3D Vector3D/Vector3D.cpp)
 
 add_executable(libraryTest libraryTest.cpp)
 target_link_libraries(libraryTest cell material model Vector3D)

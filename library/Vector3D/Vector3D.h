@@ -3,58 +3,51 @@
 //Copyright  Code part:Shiyu Wang(20158146)
 //Required header files: vector.h math.h(for some mathematic functions)
 //---------------------------------------------------------
-
-/** @file
-* The header file for the Vector3D class
-*/
-
-#include <vector>
-#include <math.h>
-
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
+#include <iostream>
+using namespace std;
 
-//---------------------------------------------------------
-class Vector3D;// There exist these things called cell
-//---------------------------------------------------------
-
-// Vector3D:
-
-//---------------------------------------------------------
-class Vector3D
+class vector3D
 {
-    friend class Matrix;
+
+    friend ostream& operator<<(ostream& os,  vector3D &v); // make the overloading << operator as a friend to print out the vector 
+                                                               
+    friend istream& operator>>(istream& is,  vector3D &v); // make the overloading >> operator as a firend for use to read VTK style data from a file 
+
+    friend class Matrix; //make matrix class as a friend to let it access the private variables.
+
 public:
-    Vector3D();// Constructor
-    Vector3D(double, double, double);// giving object value
-    virtual ~Vector3D();// Destructor
-    Vector3D(const Vector3D& vec);// copy constructor
+    vector3D();//default constructor
 
-    void setID(int);
-    void setx(double);
-    void sety(double);
-    void setz(double);
+    vector3D(const int &index,const double &xi, const double &yi,const double &zi) :Index(index), X(xi), Y(yi), Z(zi){}; //constructor
 
-    int getID();
-    double getx();
-    double gety();
-    double getz();
-    //---------------------------------------------------------
-    // Defines an operator that do
-    // addition,Subtraction,Dot Product and Cross Product
-    //---------------------------------------------------------
-    Vector3D operator+(const Vector3D& vec);
-    Vector3D operator-(const Vector3D& vec);
-    double operator*(const Vector3D& vec);
-    Vector3D operator^(const Vector3D& vec);
+    vector3D operator-(const vector3D &v); // overloading the - operator to do the vector subtraction
 
+    vector3D operator+(const vector3D &v); // overloading the + operator to do the vector addition
 
-protected:
+    vector3D operator^(const vector3D &v); // overloading the ^ operator to do the vector/outer product calculation
+
+    vector3D operator/(const double &v);  //overloading the /operator to do the vector division with a floating number
+
+    double operator*(const vector3D &v); // overloading the * operator to do the scalar product calculation
+
+    int get_ID()const{return this->Index;}; //function to get the vector Index;
+
+    double get_X()const{return this->X;};   //get x 
+
+    double get_Y()const{return this->Y;};   //get y 
+
+    double get_Z()const{return this->Z;};   //get z
+
+    vector3D& get_Vector(){return *this;}; // accessor
+
+    void set_Vector(const double &x, const double &y, const double &z); // mutator
 
 private:
-    int ID;
-    double x, y, z;
-
+    double X, Y, Z; // define 3 variables to store the X-axis, Y-axis, Z-axis value of a vector
+    
+    int Index;  // this the unique index for a vector 
 };
-
 #endif // VECTOR3D_H
+

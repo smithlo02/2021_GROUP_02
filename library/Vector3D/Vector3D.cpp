@@ -3,157 +3,86 @@
 // Copyright Shiyu Wang(20158146)
 // Include header file for Vector3D
 //-------------------------------------------------------------
-
-/** @file
-* The Vector3D class that is used to provide vector coordinates
-*/
-
-#include "Vector3D.h"
-
-/** Constructor
-* The default vector constructor
-*/
-Vector3D::Vector3D()
+#include "vector3d.h"
+//---------------------------------------------------------------------------------------------------------------
+//default constructor
+vector3D ::vector3D()
 {
-    ID = 0;
-    x = 0;
-    y = 0;
-    z = 0;   //ctor
-}
-//-------------------------------------------------------------
-//giving object values
-//-------------------------------------------------------------
-
-/** Constructor
-* The vector constructor used when values are provided for the coordinates
-*/
-Vector3D::Vector3D(double xc, double yc, double zc)
-{
-    ID = 0;
-    x = xc;
-    y = yc;
-    z = zc;
-}
-//-------------------------------------------------------------
-/** Destructor
-* The vector3D destructor
-*/
-Vector3D::~Vector3D() {}// Destructor
-//-------------------------------------------------------------
-
-/** Setter
-* The vector ID setter
-*/
-void Vector3D::setID(int newID) { this->ID = newID; };
-//-------------------------------------------------------------
-
-/** Setter
-* The function to set the x coordinate
-*/
-void Vector3D::setx(double xc) { x = xc; };
-//-------------------------------------------------------------
-
-/** Setter
-* The function to set the y coordinate
-*/
-void Vector3D::sety(double yc) { y = yc; };
-//-------------------------------------------------------------
-
-/** Setter
-* The function to set the z coordinate
-*/
-void Vector3D::setz(double zc) { z = zc; };
-//-------------------------------------------------------------
-
-/** Getter
-* The function to get the vector ID
-*/
-int Vector3D::getID() { return this->ID; };
-//-------------------------------------------------------------
-
-/** Getter
-* The function to get the x coordinate
-*/
-double Vector3D::getx() { return x; }
-//-------------------------------------------------------------
-
-/** Getter
-* The function to get the y coordinate
-*/
-double Vector3D::gety() { return y; }
-//-------------------------------------------------------------
-
-/** Getter
-* The function to get the z coordinate
-*/
-double Vector3D::getz() { return z; }
-//-------------------------------------------------------------
-//copy vector constructor
-//-------------------------------------------------------------
-
-/** Constructor
-* The Vector copy constructor
-*/
-Vector3D::Vector3D(const Vector3D& vec)
-{
-    ID = vec.ID;
-    x = vec.x;
-    y = vec.y;
-    z = vec.z;
-}
-//-------------------------------------------------------------
-//Addition function
-//Add 2 vectors together
-//-------------------------------------------------------------
-
-/** Overloaded operator
-* The function to add 2 vectors together
-*/
-Vector3D Vector3D::operator+(const Vector3D& vec)
-{
-    return Vector3D(this->x + vec.x,
-        this->y + vec.y,
-        this->z + vec.z);
+    this->Index = -1; //@notice all of the '-1' means the index of the vector hasn't been determined.
+    this->X = 0;
+    this->Y = 0;
+    this->Z = 0;
 }
 
-//-------------------------------------------------------------
-//Subtraction function
-//Subtract current vector from another vector
-//-------------------------------------------------------------
-/** Overloaded operator
-* The function to subract the current vector from another
-*/
-Vector3D Vector3D::operator-(const Vector3D& vec)
+//---------------------------------------------------------------------------------------------------------------
+//function does the vector subtraction and return the result which is also a vector back to the user
+//---------------------------------------------------------------------------------------------------------------
+vector3D vector3D ::operator-(const vector3D &v)
 {
-    return Vector3D(this->x - vec.x,
-        this->y - vec.y,
-        this->z - vec.z);
-}
-//-------------------------------------------------------------
-//Dot Product Function
-//Multiply two coordinates
-//-------------------------------------------------------------
-/** Overloaded operator
-* The function to multiply two vector coordinates
-*/
-double Vector3D::operator*(const Vector3D& vec)
-{
-    return (this->x * vec.x + this->y * vec.y + this->z * vec.z);
-}
-//-------------------------------------------------------------
-//Cross Product Function
-//Cross product
-//-------------------------------------------------------------
-/** Overloaded operator
-* The function to compute the cross product of 2 vectors
-*/
-Vector3D Vector3D::operator^(const Vector3D& vec)
-{
-    Vector3D ans;
-    ans.x = this->y * vec.z - this->z * vec.y;
-    ans.y = this->z * vec.x - this->x * vec.z;
-    ans.z = this->x * vec.y - this->y * vec.x;
 
-    return ans;
+    vector3D result(-1, this->X - v.X, this->Y - v.Y, this->Z - v.Z); //do the subtraction according to the vector subtraction rule
+
+    return result; // return the result
 }
-//-----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------
+//function does the vector additon and return the result which is also a vector back to the user
+//----------------------------------------------------------------------------------------------------------------
+vector3D vector3D ::operator+(const vector3D &v)
+{
+
+    vector3D result(-1, this->X + v.X, this->Y + v.Y, this->Z + v.Z); //do the addition according to the vector additon rule
+
+    return result; // return the result
+}
+
+//----------------------------------------------------------------------------------------------------------------
+//function does the vector/outer product calculation and return the result wich is also a vector back to the user
+//----------------------------------------------------------------------------------------------------------------
+vector3D vector3D ::operator^(const vector3D &v)
+{
+
+    // do the vector product calculation according to the rule
+    vector3D result(-1,
+                    (this->Y * v.Z) - (v.Y * this->Z),
+                    -((this->X * v.Z) - (v.X * this->Z)),
+                    (this->X * v.Y) - (v.X * this->Y));
+
+    return result; // return the result
+}
+
+//----------------------------------------------------------------------------------------------------------------
+//function does the scalar/inner product calculation and return the result wich is a floating number back to the user
+//----------------------------------------------------------------------------------------------------------------
+double vector3D ::operator*(const vector3D &v)
+{
+
+    double result = ((this->X * v.X) + (this->Y * v.Y) + (this->Z * v.Z)); // do the scalar/inner product calculation according to the rule
+
+    return result; // return the result
+}
+//------------------------------------------------------------------------------------------------------------------------
+//funtion does the vector division with a floating number 
+//----------------------------------------------------------------------------------------------------------------
+vector3D vector3D :: operator/(const double &v){
+
+
+    vector3D result(-1,(this->X/v),(this->Y/v),(this->Z/v));// do the vector divison with a floating number.
+
+    return result; // return the result 
+    
+}
+
+
+//----------------------------------------------------------------------------------------------------------------
+//function allows user to set the X,Y,Z value of a vector
+//----------------------------------------------------------------------------------------------------------------
+void vector3D ::set_Vector(const double &x, const double &y, const double &z)
+{
+
+    this->X = x; // set x value
+    this->Y = y; // set y value
+    this->Z = z; // set z value
+}
+
+

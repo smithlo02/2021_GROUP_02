@@ -67,7 +67,9 @@ cell::cell(const cell &cellToCopy)
 /** Brief description
 * The destructor
 */
-cell::~cell() {}
+cell::~cell() 
+{
+}
 
 //------------------------------------------------------------------------------------------------------------------
 //The get functions are used to call the private/protected values
@@ -248,7 +250,9 @@ tetrahedron::tetrahedron(const tetrahedron &thisTetrahedron) : cell()
 /** Brief description
 * Tetrahedron destructor
 */
-tetrahedron::~tetrahedron() {} // Tetrahedron Deconstructor
+tetrahedron::~tetrahedron() 
+{
+} // Tetrahedron Deconstructor
 
 // Tetrahedron Volume Calculation
 /** Brief description
@@ -314,7 +318,9 @@ hexahedron::hexahedron(const hexahedron &thisHexahedron) : cell()
 /** Brief description
 * Hexahedron destructor
 */
-hexahedron::~hexahedron() {} // Hexahedron Deconstructor
+hexahedron::~hexahedron() 
+{
+} // Hexahedron Deconstructor
 
 // Hexahedron Volume - A Hexahedron is essentially made up of six Tetrahedrons,
 // so we do six volume calculations and add them together

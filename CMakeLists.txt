@@ -23,13 +23,13 @@ set( CMAKE_AUTOUIC ON )
 
 # Find the Qt widgets package. This locates the relevant include and
 # lib directories, and the necessary static libraries for linking.
-find_package( Qt5Widgets )
+find_package( Qt6Widgets )
 
 set( UIS application/mainwindow.ui )
-qt5_wrap_ui( UI_Srcs ${UIS} )
+qt6_wrap_ui( UI_Srcs ${UIS} )
 
 set( ICONS application/Icons/icons.qrc )
-qt5_add_resources( QRC_Srcs ${ICONS} )
+qt6_add_resources( QRC_Srcs ${ICONS} )
 
 
 # Also link to VTK
@@ -63,7 +63,7 @@ add_executable( 2021_GROUP_02 MACOSX_BUNDLE
 target_link_libraries(2021_GROUP_02 cell material model Vector3D ModelRender mainwindow)
 
 # Tell CMake that the executable depends on the Qt::Widget libraries.
-target_link_libraries( 2021_GROUP_02 Qt5::Widgets )
+target_link_libraries( 2021_GROUP_02 Qt6::Widgets )
 
 # Tell CMake that the executable depends on the VTK libraries
 target_link_libraries( 2021_GROUP_02 ${VTK_LIBRARIES} )

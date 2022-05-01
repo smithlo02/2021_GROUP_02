@@ -227,7 +227,7 @@ tetrahedron::tetrahedron(vector3D point0, vector3D point1, vector3D point2, vect
 /** Brief description
 * Tetrahedron initialiser using a vector of Vector3D points
 */
-/*
+
 tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
 {
     for (int i = 0; i < tetra_points.size(); i++)
@@ -235,7 +235,7 @@ tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
         this->cellPoints.at(i) = tetra_points.at(i);
     }
 }
-*/
+
 // Tetrahedron Initialisation - Tetrahedron Copy Constructor
 /** Brief description
 * Tetrahedron initialiser copy constructor

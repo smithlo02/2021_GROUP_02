@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pyramid_72',['pyramid',['../classpyramid.html',1,'']]]
+  ['pyramid_71',['pyramid',['../classpyramid.html',1,'']]]
 ];

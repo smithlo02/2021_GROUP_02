@@ -227,6 +227,7 @@ tetrahedron::tetrahedron(vector3D point0, vector3D point1, vector3D point2, vect
 /** Brief description
 * Tetrahedron initialiser using a vector of Vector3D points
 */
+/*
 tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
 {
     for (int i = 0; i < tetra_points.size(); i++)
@@ -234,7 +235,7 @@ tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
         this->cellPoints.at(i) = tetra_points.at(i);
     }
 }
-
+*/
 // Tetrahedron Initialisation - Tetrahedron Copy Constructor
 /** Brief description
 * Tetrahedron initialiser copy constructor
@@ -298,11 +299,12 @@ hexahedron::hexahedron( vector3D point0, vector3D point1, vector3D point2, vecto
 /** Brief description
 * Hexahedron initialiser using a vector of Vector3D points
 */
+/*
 hexahedron::hexahedron(vector<vector3D> hexa_points) : cell()
 {
     cellPoints = hexa_points;
 }
-
+*/
 // Hexahedron Initialisation - Hexahedron Copy Constructor
 /** Brief description
 * Hexahedron copy constructor
@@ -318,10 +320,11 @@ hexahedron::hexahedron(const hexahedron &thisHexahedron) : cell()
 /** Brief description
 * Hexahedron destructor
 */
+/*
 hexahedron::~hexahedron() 
 {
 } // Hexahedron Deconstructor
-
+*/
 // Hexahedron Volume - A Hexahedron is essentially made up of six Tetrahedrons,
 // so we do six volume calculations and add them together
 /** Brief description
@@ -390,6 +393,7 @@ pyramid::pyramid(vector3D point0, vector3D point1, vector3D point2, vector3D poi
 /** Brief description
 * Pyramid constructor using vector of Vector3D points
 */
+/*
 pyramid::pyramid(vector<vector3D> pyra_points) : cell()
 {
     for (int i = 0; i < pyra_points.size(); i++)
@@ -397,7 +401,7 @@ pyramid::pyramid(vector<vector3D> pyra_points) : cell()
         this->cellPoints.at(i) = pyra_points.at(i);
     }
 }
-
+/*
 // Pyramid Initialisation - Pyramid Copy Constructor  // (Is this necessary if cell can already do it?)
 /** Brief description
 * Pyramid copy constructor
@@ -410,7 +414,7 @@ pyramid::pyramid(const pyramid &thisPyramid) : cell()
     }
 }
 
-pyramid::~pyramid() {} // Pyramid Deconstructor
+//pyramid::~pyramid() {} // Pyramid Deconstructor
 
 // Pyramid Volume
 // A Hexahedron is essentially made up of two Tetrahedrons, so we do six volume calculations and add them together

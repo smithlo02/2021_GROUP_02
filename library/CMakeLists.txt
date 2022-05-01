@@ -31,7 +31,9 @@ add_library(material material/material.cpp)
 add_library(model model/model.cpp)
 add_library(Vector3D Vector3D/Vector3D.cpp)
 
-add_executable(libraryTest libraryTest.cpp)
+add_executable( libraryTest MACOSX_BUNDLE
+				libraryTest.cpp)
+
 target_link_libraries(libraryTest cell material model Vector3D)
 
 install(TARGETS libraryTest

@@ -15,9 +15,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <Vector3D.h>
-#include <cell.h>
-#include <material.h>
+#include <Vector3D>
+#include <cell>
+#include <material>
 
 using namespace std;
 

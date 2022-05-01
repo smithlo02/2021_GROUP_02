@@ -91,7 +91,7 @@ public: // Member variables that can be accessed by any other object
     tetrahedron();
     tetrahedron(vector3D point0, vector3D point1, vector3D point2, vector3D point3);        // Constructor using individual Vector3D points
     //tetrahedron(vector<vector3D> tetra_points);                                             // Constructor using a vector of Vector3D points
-    //tetrahedron(const tetrahedron &thisTetrahedron);                                        // Copy constructor.
+    tetrahedron(const tetrahedron &thisTetrahedron);                                        // Copy constructor.
                                                                                             // Assignment Operator Needed
     //~tetrahedron();                                                                         // Destructor
 

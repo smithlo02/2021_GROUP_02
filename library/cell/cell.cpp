@@ -240,13 +240,13 @@ tetrahedron::tetrahedron(vector<vector3D> tetra_points) : cell()
 /** Brief description
 * Tetrahedron initialiser copy constructor
 */
-//tetrahedron::tetrahedron(const tetrahedron &thisTetrahedron) : cell()
-//{
-    //for (int i = 0; i < thisTetrahedron.cellPoints.size(); i++)
-    //{
-        //this->cellPoints.at(i) = thisTetrahedron.cellPoints.at(i);
-    //}
-//}
+tetrahedron::tetrahedron(const tetrahedron &thisTetrahedron) : cell()
+{
+    for (int i = 0; i < thisTetrahedron.cellPoints.size(); i++)
+    {
+        this->cellPoints.at(i) = thisTetrahedron.cellPoints.at(i);
+    }
+}
 
 /** Brief description
 * Tetrahedron destructor

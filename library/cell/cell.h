@@ -115,7 +115,7 @@ public: // Member variables that can be accessed by any other object
     hexahedron();
     hexahedron( vector3D point0, vector3D point1, vector3D point2, vector3D point3,
                 vector3D point4, vector3D point5, vector3D point6, vector3D point7);
-    //hexahedron(vector<vector3D> hexa_points);
+    hexahedron(vector<vector3D> hexa_points);
     hexahedron(const hexahedron &thisHexahedron);   // tetrahedron copy constructor
                                                     // Assignment Operator Needed
     //~hexahedron();
@@ -138,7 +138,7 @@ public: // Member variables that can be accessed by any other object
     // Constructor and Destructor
     pyramid();
     pyramid(vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4);
-    //pyramid(vector<vector3D> pyra_points);
+    pyramid(vector<vector3D> pyra_points);
     pyramid(const pyramid &thisPyramid);    // tetrahedron copy constructor.
                                             // Assignment Operator Needed
     //~pyramid();

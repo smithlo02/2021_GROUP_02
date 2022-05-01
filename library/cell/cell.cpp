@@ -299,12 +299,12 @@ hexahedron::hexahedron( vector3D point0, vector3D point1, vector3D point2, vecto
 /** Brief description
 * Hexahedron initialiser using a vector of Vector3D points
 */
-/*
+
 hexahedron::hexahedron(vector<vector3D> hexa_points) : cell()
 {
     cellPoints = hexa_points;
 }
-*/
+
 // Hexahedron Initialisation - Hexahedron Copy Constructor
 /** Brief description
 * Hexahedron copy constructor
@@ -393,7 +393,7 @@ pyramid::pyramid(vector3D point0, vector3D point1, vector3D point2, vector3D poi
 /** Brief description
 * Pyramid constructor using vector of Vector3D points
 */
-/*
+
 pyramid::pyramid(vector<vector3D> pyra_points) : cell()
 {
     for (int i = 0; i < pyra_points.size(); i++)
@@ -401,7 +401,7 @@ pyramid::pyramid(vector<vector3D> pyra_points) : cell()
         this->cellPoints.at(i) = pyra_points.at(i);
     }
 }
-/*
+
 // Pyramid Initialisation - Pyramid Copy Constructor  // (Is this necessary if cell can already do it?)
 /** Brief description
 * Pyramid copy constructor

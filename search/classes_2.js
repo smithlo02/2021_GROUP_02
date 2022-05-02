@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['hexahedron_65',['hexahedron',['../classhexahedron.html',1,'']]]
+  ['material_60',['material',['../classmaterial.html',1,'']]],
+  ['matrix_61',['Matrix',['../class_matrix.html',1,'']]],
+  ['model_62',['model',['../classmodel.html',1,'']]]
 ];

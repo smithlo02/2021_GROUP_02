@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['set_5felement_47',['Set_Element',['../class_matrix.html#aacf90c2efaccafb6669b1ab02e0723ff',1,'Matrix']]],
-  ['setcellid_48',['setcellID',['../classcell.html#ade68bce32dd9d6cce8ed7843eddc8e96',1,'cell']]],
-  ['setcolour_49',['setColour',['../classmaterial.html#ab1d0cce8f24a884bd77f27843bb5f9d0',1,'material']]],
-  ['setdensity_50',['setDensity',['../classmaterial.html#a1f4856065cd6525c9d08f205509ce544',1,'material']]],
-  ['setdiagonal_51',['setdiagonal',['../class_matrix.html#a260c315f87417818cc42f2d20b7a5756',1,'Matrix']]],
-  ['setid_52',['setID',['../classmaterial.html#a9a90095d349205b1027597bea61f7f2b',1,'material']]],
-  ['setmatrix_53',['SetMatrix',['../class_matrix.html#a98b88dc66922f7170ea2d97cc1b4c836',1,'Matrix']]],
-  ['setname_54',['setName',['../classmaterial.html#a179737dc865c3ca0a759e878c5745053',1,'material']]]
+  ['tetrahedron_50',['tetrahedron',['../classtetrahedron.html',1,'tetrahedron'],['../classtetrahedron.html#a94cd9504a2a09c7cf1a5854b49842ae6',1,'tetrahedron::tetrahedron()'],['../classtetrahedron.html#af0af459328f9a28a9842b5f5d511325d',1,'tetrahedron::tetrahedron(vector3D point0, vector3D point1, vector3D point2, vector3D point3)'],['../classtetrahedron.html#a175887268a1ccd7ad780ac825bd15275',1,'tetrahedron::tetrahedron(vector&lt; vector3D &gt; tetra_points)'],['../classtetrahedron.html#a85baa5ddc41b1216ef57e137ba26902c',1,'tetrahedron::tetrahedron(const tetrahedron &amp;thisTetrahedron)']]],
+  ['transpose_51',['Transpose',['../class_matrix.html#af9b74b284027c584dc75ae674e65f58d',1,'Matrix']]]
 ];

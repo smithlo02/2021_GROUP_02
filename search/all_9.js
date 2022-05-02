@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['readme_39',['README',['../md_library__matrix__r_e_a_d_m_e.html',1,'']]],
-  ['readme_40',['README',['../md_library__opengl__r_e_a_d_m_e.html',1,'']]],
-  ['readme_41',['README',['../md_library__vector3_d__r_e_a_d_m_e.html',1,'']]],
-  ['readmodelfile_42',['readModelFile',['../classmodel.html#a137dfbef67a058fc1929540cc55b2716',1,'model']]],
-  ['replace_5fpoint_43',['replace_Point',['../classcell.html#a1c491e06b604bf7cacd3d9657d56d9fd',1,'cell']]],
-  ['rotatex_44',['RotateX',['../class_matrix.html#a873f8afe49c0adb6aa5cdaae005cf538',1,'Matrix']]],
-  ['rotatey_45',['RotateY',['../class_matrix.html#a81d426db99f5322f0843e5ee71e46f24',1,'Matrix']]],
-  ['rotatez_46',['RotateZ',['../class_matrix.html#ab7dede100c29302e786408f6f00f0bdf',1,'Matrix']]]
+  ['set_5felement_42',['Set_Element',['../class_matrix.html#aacf90c2efaccafb6669b1ab02e0723ff',1,'Matrix']]],
+  ['setcellid_43',['setcellID',['../classcell.html#ade68bce32dd9d6cce8ed7843eddc8e96',1,'cell']]],
+  ['setcolour_44',['setColour',['../classmaterial.html#ab1d0cce8f24a884bd77f27843bb5f9d0',1,'material']]],
+  ['setdensity_45',['setDensity',['../classmaterial.html#a1f4856065cd6525c9d08f205509ce544',1,'material']]],
+  ['setdiagonal_46',['setdiagonal',['../class_matrix.html#a260c315f87417818cc42f2d20b7a5756',1,'Matrix']]],
+  ['setid_47',['setID',['../classmaterial.html#a9a90095d349205b1027597bea61f7f2b',1,'material']]],
+  ['setmatrix_48',['SetMatrix',['../class_matrix.html#a98b88dc66922f7170ea2d97cc1b4c836',1,'Matrix']]],
+  ['setname_49',['setName',['../classmaterial.html#a179737dc865c3ca0a759e878c5745053',1,'material']]]
 ];

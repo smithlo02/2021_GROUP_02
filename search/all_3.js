@@ -1,12 +1,4 @@
 var searchData=
 [
-  ['get_5felement_11',['Get_Element',['../class_matrix.html#ababc947d8688db0135c57b8a23ab889a',1,'Matrix']]],
-  ['getcell_12',['getCell',['../classmodel.html#a29e2f69e8f6738f6cdf2eed5795888f6',1,'model']]],
-  ['getcellid_13',['getcellID',['../classcell.html#a8b824451221d13c873168a7217b2d093',1,'cell']]],
-  ['getcolour_14',['getColour',['../classmaterial.html#a7429e869e17b90b401ce99ff6ce100b7',1,'material']]],
-  ['getdensity_15',['getDensity',['../classmaterial.html#acfc50666ceba89a8fb59169196c3f25e',1,'material']]],
-  ['getid_16',['getID',['../classmaterial.html#af2a1bacd0b6cd56e24a71eeaf208a66e',1,'material']]],
-  ['getmaterial_17',['getMaterial',['../classmodel.html#ae1d5a1d9327b741b179acb30e180db2a',1,'model']]],
-  ['getname_18',['getName',['../classmaterial.html#ab4e7e786a3eb49b421cdb7659471cac1',1,'material']]],
-  ['getvector_19',['getVector',['../classmodel.html#a217944ab29ca1c5055fbc61be4198768',1,'model']]]
+  ['hexahedron_18',['hexahedron',['../classhexahedron.html',1,'hexahedron'],['../classhexahedron.html#af63a2521adfb8dc6861262c7a2c45ab5',1,'hexahedron::hexahedron()'],['../classhexahedron.html#a90cc98d11e64404fefeae88538723af3',1,'hexahedron::hexahedron(vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4, vector3D point5, vector3D point6, vector3D point7)'],['../classhexahedron.html#aac3beb1649462d2d72156efb880061df',1,'hexahedron::hexahedron(vector&lt; vector3D &gt; hexa_points)'],['../classhexahedron.html#ad61602541bde4883331fa919a2cd3e3c',1,'hexahedron::hexahedron(const hexahedron &amp;thisHexahedron)']]]
 ];

@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['operator_2a_33',['operator*',['../class_matrix.html#a10006557b8bd92dd0e0109a75b0a22f3',1,'Matrix::operator*(const Matrix &amp;Mat)'],['../class_matrix.html#a36ee2860aa71642d26de246d3c50ce0f',1,'Matrix::operator*(double Scalar)']]],
-  ['operator_2b_34',['operator+',['../class_matrix.html#aa4e59b7784885be95713668faddaf7a3',1,'Matrix']]],
-  ['operator_2d_35',['operator-',['../class_matrix.html#a75da6ea400d2789562eeccc2f4bfa3ad',1,'Matrix']]],
-  ['outlinefilter_36',['outLineFilter',['../classfilter.html#a58a24cc14f0ec41ace88f8f65ab5ca56',1,'filter']]],
-  ['outputmatrix_37',['OutputMatrix',['../class_matrix.html#aeff5fc7df523af38205e81901edce56c',1,'Matrix']]]
+  ['pyramid_33',['pyramid',['../classpyramid.html',1,'pyramid'],['../classpyramid.html#aca9e38015b5dc2400b81cf7cbb17680b',1,'pyramid::pyramid()'],['../classpyramid.html#a31d0e05ccf8f4f6b25e10a95d29d8473',1,'pyramid::pyramid(vector3D point0, vector3D point1, vector3D point2, vector3D point3, vector3D point4)'],['../classpyramid.html#abe2629ba41c1b9b5e9c5d9c211e987c8',1,'pyramid::pyramid(vector&lt; vector3D &gt; pyra_points)'],['../classpyramid.html#a715a9ffb9d2659569ae03823a7e3ebee',1,'pyramid::pyramid(const pyramid &amp;thisPyramid)']]]
 ];

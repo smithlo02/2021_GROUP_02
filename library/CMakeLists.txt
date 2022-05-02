@@ -1,13 +1,9 @@
-cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
+#====================== Copyright:Shiyu Wang ========================# 
+cmake_minimum_required(VERSION 3.17)
 
-foreach(p
-    CMP0071 # 3.10: Let AUTOMOC and AUTOUIC process GENERATED files
-    )
-  if(POLICY ${p})
-    cmake_policy(SET ${p} NEW)
-  endif()
-endforeach()
+project( libraryTest )
 
+<<<<<<< HEAD
 project(library)
 #=============INCLUSION OF Qt===================#
 set(CMAKE_CXX_STANDARD 17)
@@ -28,11 +24,26 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
+=======
+#======================= INCLUSION OF Our Code ======================#
+set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
+set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 include(CTest)
 
-include_directories(Vector3D cell material model)
+file(GLOB_RECURSE SOURCES
+    "${INCLUDE_DIR}/*.h"
+    "${SOURCE_DIR}/*.cpp"
+)
+>>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6
 
+#tell CMake where to find the headers
+include_directories(./include)
+
+# generate a static lib
+add_library(libraryTest ${SOURCES})
+
+<<<<<<< HEAD
 # Define the executable output and its sources
 add_library(cell cell/cell.cpp)
 add_library(material material/material.cpp)
@@ -48,3 +59,19 @@ target_link_libraries( library ${VTK_LIBRARIES})
 target_link_libraries( application library)
 # Ensure that ML_GUI can only build once ML_lib has built
 add_dependencies(Test library)
+=======
+add_executable( libraryTest MACOSX_BUNDLE
+				libraryTest.cpp)
+
+# Make sure the compiler can find include files when the other programs need to link against this library 
+target_link_libraries (libraryTest PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+install(TARGETS libraryTest
+RUNTIME DESTINATION bin
+LIBRARY DESTINATION lib
+ARCHIVE DESTINATION lib/static)
+
+add_test(libraryTest libraryTest)
+
+
+>>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6

@@ -1,0 +1,24 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/Icons">
+    <!-- Typical file operations. -->
+    <file>fileopen.png</file>
+    <file>filesave.png</file>
+    <file>texture.png</file>
+    <file>WindowIcon.png</file>
+    <file>santa.png</file>
+ <file>cone.png</file>
+ <file>cube.png</file>
+ <file>cylinder.png</file>
+ <file>disk.png</file>
+ <file>line.png</file>
+ <file>sphere.png</file>
+ <file>tetrahedron.png</file>
+ <file>pyramid.png</file>
+
+
+
+    <!-- Help -->
+    <file>help.png</file>
+  </qresource>
+</RCC>

@@ -35,6 +35,7 @@ add_executable( libraryTest MACOSX_BUNDLE
 				libraryTest.cpp)
 
 target_link_libraries(libraryTest cell material model Vector3D)
+target_link_libraries(libraryTest PUBLIC cell PUBLIC tetrahedron PUBLIC hexahedron PUBLIC pyramid)
 
 install(TARGETS libraryTest
 RUNTIME DESTINATION bin

@@ -11,11 +11,9 @@ int main()
 
 	const string fileName = "ExampleModel1.mod";
 
-	testModel.readModelFile(fileName);
-	material testMaterial = testModel.getMaterial(0);
-
-	if ((testMaterial.getColour() != 0xb87333) || (testMaterial.getDensity() != 8960) || (testMaterial.getID() != 0) || (testMaterial.getName() != "copper"))
-		pass = 0;
+	testModel.Read_from_A_file(fileName);
+	
+	pass = 0;
 
 	return(pass == 1) ? 0 : 1;
 }

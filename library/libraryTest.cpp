@@ -3,11 +3,10 @@
 #include <model.h>
 #include <cell.h>
 #include <material.h>
-#include <vector3D.h>
 
 int main()
 {
-	model testModel;
+	Model testModel;
 	int pass = 1;
 
 	const string fileName = "ExampleModel1.mod";

@@ -3,7 +3,6 @@
 #include <model.h>
 #include <cell.h>
 #include <material.h>
-#include <vector3D.h>
 
 int main()
 {

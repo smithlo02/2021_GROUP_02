@@ -34,7 +34,7 @@ add_library(Vector3D Vector3D/Vector3D.cpp)
 add_executable( libraryTest MACOSX_BUNDLE
 				libraryTest.cpp)
 
-target_link_libraries(libraryTest PUBLIC cell PUBLIC tetrahedron PUBLIC hexahedron PUBLIC pyramid material model Vector3D)
+target_link_libraries(libraryTest PUBLIC cell tetrahedron hexahedron pyramid material model Vector3D)
 
 install(TARGETS libraryTest
 RUNTIME DESTINATION bin

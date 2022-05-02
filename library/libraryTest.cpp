@@ -6,7 +6,7 @@
 
 int main()
 {
-	model testModel;
+	Model testModel;
 	int pass = 1;
 
 	const string fileName = "ExampleModel1.mod";

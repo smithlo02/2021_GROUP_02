@@ -24,11 +24,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <Vector3D.h>
-#include <cell.h>
-#include <material.h>
-#include <model.h>
-
+#include "Vector3D.h"
+#include "cell.h"
+#include "material.h"
+#include "model.h"
+#include <cmath>
 
 /** Destructor
 * Default constructor

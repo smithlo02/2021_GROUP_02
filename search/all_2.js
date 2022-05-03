@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['hexahedron_26',['Hexahedron',['../class_hexahedron.html',1,'']]]
+  ['get_5fcell_5fid_14',['get_cell_ID',['../class_cell.html#af91b78cf01a39262bd6690280f67ed4a',1,'Cell']]],
+  ['get_5fcell_5fnum_15',['get_Cell_num',['../class_model.html#a95980f4eb205e45a61cc6b73891ac6bd',1,'Model']]],
+  ['get_5fcell_5ftype_16',['get_cell_type',['../class_cell.html#a77b6a695236c47afb0d9b0a38f187766',1,'Cell::get_cell_type()'],['../class_model.html#acca37903a56e194a7c6548da750b6d9f',1,'Model::get_cell_type()']]],
+  ['get_5fcenter_17',['get_center',['../class_model.html#a0671710c282cd1b38f1b517c25b9a5b1',1,'Model']]],
+  ['get_5fcolour_18',['get_Colour',['../class_material.html#a05ea780f8cf4fb39b4e91735f96e412b',1,'Material']]],
+  ['get_5fdensity_19',['get_Density',['../class_material.html#a0966010446926bacdb5df14e1b1d5498',1,'Material']]],
+  ['get_5fid_20',['get_ID',['../class_material.html#a62583e78404c61de3ac3b3c33a22b99c',1,'Material::get_ID()'],['../classvector3_d.html#ac4276a10ead7238c1eb97550d1437dc2',1,'vector3D::get_ID()']]],
+  ['get_5fmaterial_21',['get_Material',['../class_material.html#a158744efca04a73cd727d943dcbfa715',1,'Material']]],
+  ['get_5fmaterial_5fnum_22',['get_material_num',['../class_model.html#abd98a97a3c3a97ca9fa55d2e5fa7266a',1,'Model']]],
+  ['get_5fname_23',['get_Name',['../class_material.html#a1c6d90bdd060cf7aa8ef2c09034bd660',1,'Material']]],
+  ['get_5fvector_24',['get_Vector',['../classvector3_d.html#acaaa66432e3bd2e4ca7a3bae8ec60de8',1,'vector3D']]],
+  ['get_5fvertex_5fnum_25',['get_vertex_num',['../class_model.html#ab389bdec3a7fbfa54ffa518c10621cbe',1,'Model']]],
+  ['get_5fvertices_26',['get_vertices',['../class_model.html#aabf998df257f94acb92974c1805bbf25',1,'Model']]],
+  ['get_5fx_27',['get_X',['../classvector3_d.html#ad533c2406a03494a5eba841460a1e717',1,'vector3D']]],
+  ['get_5fy_28',['get_Y',['../classvector3_d.html#a0568adbb3ebe6f6eb9317e2d65e4c0a9',1,'vector3D']]],
+  ['get_5fz_29',['get_Z',['../classvector3_d.html#a946364ddf01b841f2261e9ff4a696371',1,'vector3D']]],
+  ['getactor_30',['GetActor',['../class_model_render.html#a891c2fa4ec300d245743a4f2075159bf',1,'ModelRender']]],
+  ['getbounds_31',['GetBounds',['../class_model_render.html#a68314427b31df476675ff64a68c93f0e',1,'ModelRender']]],
+  ['getcamera_32',['GetCamera',['../class_model_render.html#a1498712335c171c09165da86d5a5f556',1,'ModelRender']]],
+  ['getcenterofgravity_33',['getCenterOfGravity',['../class_cell.html#a53c7e2096804abf3aa1dd3ad93f45305',1,'Cell::getCenterOfGravity()'],['../class_hexahedron.html#adcfce875cca1bc6d157df784236c586e',1,'Hexahedron::getCenterOfGravity()'],['../class_pyramid.html#a37f91d41a60fc25ebf2a099b41a22978',1,'Pyramid::getCenterOfGravity()'],['../class_tetrahedron.html#a572b2eb37abbbdf378526f330e16adde',1,'Tetrahedron::getCenterOfGravity()']]],
+  ['getcolor_34',['GetColor',['../class_model_render.html#a96ef45b7fd3ee7f4630f8600b260f117',1,'ModelRender']]],
+  ['getinstance_35',['GetInstance',['../class_model_render.html#a59448b261cdb9889c3ad181edfc0ba98',1,'ModelRender::GetInstance()'],['../class_v_tk_filters.html#ade1b335bd71beefb2380631068143daf',1,'VTkFilters::GetInstance()']]],
+  ['getpolydata_36',['GetPolyData',['../class_model_render.html#abb09dbc0878998ee78c06e81fb763a9f',1,'ModelRender']]],
+  ['getrenderer_37',['GetRenderer',['../class_model_render.html#adf7d201c644394d25f97e291cc2ab66a',1,'ModelRender']]],
+  ['getrenderwindow_38',['GetRenderWindow',['../class_model_render.html#a8baf053723821fc3de54eb427709d116',1,'ModelRender']]],
+  ['getsurfacefilter_39',['GetSurfaceFilter',['../class_v_tk_filters.html#a04ed57aee0b121c377b38896c039b4b1',1,'VTkFilters']]],
+  ['getvolume_40',['getVolume',['../class_cell.html#aac8a5f3d06691efa17d909cc4e9c248b',1,'Cell::getVolume()'],['../class_hexahedron.html#a1711e6087faef6dc1819c5e4190cfae8',1,'Hexahedron::getVolume()'],['../class_pyramid.html#ab93cd68fbd0d5ec4b648a5d7b3d00fac',1,'Pyramid::getVolume()'],['../class_tetrahedron.html#ac6b83e298380b6417b948e841176e94e',1,'Tetrahedron::getVolume()']]],
+  ['getweight_41',['getWeight',['../class_cell.html#a17973475a8e3d1ca61ccc0175d2f903f',1,'Cell::getWeight()'],['../class_hexahedron.html#a450634e2570425c46571648d1007718b',1,'Hexahedron::getWeight()'],['../class_pyramid.html#ae1f76e1bad6ed6e5d16b2869530b4f7a',1,'Pyramid::getWeight()'],['../class_tetrahedron.html#a8ae6bca3b66d5f067a393d2112348655',1,'Tetrahedron::getWeight()']]]
 ];

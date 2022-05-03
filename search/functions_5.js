@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['vector3d_104',['vector3D',['../classvector3_d.html#a73976cfa2a87ad6fd518e8b023048fac',1,'vector3D::vector3D()'],['../classvector3_d.html#a7ff71cf5c49f9bc1cbb820c8731f4953',1,'vector3D::vector3D(const int &amp;index, const double &amp;xi, const double &amp;yi, const double &amp;zi)']]],
-  ['vertices_5fparser_105',['vertices_parser',['../class_model.html#a404814d9ddec1a19223ca87087764c6d',1,'Model']]]
+  ['mainwindow_156',['MainWindow',['../class_main_window.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow']]],
+  ['material_157',['Material',['../class_material.html#a137e987401b63eb7c6c27c3e38bc74b5',1,'Material::Material()'],['../class_material.html#aa7a4a4dd5f5fd8d9163b3596b447f422',1,'Material::Material(int id, string name, string colour, int density)']]],
+  ['material_5fparser_158',['material_parser',['../class_model.html#a8aa15172a1c4aebe6c21a1210e19f5d8',1,'Model']]],
+  ['modfilerender_159',['ModFileRender',['../class_model_render.html#a912f6469fd2a9ca7bc17b3abe4b984f8',1,'ModelRender']]]
 ];

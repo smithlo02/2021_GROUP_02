@@ -3,6 +3,10 @@
 #include <string>
 using namespace std;
 
+/** @file
+* The source file containing the material class definitions
+*/
+
 /* ~ Material Class ~ */
 // Values to store (data type):
 // ID ~ is a number value (int)

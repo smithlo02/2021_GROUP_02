@@ -3,6 +3,11 @@
 #include <vector3d.h>
 #include <material.h>
 
+/** @file
+* The default cell constructor that is the parent class of the tetrahedron, pyramid and hexahedron classes
+*
+*/
+
 class Cell
 {
 	friend class Model; //let Model class to access the protected data

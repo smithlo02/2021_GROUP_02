@@ -8,6 +8,10 @@
 #include <iostream>
 using namespace std;
 
+/** @file
+* The source file for the vector3D class
+*/
+
 class vector3D
 {
 

@@ -31,6 +31,10 @@
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkDataSetSurfaceFilter.h>
 
+/** @file
+* The code for the vtk renderer
+*/
+
 ModelRender& ModelRender::GetInstance()
 {
 	static ModelRender Singleton;

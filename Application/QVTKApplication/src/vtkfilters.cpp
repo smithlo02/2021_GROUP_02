@@ -19,6 +19,10 @@
 #include <vtkNamedColors.h>
 #include <qmessagebox.h>
 
+/** @file
+* The functions for each vtk filter used in the renderer
+*/ 
+
 VTkFilters &VTkFilters::GetInstance()
 {
 	static VTkFilters Singleton;

@@ -18,6 +18,9 @@
 #include <vtkNamedColors.h>
 #include <vtkPolyDataMapper.h>
 
+/** @file
+* The code for the qt gui window
+*/
 
 MainWindow::~MainWindow()
 {

@@ -6,6 +6,9 @@
 #include <vector3d.h>
 #include <material.h>
 
+/** @file
+* The main file that opens the qt and vtk windows
+*/
 
 //Implmentation of overloading the << operator to display the vector
 ostream& operator<<(ostream& os, vector3D& v)

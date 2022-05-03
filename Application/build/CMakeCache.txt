@@ -144,6 +144,9 @@ CMAKE_OBJCOPY:FILEPATH=C:/Program Files/CodeBlocks/MinGW/bin/objcopy.exe
 //Path to a program.
 CMAKE_OBJDUMP:FILEPATH=C:/Program Files/CodeBlocks/MinGW/bin/objdump.exe
 
+//No help, variable specified on the command line.
+CMAKE_PREFIX_PATH:UNINITIALIZED=C:\VTK\build\bin;C:\Qt\5.15.1\msvc2019_64-GVisual Studio 15 2017 Win64
+
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
 
@@ -258,7 +261,7 @@ QtVTKProject_IS_TOP_LEVEL:STATIC=OFF
 QtVTKProject_SOURCE_DIR:STATIC=C:/Users/thanw/2021_GROUP_02/application/QVTKApplication
 
 //The directory containing a CMake configuration file for VTK.
-VTK_DIR:PATH=C:/Program Files (x86)/VTK/lib/cmake/vtk-9.1
+VTK_DIR:PATH=VTK_DIR-NOTFOUND
 
 //Value Computed by CMake
 Worksheet6_BINARY_DIR:STATIC=C:/Users/thanw/2021_GROUP_02/application/build

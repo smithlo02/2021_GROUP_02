@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['interval_3',['interval',['../classinterval.html',1,'']]]
+  ['material_3',['Material',['../class_material.html',1,'']]],
+  ['model_4',['Model',['../class_model.html',1,'']]]
 ];

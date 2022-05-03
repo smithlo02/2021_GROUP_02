@@ -84,18 +84,18 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">//define 4 vertices</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        this-&gt;cell_vertices = <span class="keyword">new</span> <a class="code" href="classvector3_d.html">vector3D</a>[4];</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        this-&gt;cell_vertices[0] = Vertices[0];</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        this-&gt;cell_vertices[1] = Vertices[1];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        this-&gt;cell_vertices[2] = Vertices[2];</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        this-&gt;cell_vertices[3] = Vertices[3];</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9a969d00a48a425e76da8894fa863710">cell_vertices</a> = <span class="keyword">new</span> <a class="code" href="classvector3_d.html">vector3D</a>[4];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9a969d00a48a425e76da8894fa863710">cell_vertices</a>[0] = Vertices[0];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9a969d00a48a425e76da8894fa863710">cell_vertices</a>[1] = Vertices[1];</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9a969d00a48a425e76da8894fa863710">cell_vertices</a>[2] = Vertices[2];</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9a969d00a48a425e76da8894fa863710">cell_vertices</a>[3] = Vertices[3];</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//allcate memmory for ID / shape type / material</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        this-&gt;ID = <span class="keyword">new</span> int(*<span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        this-&gt;<a class="code" href="class_cell.html#abd6b12c50eceb79f78bbde42fd14e67d">ID</a> = <span class="keyword">new</span> int(*<span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        this-&gt;Shape = <span class="keyword">new</span> char(*shape);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a9ba2a22e416b7f5073cdb679fd07138c">Shape</a> = <span class="keyword">new</span> char(*shape);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this-&gt;M = <span class="keyword">new</span> <a class="code" href="class_material.html">Material</a>(*material);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this-&gt;<a class="code" href="class_cell.html#a43b43ba727bdfd5ab4806f485f786d10">M</a> = <span class="keyword">new</span> <a class="code" href="class_material.html">Material</a>(*material);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_tetrahedron.html">Tetrahedron</a>(<span class="keyword">const</span> <a class="code" href="class_tetrahedron.html">Tetrahedron</a> &amp;t); <span class="comment">// copy constructor</span></div>
@@ -105,18 +105,25 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span>~<a class="code" href="class_tetrahedron.html">Tetrahedron</a>(); <span class="comment">//destructor</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// re-implement the virtual functions in the sub-class</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> getVolume();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector3_d.html">vector3D</a> getCenterOfGravity();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> getWeight(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;volume);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_tetrahedron.html#ac6b83e298380b6417b948e841176e94e">getVolume</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector3_d.html">vector3D</a> <a class="code" href="class_tetrahedron.html#a572b2eb37abbbdf378526f330e16adde">getCenterOfGravity</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_tetrahedron.html#a8ae6bca3b66d5f067a393d2112348655">getWeight</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;volume);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // TETRAHEDRON_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_tetrahedron_html_a8ae6bca3b66d5f067a393d2112348655"><div class="ttname"><a href="class_tetrahedron.html#a8ae6bca3b66d5f067a393d2112348655">Tetrahedron::getWeight</a></div><div class="ttdeci">virtual double getWeight(const double &amp;volume)</div><div class="ttdef"><b>Definition:</b> tetrahedron.cpp:114</div></div>
 <div class="ttc" id="aclass_tetrahedron_html"><div class="ttname"><a href="class_tetrahedron.html">Tetrahedron</a></div><div class="ttdef"><b>Definition:</b> tetrahedron.h:6</div></div>
 <div class="ttc" id="aclassvector3_d_html"><div class="ttname"><a href="classvector3_d.html">vector3D</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:15</div></div>
+<div class="ttc" id="aclass_cell_html_a9ba2a22e416b7f5073cdb679fd07138c"><div class="ttname"><a href="class_cell.html#a9ba2a22e416b7f5073cdb679fd07138c">Cell::Shape</a></div><div class="ttdeci">char * Shape</div><div class="ttdef"><b>Definition:</b> cell.h:71</div></div>
+<div class="ttc" id="aclass_tetrahedron_html_ac6b83e298380b6417b948e841176e94e"><div class="ttname"><a href="class_tetrahedron.html#ac6b83e298380b6417b948e841176e94e">Tetrahedron::getVolume</a></div><div class="ttdeci">virtual double getVolume()</div><div class="ttdef"><b>Definition:</b> tetrahedron.cpp:82</div></div>
 <div class="ttc" id="avector3d_8h_html"><div class="ttname"><a href="vector3d_8h.html">vector3d.h</a></div></div>
 <div class="ttc" id="aclass_cell_html"><div class="ttname"><a href="class_cell.html">Cell</a></div><div class="ttdef"><b>Definition:</b> cell.h:11</div></div>
+<div class="ttc" id="aclass_cell_html_a43b43ba727bdfd5ab4806f485f786d10"><div class="ttname"><a href="class_cell.html#a43b43ba727bdfd5ab4806f485f786d10">Cell::M</a></div><div class="ttdeci">Material * M</div><div class="ttdef"><b>Definition:</b> cell.h:56</div></div>
 <div class="ttc" id="aclass_material_html"><div class="ttname"><a href="class_material.html">Material</a></div><div class="ttdef"><b>Definition:</b> material.h:19</div></div>
+<div class="ttc" id="aclass_cell_html_a9a969d00a48a425e76da8894fa863710"><div class="ttname"><a href="class_cell.html#a9a969d00a48a425e76da8894fa863710">Cell::cell_vertices</a></div><div class="ttdeci">vector3D * cell_vertices</div><div class="ttdef"><b>Definition:</b> cell.h:61</div></div>
+<div class="ttc" id="aclass_tetrahedron_html_a572b2eb37abbbdf378526f330e16adde"><div class="ttname"><a href="class_tetrahedron.html#a572b2eb37abbbdf378526f330e16adde">Tetrahedron::getCenterOfGravity</a></div><div class="ttdeci">virtual vector3D getCenterOfGravity()</div><div class="ttdef"><b>Definition:</b> tetrahedron.cpp:104</div></div>
+<div class="ttc" id="aclass_cell_html_abd6b12c50eceb79f78bbde42fd14e67d"><div class="ttname"><a href="class_cell.html#abd6b12c50eceb79f78bbde42fd14e67d">Cell::ID</a></div><div class="ttdeci">int * ID</div><div class="ttdef"><b>Definition:</b> cell.h:66</div></div>
 <div class="ttc" id="acell_8h_html"><div class="ttname"><a href="cell_8h.html">cell.h</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

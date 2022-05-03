@@ -22,6 +22,9 @@ vector3D ::vector3D()
 //---------------------------------------------------------------------------------------------------------------
 //function does the vector subtraction and return the result which is also a vector back to the user
 //---------------------------------------------------------------------------------------------------------------
+/** Vector subraction operator
+*
+*/
 vector3D vector3D ::operator-(const vector3D &v)
 {
 

@@ -1,4 +1,10 @@
 #include <cell.h>
+
+/** @file
+* The default cell constructor that is the parent class of the tetrahedron, pyramid and hexahedron classes
+* 
+*/
+
 //----------------------------------------------------------
 //implementation of the default constructor
 Cell::Cell()

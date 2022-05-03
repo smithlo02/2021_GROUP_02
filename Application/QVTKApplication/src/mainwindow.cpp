@@ -48,7 +48,6 @@ void MainWindow::UISetUp()
     this->setWindowTitle("Group2 project");
     this->setWindowIcon(QIcon(":/Icons/WindowIcon.png"));
     ui->openGLWidget->setFixedSize(1200, 550);
-    ui->WebLink->setOpenExternalLinks(true);
 
     QActionGroup *SourceGroup = new QActionGroup(this);
     SourceGroup->setExclusionPolicy(QActionGroup::ExclusionPolicy::ExclusiveOptional);

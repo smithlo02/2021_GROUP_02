@@ -1,5 +1,9 @@
 #include "material.h"
 
+/** @file
+* The source file containing the material class definitions
+*/
+
 // Define a object of the material class
 Material::Material()
 {

@@ -4,6 +4,11 @@
 // Include header file for Vector3D
 //-------------------------------------------------------------
 #include "vector3d.h"
+
+/** @file
+* The source file for the vector3D class
+*/
+
 //---------------------------------------------------------------------------------------------------------------
 //default constructor
 vector3D ::vector3D()

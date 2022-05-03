@@ -5,8 +5,16 @@
 #include <string.h>
 using namespace std;
 
+/** @file
+* The source file for the model class
+*/
+
 //======================================================================================
 //function to parse the vertices and push_back into a vector array
+/** Vertices Parser
+* A function to parse the vertices from a line of a .mod file that begins with "v" indicating a vector
+* The vector is push_back into a vector array
+*/
 void Model::vertices_parser(const string &dataline)
 {
      //--------------------------------------------------------------
@@ -32,6 +40,10 @@ void Model::vertices_parser(const string &dataline)
 
 //======================================================================================
 //function to parse the materials and push_back into a vector array
+/** Material Parser
+* A function to parse the material information from a line of a .mod file that begins with "m" indicating a material
+* The material is push_back into a material array
+*/
 void Model::material_parser(const string &dataline)
 {
      //--------------------------------------------------------------
@@ -57,6 +69,11 @@ void Model::material_parser(const string &dataline)
 
 //======================================================================================
 //function to parse the cells of index<10 and push_back into a cell array
+/** Cell Parser
+* A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+* The cell is push_back into a cell array
+* This funtion is only used for cells of index < 10
+*/
 void Model::cell_parser(const string &dataline)
 {
      //for example if the dataline is "c 5 h 0 20 21 23 22 24 25 27 26"
@@ -211,6 +228,11 @@ void Model::cell_parser(const string &dataline)
 //function to parse the cells of index>=10 and push_back into a cell array
 //@notice the idea is basically the same as the function above , the only difference is the index of the string dataline changes
 //so i am not going to explain in to more detail.
+/** Cell Parser
+* A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+* The cell is push_back into a cell array
+* This funtion is only used for cells of 10 < index < 100
+*/
 void Model::cell_parser_index_greater_than_10(const string &dataline)
 {
 
@@ -354,6 +376,11 @@ void Model::cell_parser_index_greater_than_10(const string &dataline)
 //function to parse the cells of index>=100 and push_back into a cell array
 //@notice the idea is basically the same as the function above , the only difference is the index of the string dataline changes
 //so i am not going to explain in to more detail.
+/** Cell Parser
+* A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+* The cell is push_back into a cell array
+* This funtion is only used for cells of index > 100
+*/
 void Model::cell_parser_index_greater_than_100(const string &dataline)
 {
 

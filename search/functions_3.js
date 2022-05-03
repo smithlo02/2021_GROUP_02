@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['set_5fcolour_80',['set_Colour',['../class_material.html#a2d40d786ae8234b16fdce725cc308d69',1,'Material']]],
-  ['set_5fdensity_81',['set_Density',['../class_material.html#a5a7ace2c13488caa7c0d4d7df68062df',1,'Material']]],
-  ['set_5fid_82',['set_ID',['../class_material.html#a9d47b5c60b6a21d69da6baee0bd870a2',1,'Material']]],
-  ['set_5fname_83',['set_Name',['../class_material.html#ac0f66d359e1e051b1af9d2d33c977c7f',1,'Material']]]
+  ['operator_2a_94',['operator*',['../classvector3_d.html#a30a06c6d8701c300db9eeee4baab348a',1,'vector3D']]],
+  ['operator_2b_95',['operator+',['../classvector3_d.html#a95b32938dc1553f44b6fb3aef952cc7b',1,'vector3D']]],
+  ['operator_2d_96',['operator-',['../classvector3_d.html#a829ff8782e512935c738016718317a5c',1,'vector3D']]],
+  ['operator_2f_97',['operator/',['../classvector3_d.html#a350f0bdea8c1e4a9d3d5d286c7b925fc',1,'vector3D']]],
+  ['operator_5e_98',['operator^',['../classvector3_d.html#afd110f2b422bafed7134577fb68e63ec',1,'vector3D']]]
 ];

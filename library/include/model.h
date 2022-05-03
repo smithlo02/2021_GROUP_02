@@ -9,6 +9,10 @@
 #include <cell.h>
 #include <memory>
 
+/** @file
+* The source file for the model class declarations
+*/
+
 
 class Model
 {
@@ -20,14 +24,37 @@ public:
 
     void Write_to_A_file(const string &fileName);   //function to write VTK style data to a file 
 
+    /** Vertices Parser
+    * A function to parse the vertices from a line of a .mod file that begins with "v" indicating a vector
+    * The vector is push_back into a vector array
+    */
     void vertices_parser(const string &dataline);   //function to parse the vertices and push_back into a vector array
 
+    /** Material Parser
+    * A function to parse the material information from a line of a .mod file that begins with "m" indicating a material
+    * The material is push_back into a material array
+    */
     void material_parser(const string &dataline);   //function to parse the materials and push_back into a material array 
 
+    /** Cell Parser
+    * A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+    * The cell is push_back into a cell array
+    * This funtion is only used for cells of index < 10
+    */
     void cell_parser(const string &dataline);       //function to parse the cells of index<10 and push_back into a cell array   
 
+    /** Cell Parser
+    * A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+    * The cell is push_back into a cell array
+    * This funtion is only used for cells of 10 < index < 100
+    */
     void cell_parser_index_greater_than_10(const string &dataline);   //function to parse the cells of index >=10 and push_back into a cell array 
 
+    /** Cell Parser
+    * A function to parse the cell information from a line of a .mod file that begins with "c" indicating a cell
+    * The cell is push_back into a cell array
+    * This funtion is only used for cells of index > 100
+    */
     void cell_parser_index_greater_than_100(const string &dataline);   //function to parse the cells of index >=100 and push_back into a cell array 
 
     int get_material_num()const;   //function to get the number of materials 

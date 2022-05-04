@@ -1,5 +1,5 @@
 #include <modelrender.h>
-#include <vector3d.h>
+#include "../../Semester1-Libs/include/vector3d.h"
 #include <vtkPoints.h>
 #include <vtkPyramid.h>
 #include <vtkHexahedron.h>

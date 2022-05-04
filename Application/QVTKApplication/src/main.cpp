@@ -3,7 +3,7 @@
 #include <QSurfaceFormat>
 #include <QVTKOpenGLWidget.h>
 #include <qsqldatabase.h>
-#include <vector3d.h>
+#include "vector3d.h"
 #include <material.h>
 
 /** @file

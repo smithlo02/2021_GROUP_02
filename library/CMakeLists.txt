@@ -32,7 +32,6 @@ add_executable( libraryTest MACOSX_BUNDLE
 				libraryTest.cpp)
 
 # Make sure the compiler can find include files when the other programs need to link against this library 
-target_include_directories (Semester1_LIBS PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries (libraryTest cell material model vector3D)
 
 install(TARGETS libraryTest

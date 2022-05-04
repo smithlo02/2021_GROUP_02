@@ -23,7 +23,6 @@ set( CMAKE_INCLUDE_CURRENT_DIR ON )
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
 
-=======
 #======================= INCLUSION OF Our Code ======================#
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -34,7 +33,7 @@ file(GLOB_RECURSE SOURCES
     "${INCLUDE_DIR}/*.h"
     "${SOURCE_DIR}/*.cpp"
 )
->>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6
+#>>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6
 
 #tell CMake where to find the headers
 include_directories(./include)
@@ -42,7 +41,7 @@ include_directories(./include)
 # generate a static lib
 add_library(Semester1_LIBS ${SOURCES})
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 # Define the executable output and its sources
 add_library(cell cell/cell.cpp)
 add_library(material material/material.cpp)
@@ -58,7 +57,7 @@ target_link_libraries( library ${VTK_LIBRARIES})
 target_link_libraries( application library)
 # Ensure that ML_GUI can only build once ML_lib has built
 add_dependencies(Test library)
-=======
+#=======
 add_executable( libraryTest MACOSX_BUNDLE
 				libraryTest.cpp)
 
@@ -74,4 +73,4 @@ ARCHIVE DESTINATION lib/static)
 add_test(libraryTest libraryTest)
 
 
->>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6
+#>>>>>>> 05eebbf76293b04cff260c45e20595f504fddef6

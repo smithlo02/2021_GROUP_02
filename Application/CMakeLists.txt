@@ -11,8 +11,8 @@ endforeach()
 project(computingProject)
 
 #Include sub-projects
-add_subdirectory(./QVTKApplication)
-add_subdirectory(./Semester1-Libs)
+add_subdirectory(QVTKApplication)
+add_subdirectory(Semester1-Libs)
 
 #include ctest for testfile
 include(CTest)

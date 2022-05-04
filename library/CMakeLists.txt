@@ -22,10 +22,7 @@ add_library(cell src/cell.cpp)
 add_library(material srcmaterial.cpp)
 add_library(model srcmodel.cpp)
 add_library(vector3D src/vector3D.cpp)
-add_library(cell include/cell.h)
-add_library(material include/material.h)
-add_library(model include/model.h)
-add_library(vector3D include/vector3D.h)
+
 # Tell CMake that the executable depends on the Qt::Widget libraries, VTK libraries and the ML library
 
 add_executable( libraryTest MACOSX_BUNDLE

@@ -29,6 +29,7 @@ add_executable( libraryTest MACOSX_BUNDLE
 
 # Make sure the compiler can find include files when the other programs need to link against this library 
 target_link_libraries (libraryTest cell material model vector3D)
+target_include_directories(libraryTest include)
 
 install(TARGETS libraryTest
 RUNTIME DESTINATION bin

@@ -14,6 +14,7 @@ set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 include(CTest)
 
+include_directories(include src)
 
 # Define the executable output and its sources
 add_library(cell src/cell.cpp)

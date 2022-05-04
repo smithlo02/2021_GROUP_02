@@ -5,8 +5,6 @@ project( libraryTest )
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set( CMAKE_AUTOMOC ON )
-set( CMAKE_AUTOUIC ON )
 # The CMake build process might generate some new files in the current
 # directory. This makes sure they can be found.
 set( CMAKE_INCLUDE_CURRENT_DIR ON )
@@ -19,9 +17,9 @@ include(CTest)
 
 # Define the executable output and its sources
 add_library(cell src/cell.cpp)
-add_library(material srcmaterial.cpp)
-add_library(model srcmodel.cpp)
-add_library(vector3D src/vector3D.cpp)
+add_library(material src/material.cpp)
+add_library(model src/model.cpp)
+add_library(vector3D src/vector3d.cpp)
 
 # Tell CMake that the executable depends on the Qt::Widget libraries, VTK libraries and the ML library
 

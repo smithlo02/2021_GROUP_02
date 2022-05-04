@@ -1,8 +1,6 @@
 //This is the ctest file that is used to test the library made in semester 1
 
 #include <model.h>
-#include <cell.h>
-#include <material.h>
 
 int main()
 {
